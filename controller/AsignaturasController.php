@@ -24,17 +24,17 @@ class AsignaturasController extends SecuredController{
     $this->view->Mostrar($this->titulo,$asignaturas,$user);
   }
 
-  function InsertAsignatura(){
+  function AgregarAsignatura(){
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
     $docente = $_POST["docenteForm"];
-    $this->model->InsertAsignatura($nombre,$descripcion,$docente);
+    $this->model->AgregarAsignatura($nombre,$descripcion,$docente);
     header("Location: ".URL_ASIGNATURAS);
     die();
   }
 
-  function BorrarAsignatura($params){
-    $this->model->BorrarAsignatura($params[0]);
+  function EliminarAsignatura($params){
+    $this->model->EliminarAsignatura($params[0]);
     header("Location: ".URL_ASIGNATURAS);
     die();
   }
@@ -64,7 +64,7 @@ class AsignaturasController extends SecuredController{
     $this->view->MostrarAlumnosAsignatura($alumnos,$titulo,$user,$id_asignatura);
   }
 
-  
+
 
 }
 

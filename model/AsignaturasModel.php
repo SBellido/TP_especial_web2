@@ -18,12 +18,12 @@ class AsignaturasModel extends Model {
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function InsertAsignatura($nombre,$descripcion,$docente){
+  function AgregarAsignatura($nombre,$descripcion,$docente){
     $sentencia = $this->db->prepare("INSERT INTO asignaturas(nombre, descripcion, docente) VALUES(?,?,?)");
     $sentencia->execute(array($nombre,$descripcion,$docente));
   }
 
-  function BorrarAsignatura($idAsignatura){
+  function EliminarAsignatura($idAsignatura){
     $sentencia = $this->db->prepare("DELETE FROM asignaturas WHERE id_asignatura=?");
     $sentencia->execute(array($idAsignatura));
   }

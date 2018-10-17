@@ -52,7 +52,7 @@ class LoginController extends Controller {
 
    //$2y$10$Ge8XxCSxsIZdAqqZPrIzGOgoN4Hd6nQUNPbzQe7lSecL.TDRws9Ji
 //$hash = password_hash($password, PASSWORD_DEFAULT);
-//     Credenciales invalidas
+//Credenciales invalidas
   function invitado(){
       $usuario = "invitado";
       session_start();
@@ -61,13 +61,13 @@ class LoginController extends Controller {
       die();
   }
 
-  function InsertUsuario() {
-    $usuario = $_POST["usuarioForm"];
-    $password = $_POST["passwordForm"];
-    $this->model->InsertUsuario($usuario,$password);
-    header("Location: ".URL_LOGIN);
-    die();
-  }
+  // function InsertUsuario() {
+  //   $usuario = $_POST["usuarioForm"];
+  //   $password = $_POST["passwordForm"];
+  //   $this->model->InsertUsuario($usuario,$password);
+  //   header("Location: ".URL_LOGIN);
+  //   die();
+  // }
 
 }
 

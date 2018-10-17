@@ -7,12 +7,11 @@
       <ul class="list-group">
         {foreach from=$Alumnos item= alumno}
           {if $alumno['aprobado'] == 1}
-
             <li class="list-group-item">
               <p><b>ALUMNO: </b>{$alumno['nombre']}</p>
               <p><b>ID ASIGNATURA: </b>{$alumno['id_asignatura']}</p>
               <p><b>CONDICIÓN: <i>Aprobado</i></b></p>
-              <a class="btn boton" href="detalleAlumno/{$alumno['id_alumno']}">DETALLE</a>
+              <a class="btn boton" href="mostrarDetalleAlumno/{$alumno['id_alumno']}">DETALLE</a>
               {if $Usuario!==invitado}
                 <a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a>
                 <a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a>
@@ -40,7 +39,7 @@
 
     <article>
       <h4>Filtrar alumnos por asignatura</h4>
-      <form class="" action="filtro" method="post">
+      <form action="mostrarAlumnosFiltro" method="post">
         <select class="" name="filtroForm">
           {foreach from=$Asignatura item= asignatura}
             <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
@@ -53,8 +52,8 @@
     <article class="container">
       <h4>Ver alumnos por asignatura</h4>
       <form  action="alumnosPorAsignaturas" method="post">
-        <button class="btn boton" type="submit" name="button">Listar</button>
-        </form>
+        <button class="btn boton" type="submit" name="button">LISTAR</button>
+      </form>
 
     </article><br><hr>
 

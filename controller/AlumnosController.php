@@ -28,7 +28,7 @@ class AlumnosController extends SecuredController
     $this->view->MostrarAlumnos($this->titulo,$alumnos,$user,$asignatura);
   }
 
-  function InsertAlumno(){
+  function AgregarAlumno(){
     $nombre = $_POST["nombreForm"];
     $email = $_POST["emailForm"];
     $nota = $_POST["notaForm"];
@@ -38,7 +38,7 @@ class AlumnosController extends SecuredController
     }else{
       $aprobado = 0;
       }
-    $this->model->InsertAlumno($nombre,$email,$nota,$id_asignatura,$aprobado);
+    $this->model->AgregarAlumno($nombre,$email,$nota,$id_asignatura,$aprobado);
     header("Location: ".URL_ALUMNOS);
     die();
   }

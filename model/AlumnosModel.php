@@ -35,7 +35,7 @@ class AlumnosModel extends Model {
     $sentencia->execute(array($nombre,$email,$nota,$id_alumno));
   }
 
-  function InsertAlumno($nombre,$email,$nota,$id_asignatura,$aprobado){
+  function AgregarAlumno($nombre,$email,$nota,$id_asignatura,$aprobado){
     $sentencia = $this->db->prepare("INSERT INTO alumnos(nombre, email, nota, id_asignatura,  aprobado) VALUES(?,?,?,?,?)");
     $sentencia->execute(array($nombre,$email,$nota,$id_asignatura,$aprobado));
   }

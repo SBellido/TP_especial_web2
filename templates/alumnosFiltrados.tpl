@@ -17,13 +17,14 @@
     {if $Usuario!=="invitado"}
     <section class="container">
       <h4>Filtrar alumnos por asignatura</h4>
-      <form action="filtro" method="post">
+      <form action="mostrarAlumnosFiltro" method="post">
         <select name="filtroForm">
           {foreach from=$Asignatura item= asignatura}
             <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
           {/foreach}
         </select>
         <button class="boton btn">FILTRAR</button>
+        <a class="btn boton" href="alumnos">VOLVER</a>
       </form>
       <br>
     {/if}

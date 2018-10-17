@@ -12,10 +12,10 @@ class SecuredController extends Controller{
       $this->logout(); // destruye la sesión, y vuelve al login
       }
       $_SESSION['LAST_ACTIVITY'] = time(); // actualiza el último instante de actividad
-    }else{
-      header("Location: ".URL_LOGIN);
-      $this->view->mostrarLogin("Contraseña o usuario incorrecta");  
-      die();
+    // }else{
+    //   header("Location: ".URL_LOGIN);
+    //   $this->view->mostrarLogin("Contraseña o usuario incorrecta");
+    //   die();
     }
   }
 
