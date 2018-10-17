@@ -1,51 +1,71 @@
 <?php
-require_once  "./view/AsignaturasView.php";
-require_once  "./model/AsignaturasModel.php";
+require_once "./view/AsignaturasView.php";
+require_once "./model/AsignaturasModel.php";
+require_once "SecuredController.php";
+require_once  "./model/AlumnosModel.php";
 
-class AsignaturasController
-{
+class AsignaturasController extends SecuredController{
   private $view;
   private $model;
-  private $Titulo;
+  private $titulo;
+  private $modelAlumnos;
 
-  function __construct()
-  {
-    $this->view = new AsignaturasView();
+  function __construct(){
+    parent:: __construct();
+    $this->view = new AsignaturasView($this->baseURL);
     $this->model = new AsignaturasModel();
-    $this->Titulo = "Detalles de la asignatura";
+    $this->modelAlumnos = new AlumnosModel();
+    $this->titulo = "Lista de Asignaturas";
   }
 
-  function Home(){
-    $Asignaturas = $this->model->GetAsignaturas();
-    $this->view->Mostrar($this->Titulo, $Asignaturas);
+  function MostrarAsignaturas(){
+    $asignaturas = $this->model->GetAsignaturas();
+    $user=$this->getUser();
+    $this->view->Mostrar($this->titulo,$asignaturas,$user);
   }
 
   function InsertAsignatura(){
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
     $docente = $_POST["docenteForm"];
-    if(isset($_POST["terminadaForm"])){
-      $terminada = 1;
-    }else{
-      $terminada = 0;
-    }
-    $this->model->InsertAsignatura($nombre,$descripcion,$docente,$terminada);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    $this->model->InsertAsignatura($nombre,$descripcion,$docente);
+    header("Location: ".URL_ASIGNATURAS);
+    die();
   }
 
   function BorrarAsignatura($params){
     $this->model->BorrarAsignatura($params[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
-  function TerminarAsignatura($params){
-    $this->model->TerminarAsignatura($params[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header("Location: ".URL_ASIGNATURAS);
+    die();
   }
 
-  function EditarAsignatura($id_asignatura){
+  function EditarAsignatura($params){
+    $id_asignatura = $params[0];
+    $titulo = "Editor de la Asignatura";
+    $user=$this->getUser();
     $asignatura = $this->model->GetAsignatura($id_asignatura);
-    $this->view->MostrarAsignatura($asignatura);
+    $this->view->MostrarEditarAsignatura($asignatura,$titulo,$user);
   }
+
+  function GuardarEditarAsignatura(){
+    $nombre = $_POST["nombreForm"];
+    $descripcion = $_POST["descripcionForm"];
+    $docente = $_POST["docenteForm"];
+    $id_asignatura = $_POST["id_asignaturaForm"];
+    $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura);
+    header("Location: ".URL_ASIGNATURAS);
+  }
+
+  function ListarAlumnos($params){
+    $id_asignatura = $params[0];
+    $titulo = "Alumnos de la asignatura";
+    $user = $this->getUser();
+    $alumnos = $this->modelAlumnos->GetAlumno_idAsignatura($id_asignatura);
+    $this->view->MostrarAlumnosAsignatura($alumnos,$titulo,$user,$id_asignatura);
+  }
+
+  
+
 }
 
  ?>

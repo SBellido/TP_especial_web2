@@ -1,15 +1,15 @@
 <?php
 require('libs/Smarty.class.php');
-/**
- *
- */
-class View
-{
+
+class View {
   protected $smarty;
-  function __construct(){
-  $this->smarty = new Smarty();
+
+  function __construct($baseURL){
+    $this->smarty = new Smarty();
+    $this->smarty->assign('baseURL',$baseURL);
   }
 }
+
 
 
  ?>

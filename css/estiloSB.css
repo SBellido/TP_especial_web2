@@ -1,4 +1,10 @@
-
+table {
+   border-collapse: collapse;
+}
+.list-group {
+  padding: 25px;
+  margin: 25px;
+}
 #TextoBotonera, #pie {
   font-family: sans-serif;
   font-weight: bold;
@@ -25,4 +31,27 @@
 #logoSB {
   text-align: center;
   background-color: inherit;
-  }
+}
+.boton {
+background-color:  rgb(21, 39, 55);
+color: rgb(255, 191, 177);
+border: none;
+font-family: sans-serif;
+font-weight: bold;
+}
+.boton:hover {
+background-color: rgb(255, 191, 177);
+color: rgb(21, 39, 55);
+}
+
+#icon_navbar {
+  padding: 25px;
+  background-color: rgb(255, 191, 177);
+}
+p b i {
+  color: rgb(0, 100, 200);
+}
+span {
+  color: rgb(100, 100, 100);
+
+}

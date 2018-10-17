@@ -1,41 +1,42 @@
 <?php
-/**
- *
- */
-class AsignaturasModel {
-  private $db;
+require_once  "Model.php";
 
-  function __construct() {
-   $this->db = $this->Connect();
-  }
+class AsignaturasModel extends Model {
+    function __construct() {
+      parent::__construct();
+    }
 
-function Connect() {
-return new PDO('mysql:host=localhost;'
-  .'dbname=cursada;charset=utf8'
-  , 'root', '');
-}
-
-function GetAsignaturas(){
-    $sentencia = $this->db->prepare( "select * from asignatura");
+  function GetAsignaturas(){
+    $sentencia = $this->db->prepare("SELECT * FROM asignaturas");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-}
+  }
 
-function InsertAsignatura($nombre,$descripcion,$docente,$terminada){
-  $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, docente, terminada) VALUES(?,?,?,?)");
-  $sentencia->execute(array($nombre,$descripcion,$docente,$terminada));
-}
+  function GetAsignatura($id_asignatura){
+    $sentencia = $this->db->prepare("SELECT * FROM asignaturas WHERE id_asignatura = ?");
+    $sentencia->execute(array($id_asignatura));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 
-function BorrarAsignatura($idAsignatura){
-  $sentencia = $this->db->prepare("delete from asignatura where id_asignatura=?");
-  $sentencia->execute(array($idAsignatura)); //atento con la A
-}
-function TerminarAsignatura($idAsignatura){
-  $sentencia = $this->db->prepare("update asignatura set terminada=1 where id_asignatura=?");
-  $sentencia->execute(array($idAsignatura));
-}
+  function InsertAsignatura($nombre,$descripcion,$docente){
+    $sentencia = $this->db->prepare("INSERT INTO asignaturas(nombre, descripcion, docente) VALUES(?,?,?)");
+    $sentencia->execute(array($nombre,$descripcion,$docente));
+  }
 
+  function BorrarAsignatura($idAsignatura){
+    $sentencia = $this->db->prepare("DELETE FROM asignaturas WHERE id_asignatura=?");
+    $sentencia->execute(array($idAsignatura));
+  }
+  function GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura){
+    $sentencia = $this->db->prepare( "UPDATE asignaturas SET nombre=?, descripcion=?, docente=? WHERE id_asignatura=?");
+    $sentencia->execute(array($nombre,$descripcion,$docente,$id_asignatura));
+  }
 
+  function GetAsignaturas_idAsignatura(){
+    $sentencia = $this->db->prepare("SELECT * FROM asignaturas ORDER BY id_asignatura");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 }
 
 

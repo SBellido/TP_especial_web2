@@ -1,39 +1,59 @@
 <?php
-/**
- *
- */
-class AlumnosModel {
-  private $db;
+require_once  "Model.php";
 
+class AlumnosModel extends Model {
   function __construct() {
-    $this->db = $this->Connect();
-  }
-
-  function Connect() {
-  return new PDO('mysql:host=localhost;'
-    .'dbname=cursada;charset=utf8'
-    , 'root', '');
+    parent::__construct();
   }
 
   function GetAlumnos(){
-      $sentencia = $this->db->prepare( "select * from alumnos");
-      $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $sentencia = $this->db->prepare( "SELECT * FROM alumnos");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function InsertAlumno($nombre,$email,$nota,$aprobado){
-    $sentencia = $this->db->prepare("INSERT INTO alumnos(id_asignatura,nombre, email, nota, aprobado) VALUES(17,?,?,?,?)");
-    $sentencia->execute(array($nombre,$email,$nota,$aprobado));
-  }//INSERT INTO `alumnos`( `id_asignatura`, `nombre`, `email`, `nota`, `aprobado`) VALUES (17,"carlos","nfnf@ds.com",4,1)
+  function GetAlumno($id_alumno){
+    $sentencia = $this->db->prepare("SELECT * FROM alumnos WHERE id_alumno=?");
+    $sentencia->execute(array($id_alumno));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 
-  function EliminarAlumno($idAlumno){
-    $sentencia = $this->db->prepare("delete from alumnos where id_alumno=?");
-    $sentencia->execute([$idAlumno]); //atento con la A
+  function GetAlumno_idAsignatura($id_asignatura){
+    $sentencia = $this->db->prepare("SELECT * FROM alumnos WHERE id_asignatura=?");
+    $sentencia->execute(array($id_asignatura));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function GetAlumnos_idAsignatura(){
+    $sentencia = $this->db->prepare("SELECT * FROM alumnos ORDER BY id_asignatura");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function GuardarEditarAlumno($nombre,$email,$nota,$id_alumno){
+    $sentencia = $this->db->prepare( "UPDATE alumnos SET nombre=?, email=?, nota=? WHERE id_alumno=?");
+    $sentencia->execute(array($nombre,$email,$nota,$id_alumno));
+  }
+
+  function InsertAlumno($nombre,$email,$nota,$id_asignatura,$aprobado){
+    $sentencia = $this->db->prepare("INSERT INTO alumnos(nombre, email, nota, id_asignatura,  aprobado) VALUES(?,?,?,?,?)");
+    $sentencia->execute(array($nombre,$email,$nota,$id_asignatura,$aprobado));
+  }
+
+  function EliminarAlumno($id_alumno){
+    $sentencia = $this->db->prepare("DELETE FROM alumnos WHERE id_alumno=?");
+    $sentencia->execute(array($id_alumno));
   }
 
   function AprobarAlumno($idAlumno){
-    $sentencia = $this->db->prepare("update alumnos set aprobado=1 where id_alumno=?");
+    $sentencia = $this->db->prepare("UPDATE alumnos SET aprobado=1 WHERE id_alumno=?");
     $sentencia->execute(array($idAlumno));
+  }
+
+  function GetAlumnosFiltro($id_asignatura){
+    $sentencia = $this->db->prepare( "SELECT * FROM alumnos WHERE id_asignatura=?");
+    $sentencia->execute(array($id_asignatura));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 }
 

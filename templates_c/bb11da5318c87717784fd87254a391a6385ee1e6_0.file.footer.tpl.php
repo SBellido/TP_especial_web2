@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-09-26 21:44:45
+/* Smarty version 3.1.33, created on 2018-10-09 18:18:26
   from 'C:\xampp\htdocs\TP_especial\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5babe1ad6b8d66_98847330',
+  'unifunc' => 'content_5bbcd4d2c32940_04209519',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bb11da5318c87717784fd87254a391a6385ee1e6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial\\templates\\footer.tpl',
-      1 => 1537991068,
+      1 => 1539101904,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5babe1ad6b8d66_98847330 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bbcd4d2c32940_04209519 (Smarty_Internal_Template $_smarty_tpl) {
 ?>  <br>
   <div id="pie">
-      <p id="pie">F.C.E. T.U.D.A.I. - WEB2 2018<br>Trabajo Práctico Especial<br>ALUMNOS: Sebastián Bellido, Bruno Tubino</p>
+      <p id="pie">UniCen / F.C.E. / T.U.D.A.I. / WEB2 2018<br>Trabajo Práctico Especial<br>ALUMNO: Sebastián Bellido</p>
   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -36,7 +36,5 @@ function content_5babe1ad6b8d66_98847330 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"><?php echo '</script'; ?>
 >
-  </body>
-</html>
 <?php }
 }
