@@ -1,57 +1,57 @@
-table {
-   border-collapse: collapse;
-}
+
 .list-group {
-  padding: 25px;
+  padding: 10px;
   margin: 25px;
 }
+
 #TextoBotonera, #pie {
   font-family: sans-serif;
-  font-weight: bold;
   color: rgb(255, 191, 177);
 }
+
 #logo_esquina {
   float: none;
 }
+
 #mainNav, #footer {
   background-color: rgb(21, 39, 55);
 }
+
 #pie {
   background-color: rgb(21, 39, 55);
   margin: 0px;
-  padding: 10px;
+  padding: 25px;
   text-align: center;
 }
+
 #navbar_title, #icon_navbar {
   color: rgb(255, 195, 195);
 }
+
 .alineacion {
   align-content: center;
 }
+
 #logoSB {
   text-align: center;
   background-color: inherit;
 }
+
 .boton {
-background-color:  rgb(21, 39, 55);
-color: rgb(255, 191, 177);
-border: none;
-font-family: sans-serif;
-font-weight: bold;
-}
-.boton:hover {
 background-color: rgb(255, 191, 177);
 color: rgb(21, 39, 55);
+font-family: sans-serif;
+}
+
+.boton:hover {
+  background-color:  rgb(21, 39, 55);
+  color: rgb(255, 191, 177);
 }
 
 #icon_navbar {
-  padding: 25px;
   background-color: rgb(255, 191, 177);
 }
-p b i {
-  color: rgb(0, 100, 200);
-}
-span {
-  color: rgb(100, 100, 100);
 
+i {
+  color: rgb(21, 39, 55);
 }

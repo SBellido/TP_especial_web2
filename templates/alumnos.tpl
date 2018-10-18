@@ -3,61 +3,59 @@
 <body>
   <section class="container">
     <h4>Usuario conectado: "{$Usuario}"</h4>
-    <h1>{$Titulo}</h1>
-      <ul class="list-group">
-        {foreach from=$Alumnos item= alumno}
-          {if $alumno['aprobado'] == 1}
-            <li class="list-group-item">
-              <p><b>ALUMNO: </b>{$alumno['nombre']}</p>
-              <p><b>ID ASIGNATURA: </b>{$alumno['id_asignatura']}</p>
-              <p><b>CONDICIÓN: <i>Aprobado</i></b></p>
-              <a class="btn boton" href="mostrarDetalleAlumno/{$alumno['id_alumno']}">DETALLE</a>
-              {if $Usuario!==invitado}
-                <a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a>
-                <a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a>
+    <h1>{$Titulo}</h1><br>
+      <form  action="alumnosPorAsignaturas" method="post">
+        <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
+      </form><hr><br>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID ASIGNATURA</th>
+            <th scope="col">ALUMNO</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">NOTA</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {foreach from=$Alumnos item= alumnos}
+            <tr>
+              <td scope="col">{$alumnos['id_asignatura']}</td>
+              <th>{$alumnos['nombre']}</th>
+              <td>{$alumnos['email']}</td>
+              <td>{$alumnos['nota']}</td>
+              {if $Usuario!=="invitado"}
+                <td><a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a></td>
+                <td><a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a></td>
               {/if}
-            </li>
+              {if $alumnos['aprobado'] == 0 && $Usuario !== "invitado"}
+                <td><a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a></td>
+              {/if}
+              {if $alumnos['aprobado'] == 1}
+                <td><b><i>Aprobado</i></b></td>
+              {/if}
+            </tr>
+          {/foreach}
+        </tbody>
+      </table>
+    </section><br>
+    <br><hr><br>
 
-          {else}
-            <li class="list-group-item">
-              <p><b>ALUMNO: </b>{$alumno['nombre']}</p>
-              <p><b>ID ASIGNATURA: </b>{$alumno['id_asignatura']}</p>
-              <p><b>CONDICIÓN: <i><span>Regular</span></i></b></p>
-              <a class="btn boton" href="detalleAlumno/{$alumno['id_alumno']}">DETALLES</a>
-
-          {if $Usuario!=="invitado"}
-            <a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a>
-            <a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a>
-            <a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a>
-          {/if}
-
-        {/if}
-      {/foreach}
-      </li>
-    </ul><br><hr>
-    {if $Usuario!=="invitado"}
-
-    <article>
+    <article class="container">
       <h4>Filtrar alumnos por asignatura</h4>
       <form action="mostrarAlumnosFiltro" method="post">
         <select class="" name="filtroForm">
           {foreach from=$Asignatura item= asignatura}
-            <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
+          <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
           {/foreach}
         </select>
         <button class="boton btn" type="submit" name="button">FILTRAR</button>
       </form>
-    </article><br><hr>
+    </article><br><hr><br>
 
-    <article class="container">
-      <h4>Ver alumnos por asignatura</h4>
-      <form  action="alumnosPorAsignaturas" method="post">
-        <button class="btn boton" type="submit" name="button">LISTAR</button>
-      </form>
-
-    </article><br><hr>
-
-    <article class="container"><br>
+    <section class="container">
       <h2>AGREGAR ALUMNO</h2>
       <form method="post" action="agregarAlumno">
         <div class="form-group">
@@ -80,13 +78,12 @@
           <input type="checkbox" class="form-check-input" id="aprobarForm" name="aprobarForm">
           <label class="form-check-label" for="aprobarForm">Aprobar</label>
         </div>
-        <button type="submit" class="btn boton">Crear Perfil de Alumno</button>
+          <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>
-    </article>
+    </section><br><hr>
 
-    {/if}
-  </section>
-  <br>
+
+
   {include file = "footer.tpl"}
   </body>
 </html>

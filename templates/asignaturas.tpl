@@ -4,24 +4,39 @@
     <section class="container">
       <h4>Usuario conectado: "{$Usuario}"</h4>
       <h1>{$Titulo}</h1>
-        <ul class="list-group">
+      </section><br>
+      <section class="container">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">ASIGNATURA</th>
+              <th scope="col">DOCENTE</th>
+              <th scope="col">DESCRIPCIÓN</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
           {foreach from=$Asignaturas item= asignatura}
-            <li class="list-group-item">
-              <p><b>ASIGNATURA: </b>{$asignatura['nombre']}</p>
-              <p><b>DESCRIPCIÓN: </b>{$asignatura['descripcion']}</p>
-              <p><b>DOCENTE: </b>{$asignatura['docente']}</p>
-              {if $Usuario!==invitado}
-                <p><b>ID ASIGNATURA: </b>{$asignatura['id_asignatura']} (este número es único e irrepetible)</p>
-                <a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a>
-                <a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a>
-                <a class="btn boton" href="listarAlumnos/{$asignatura['id_asignatura']}">LISTA DE ALUMNOS</a>
-              {/if}
-            </li><br>
+          <tbody>
+            <tr>
+              <td><b>{$asignatura['nombre']}</b></td>
+              <td>{$asignatura['docente']}</td>
+              <td>{$asignatura['descripcion']}</td>
+            {if $Usuario!==invitado}
+
+                <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
+                <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
+                <td><a class="btn boton" href="listarAlumnos/{$asignatura['id_asignatura']}">LISTA DE ALUMNOS</a></td>
+
+            </tr>
+            {/if}
+          </tbody>
           {/foreach}
-        </ul>
-      </section><hr><br>
+        </table>
+      </section><br><hr>
       {if $Usuario!=="invitado"}
-        <section class="container">
+        <section class="container"><br>
           <h2>AGREGAR ASIGNATURA</h2>
           <form method="post" action="agregarAsignatura">
             <div class="form-group">
@@ -40,6 +55,6 @@
           </form>
         </section><br>
       {/if}
-      {include file = "footer.tpl"}
-    </body>
+    {include file = "footer.tpl"}
+  </body>
 </html>

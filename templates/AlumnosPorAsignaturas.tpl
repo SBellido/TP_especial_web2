@@ -3,23 +3,36 @@
   <body>
     <section class="container">
       <h4>Usuario conectado: "{$Usuario}"</h4>
-      <h1>{$Titulo}</h1>
-        <ul class="list-group">
-          {foreach from=$Asignaturas item= asignaturas}
-            <p>{$asignaturas['nombre']}<b> | ID ASIGNATURA: </b>{$asignaturas['id_asignatura']}</p>
-          {/foreach}
-          {foreach from=$Alumnos item= alumnos}
-            <li class="list-group-item">
-              <p><b>ALUMNO: </b>{$alumnos['nombre']}</p>
-              <p><b>ID ASIGNATURA: </b>{$alumnos['id_asignatura']}</p>
-              <p><b>CONDICIÓN: <i>Aprobado</i></b></p>
-            </li><br>
-          {/foreach}
-        </ul>
-        <div class="container">
-          <a class="btn boton" href="alumnos">VOLVER</a>
-        </div>
-      </section>
+      <h1>{$Titulo}</h1><br>
+        <a class="btn boton" href="alumnos">VOLVER</a><hr><br>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID ASIGNATURA</th>
+            <th scope="col">ALUMNO</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">NOTA</th>
+            <th scope="col">CONDICIÓN</th>
+          </tr>
+        </thead>
+        {foreach from=$Alumnos item= alumnos}
+          <tbody>
+            <tr>
+              <td><b>{$alumnos['id_asignatura']}</b></td>
+              <th>{$alumnos['nombre']}</th>
+              <td>{$alumnos['email']}</td>
+              <td>{$alumnos['nota']}</td>
+              {if $alumnos['aprobado'] == 1}
+                <td><b><i>Aprobado</i></b></td>
+              {else}
+                <td><b><i>Regular</i></b></td>
+              {/if}
+            </tr>
+          </tbody>
+        {/foreach}
+      </table>
+
+    </section><br>
     {include file = "footer.tpl"}
   </body>
 </html>

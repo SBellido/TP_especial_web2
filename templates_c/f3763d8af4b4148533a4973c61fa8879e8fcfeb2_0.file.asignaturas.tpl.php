@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-17 16:24:05
+/* Smarty version 3.1.33, created on 2018-10-18 02:36:41
   from 'C:\xampp\htdocs\TP_especial_web2\templates\asignaturas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc74605ecef68_88697732',
+  'unifunc' => 'content_5bc7d5996213a8_38519149',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3763d8af4b4148533a4973c61fa8879e8fcfeb2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\asignaturas.tpl',
-      1 => 1539747256,
+      1 => 1539822999,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc74605ecef68_88697732 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc7d5996213a8_38519149 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -33,38 +33,52 @@ $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smart
 "</h4>
       <h1><?php echo $_smarty_tpl->tpl_vars['Titulo']->value;?>
 </h1>
-        <ul class="list-group">
+      </section><br>
+      <section class="container">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">ASIGNATURA</th>
+              <th scope="col">DOCENTE</th>
+              <th scope="col">DESCRIPCIÓN</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
           <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Asignaturas']->value, 'asignatura');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
 ?>
-            <li class="list-group-item">
-              <p><b>ASIGNATURA: </b><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['nombre'];?>
-</p>
-              <p><b>DESCRIPCIÓN: </b><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['descripcion'];?>
-</p>
-              <p><b>DOCENTE: </b><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['docente'];?>
-</p>
-              <?php if ($_smarty_tpl->tpl_vars['Usuario']->value !== 'invitado') {?>
-                <p><b>ID ASIGNATURA: </b><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
- (este número es único e irrepetible)</p>
-                <a class="btn boton" href="eliminarAsignatura/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
-">BORRAR</a>
-                <a class="btn boton" href="editarAsignatura/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
-">EDITAR</a>
-                <a class="btn boton" href="listarAlumnos/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
-">LISTA DE ALUMNOS</a>
-              <?php }?>
-            </li><br>
+          <tbody>
+            <tr>
+              <td><b><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['nombre'];?>
+</b></td>
+              <td><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['docente'];?>
+</td>
+              <td><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['descripcion'];?>
+</td>
+            <?php if ($_smarty_tpl->tpl_vars['Usuario']->value !== 'invitado') {?>
+
+                <td><a class="btn boton" href="eliminarAsignatura/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
+">BORRAR</a></td>
+                <td><a class="btn boton" href="editarAsignatura/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
+">EDITAR</a></td>
+                <td><a class="btn boton" href="listarAlumnos/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
+">LISTA DE ALUMNOS</a></td>
+
+            </tr>
+            <?php }?>
+          </tbody>
           <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-        </ul>
-      </section><hr><br>
+        </table>
+      </section><br><hr>
       <?php if ($_smarty_tpl->tpl_vars['Usuario']->value !== "invitado") {?>
-        <section class="container">
+        <section class="container"><br>
           <h2>AGREGAR ASIGNATURA</h2>
           <form method="post" action="agregarAsignatura">
             <div class="form-group">
@@ -83,9 +97,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </form>
         </section><br>
       <?php }?>
-      <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    </body>
+  </body>
 </html>
 <?php }
 }

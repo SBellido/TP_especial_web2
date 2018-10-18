@@ -90,7 +90,7 @@ class AlumnosController extends SecuredController
   }
 
   function AlumnosPorAsignaturas(){
-    $titulo = "Alumnos por asignatura";
+    $titulo = "Alumnos ordenados por Id de la asignatura";
     $user = $this->getUser();
     $asignaturas = $this->modelAsignatura->GetAsignaturas_idAsignatura();
     $alumnos = $this->model->GetAlumnos_idAsignatura($asignaturas);
