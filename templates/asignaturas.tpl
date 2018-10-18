@@ -23,21 +23,22 @@
               <td><b>{$asignatura['nombre']}</b></td>
               <td>{$asignatura['docente']}</td>
               <td>{$asignatura['descripcion']}</td>
-            {if $Usuario!==invitado}
-
+              {if $Usuario!==invitado}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
                 <td><a class="btn boton" href="listarAlumnos/{$asignatura['id_asignatura']}">LISTA DE ALUMNOS</a></td>
-
+              {/if}
+            </tr><tr>
+              <td></td>
             </tr>
-            {/if}
+              {/foreach}
           </tbody>
-          {/foreach}
         </table>
       </section><br><hr>
+
       {if $Usuario!=="invitado"}
         <section class="container"><br>
-          <h2>AGREGAR ASIGNATURA</h2>
+          <h2>AGREGAR ASIGNATURA</h2><br>
           <form method="post" action="agregarAsignatura">
             <div class="form-group">
               <label for="nombreForm">Asignatura</label>
@@ -51,7 +52,7 @@
               <label for="docenteForm">Docente</label>
               <input type="text" class="form-control" id="docenteForm" placeholder="Nombre del docente a cargo" name="docenteForm">
             </div>
-            <button type="submit" class="btn boton">Crear Asignatura</button>
+            <button type="submit" class="btn boton">CREAR ASIGNATURA</button>
           </form>
         </section><br>
       {/if}

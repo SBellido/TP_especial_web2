@@ -16,23 +16,22 @@
           </tr>
         </thead>
         {foreach from=$Alumnos item= alumnos}
-          <tbody>
-            <tr>
-              <td><b>{$alumnos['id_asignatura']}</b></td>
-              <th>{$alumnos['nombre']}</th>
-              <td>{$alumnos['email']}</td>
-              <td>{$alumnos['nota']}</td>
-              {if $alumnos['aprobado'] == 1}
-                <td><b><i>Aprobado</i></b></td>
-              {else}
-                <td><b><i>Regular</i></b></td>
-              {/if}
-            </tr>
-          </tbody>
-        {/foreach}
-      </table>
-
-    </section><br>
-    {include file = "footer.tpl"}
+        <tbody>
+          <tr>
+            <td><b>{$alumnos['id_asignatura']}</b></td>
+            <th>{$alumnos['nombre']}</th>
+            <td>{$alumnos['email']}</td>
+            <td>{$alumnos['nota']}</td>
+            {if $alumnos['aprobado'] == 1}
+              <td><b><i>Aprobado</i></b></td>
+            {else}
+              <td><b><i>Regular</i></b></td>
+            {/if}
+          </tr>
+        </tbody>
+      {/foreach}
+    </table>
+  </section><br>
+  {include file = "footer.tpl"}
   </body>
 </html>

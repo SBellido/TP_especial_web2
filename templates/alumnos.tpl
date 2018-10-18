@@ -27,11 +27,11 @@
               <td>{$alumnos['email']}</td>
               <td>{$alumnos['nota']}</td>
               {if $Usuario!=="invitado"}
-                <td><a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a></td>
-                <td><a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a></td>
+                <td><a class="btn boton" href="eliminarAlumno/{$alumnos['id_alumno']}">ELIMINAR</a></td>
+                <td><a class="btn boton" href="editarAlumno/{$alumnos['id_alumno']}">EDITAR</a></td>
               {/if}
-              {if $alumnos['aprobado'] == 0 && $Usuario !== "invitado"}
-                <td><a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a></td>
+              {if $alumnos['aprobado'] != 1 && $Usuario !== "invitado"}
+                <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
               {/if}
               {if $alumnos['aprobado'] == 1}
                 <td><b><i>Aprobado</i></b></td>
@@ -54,7 +54,7 @@
         <button class="boton btn" type="submit" name="button">FILTRAR</button>
       </form>
     </article><br><hr><br>
-
+    {if $Usuario !== "invitado"}
     <section class="container">
       <h2>AGREGAR ALUMNO</h2>
       <form method="post" action="agregarAlumno">
@@ -80,10 +80,9 @@
         </div>
           <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>
-    </section><br><hr>
-
-
-
+    </section>
+    {/if}
+    <br>
   {include file = "footer.tpl"}
   </body>
 </html>
