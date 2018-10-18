@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-18 02:42:50
+/* Smarty version 3.1.33, created on 2018-10-18 17:18:36
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnosFiltrados.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc7d70a7b01a5_07007514',
+  'unifunc' => 'content_5bc8a44c1912c7_29596206',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd686331040874919cdc3308eafa9e0dbcb59f4e5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnosFiltrados.tpl',
-      1 => 1539823366,
+      1 => 1539875910,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc7d70a7b01a5_07007514 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc8a44c1912c7_29596206 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -32,8 +32,7 @@ $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smart
     <h4>Usuario conectado: "<?php echo $_smarty_tpl->tpl_vars['Usuario']->value;?>
 "</h4>
     <h1><?php echo $_smarty_tpl->tpl_vars['Titulo']->value;?>
-</h1>
-    <br>
+</h1><br>
     <a class="btn boton" href="alumnos">VOLVER</a><br><hr><br>
     </section>
       <section class="container">

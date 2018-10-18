@@ -10,7 +10,7 @@
       .'dbname=cursada;charset=utf8'
       , 'root', '');
     }
-    
+
     function crearBBDD($db_name,$script){
       try{
         $connection = new PDO('mysql:host='.'localhost', 'root','');

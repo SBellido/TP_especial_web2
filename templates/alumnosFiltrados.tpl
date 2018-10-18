@@ -3,8 +3,7 @@
 <body>
   <section class="container">
     <h4>Usuario conectado: "{$Usuario}"</h4>
-    <h1>{$Titulo}</h1>
-    <br>
+    <h1>{$Titulo}</h1><br>
     <a class="btn boton" href="alumnos">VOLVER</a><br><hr><br>
     </section>
       <section class="container">

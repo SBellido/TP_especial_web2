@@ -64,7 +64,7 @@ class AlumnosController extends SecuredController
   }
 
   function MostrarAlumnosFiltro(){
-    $titulo = "Alumnos de la asignatura ";
+    $titulo = "Alumnos de una asignatura ";
     $id_asignatura = $_POST["filtroForm"];
     $asignatura = $this->modelAsignatura->GetAsignaturas($id_asignatura);
     $user = $this->getUser();
