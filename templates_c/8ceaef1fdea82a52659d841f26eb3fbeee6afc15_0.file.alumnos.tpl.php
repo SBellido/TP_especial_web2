@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 15:02:14
+/* Smarty version 3.1.33, created on 2018-10-19 16:09:29
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc9d5d686d352_34661187',
+  'unifunc' => 'content_5bc9e599207928_47614386',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ceaef1fdea82a52659d841f26eb3fbeee6afc15' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnos.tpl',
-      1 => 1539954044,
+      1 => 1539958165,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc9d5d686d352_34661187 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc9e599207928_47614386 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -33,9 +33,40 @@ $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smart
 "</h4>
     <h1><?php echo $_smarty_tpl->tpl_vars['Titulo']->value;?>
 </h1><br>
+    <div class="row">
+
+
+    <div class="col">
       <form  action="alumnosPorAsignaturas" method="post">
         <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
-      </form><hr><br>
+      </form>
+    </div>
+      <div class="col">
+
+        <h4>Filtrar alumnos por asignatura</h4>
+        <form action="mostrarAlumnosFiltro" method="post">
+          <select class="" name="filtroForm">
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Asignatura']->value, 'asignatura');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
+?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
+">ID: <?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
+ | <?php echo $_smarty_tpl->tpl_vars['asignatura']->value['nombre'];?>
+</option>
+            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+          </select>
+          <button class="boton btn" type="submit" name="button">FILTRAR</button>
+        </form>
+      </div>
+    </div>
+
+      <hr><br>
+
       <table class="table">
         <thead class="thead-light">
           <tr>
@@ -83,30 +114,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['alumnos']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </tbody>
       </table>
-    </section><br>
-    <br><hr><br>
-
-    <article class="container">
-      <h4>Filtrar alumnos por asignatura</h4>
-      <form action="mostrarAlumnosFiltro" method="post">
-        <select class="" name="filtroForm">
-          <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Asignatura']->value, 'asignatura');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
-?>
-          <option value="<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
-">ID: <?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
- | <?php echo $_smarty_tpl->tpl_vars['asignatura']->value['nombre'];?>
-</option>
-          <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-        </select>
-        <button class="boton btn" type="submit" name="button">FILTRAR</button>
-      </form>
-    </article><br><hr><br>
+    </section><br><hr><br>
 
     <?php if ($_smarty_tpl->tpl_vars['Usuario']->value !== "invitado") {?>
     <section class="container">
@@ -133,7 +141,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="aprobarForm" name="aprobarForm">
           <label class="form-check-label" for="aprobarForm">Aprobar</label>
-        </div>
+        </div><br>
           <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>
       </div>

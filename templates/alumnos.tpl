@@ -4,9 +4,30 @@
   <section class="container">
     <h4>Usuario conectado: "{$Usuario}"</h4>
     <h1>{$Titulo}</h1><br>
+    <div class="row">
+
+
+    <div class="col">
       <form  action="alumnosPorAsignaturas" method="post">
         <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
-      </form><hr><br>
+      </form>
+    </div>
+      <div class="col">
+
+        <h4>Filtrar alumnos por asignatura</h4>
+        <form action="mostrarAlumnosFiltro" method="post">
+          <select class="" name="filtroForm">
+            {foreach from=$Asignatura item= asignatura}
+            <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
+            {/foreach}
+          </select>
+          <button class="boton btn" type="submit" name="button">FILTRAR</button>
+        </form>
+      </div>
+    </div>
+
+      <hr><br>
+
       <table class="table">
         <thead class="thead-light">
           <tr>
@@ -40,20 +61,7 @@
           {/foreach}
         </tbody>
       </table>
-    </section><br>
-    <br><hr><br>
-
-    <article class="container">
-      <h4>Filtrar alumnos por asignatura</h4>
-      <form action="mostrarAlumnosFiltro" method="post">
-        <select class="" name="filtroForm">
-          {foreach from=$Asignatura item= asignatura}
-          <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
-          {/foreach}
-        </select>
-        <button class="boton btn" type="submit" name="button">FILTRAR</button>
-      </form>
-    </article><br><hr><br>
+    </section><br><hr><br>
 
     {if $Usuario !== "invitado"}
     <section class="container">
@@ -80,7 +88,7 @@
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="aprobarForm" name="aprobarForm">
           <label class="form-check-label" for="aprobarForm">Aprobar</label>
-        </div>
+        </div><br>
           <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>
       </div>
