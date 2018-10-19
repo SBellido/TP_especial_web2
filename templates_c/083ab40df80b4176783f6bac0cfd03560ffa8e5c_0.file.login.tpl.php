@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 04:06:11
+/* Smarty version 3.1.33, created on 2018-10-19 04:19:05
   from 'C:\xampp\htdocs\TP_especial_web2\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc93c131cc239_82430917',
+  'unifunc' => 'content_5bc93f19013c33_80302775',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '083ab40df80b4176783f6bac0cfd03560ffa8e5c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\login.tpl',
-      1 => 1539914768,
+      1 => 1539915538,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc93c131cc239_82430917 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc93f19013c33_80302775 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:navLogin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -46,13 +46,11 @@ $_smarty_tpl->_subTemplateRender("file:navLogin.tpl", $_smarty_tpl->cache_id, $_
       </form><br><br>
       <form action="invitado" method="get">
         <button type="submit" class="boton btn">Invitado</button>
-      </form>
+      </form><br><br>
     </div>
     <div class="col">
-      <img src="images/ideas.jpg" alt="personaje poniendo un foco en una cabeza">
+      <img src="images/ideasProntas.jpg" alt="personaje poniendo un foco en una cabeza">
     </div>
-    <section class="container">
-    </section>
   </div>
 </section>
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

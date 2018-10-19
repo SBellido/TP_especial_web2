@@ -18,13 +18,11 @@
       </form><br><br>
       <form action="invitado" method="get">
         <button type="submit" class="boton btn">Invitado</button>
-      </form>
+      </form><br><br>
     </div>
     <div class="col">
-      <img src="images/ideas.jpg" alt="personaje poniendo un foco en una cabeza">
+      <img src="images/ideasProntas.jpg" alt="personaje poniendo un foco en una cabeza">
     </div>
-    <section class="container">
-    </section>
   </div>
 </section>
 {include file = "footer.tpl"}
