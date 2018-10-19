@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-18 17:20:10
+/* Smarty version 3.1.33, created on 2018-10-19 05:01:24
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc8a4aa5c4ec3_00142492',
+  'unifunc' => 'content_5bc94904c84681_76365761',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ceaef1fdea82a52659d841f26eb3fbeee6afc15' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnos.tpl',
-      1 => 1539876006,
+      1 => 1539918081,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc8a4aa5c4ec3_00142492 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc94904c84681_76365761 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -107,9 +107,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <button class="boton btn" type="submit" name="button">FILTRAR</button>
       </form>
     </article><br><hr><br>
+
     <?php if ($_smarty_tpl->tpl_vars['Usuario']->value !== "invitado") {?>
     <section class="container">
-      <h2>AGREGAR ALUMNO</h2>
+      <h2>AGREGAR ALUMNO</h2><br>
+      <div class="row">
+        <div class="col">
       <form method="post" action="agregarAlumno">
         <div class="form-group">
           <label for="nombreForm">Nombre del Alumno</label>
@@ -133,6 +136,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
           <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>
+      </div>
+      <div class="col">
+        <img src="images/alumno.jpg" alt="">
+      </div>
+    </div>
+
     </section>
     <?php }?>
     <br>

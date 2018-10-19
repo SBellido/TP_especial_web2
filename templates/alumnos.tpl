@@ -54,9 +54,12 @@
         <button class="boton btn" type="submit" name="button">FILTRAR</button>
       </form>
     </article><br><hr><br>
+
     {if $Usuario !== "invitado"}
     <section class="container">
-      <h2>AGREGAR ALUMNO</h2>
+      <h2>AGREGAR ALUMNO</h2><br>
+      <div class="row">
+        <div class="col">
       <form method="post" action="agregarAlumno">
         <div class="form-group">
           <label for="nombreForm">Nombre del Alumno</label>
@@ -80,6 +83,12 @@
         </div>
           <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>
+      </div>
+      <div class="col">
+        <img src="images/alumno.jpg" alt="">
+      </div>
+    </div>
+
     </section>
     {/if}
     <br>
