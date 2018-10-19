@@ -7,20 +7,17 @@ require_once "Controller.php";
 class LoginController extends Controller {
   private $view;
   private $model;
-  private $TextUser;
-  private $TextInvited;
-  private $TextError;
+  private $titulo;
 
   function __construct() {
     parent::__construct();
     $this->view = new LoginView($this->baseURL);
     $this->model = new DocentesModel();
-    $this->TextUser = "Ingresá con tu usuario y contraseña";
-    $this->TextInvited = "Ingresá como invitado";
+    $this->titulo = "Ingresá tu usuario y contraseña o como invitado";
   }
 
   function login(){
-    $this->view->mostrarLogin($this->TextUser,$this->TextInvited);
+    $this->view->mostrarLogin($this->titulo);
   }
 
   function logout(){

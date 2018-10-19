@@ -58,7 +58,7 @@ class AsignaturasController extends SecuredController{
 
   function ListarAlumnos($params){
     $id_asignatura = $params[0];
-    $titulo = "Alumnos de la asignatura";
+    $titulo = "Alumnos de la asignatura con ID ";
     $user = $this->getUser();
     $alumnos = $this->modelAlumnos->GetAlumno_idAsignatura($id_asignatura);
     $this->view->MostrarAlumnosAsignatura($alumnos,$titulo,$user,$id_asignatura);

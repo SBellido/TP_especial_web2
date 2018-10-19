@@ -1,4 +1,4 @@
-{include file = "header.tpl"}
+<!-- {include file = "header.tpl"}
 {include file = "navLogin.tpl"}
   <section class="container">
   <h1>{$ErrorUsuario}</h1>
@@ -24,4 +24,4 @@
         <button type="submit" class="boton btn">Invitado</button>
     </form>
   </section>
-{include file = "footer.tpl"}
+{include file = "footer.tpl"} -->

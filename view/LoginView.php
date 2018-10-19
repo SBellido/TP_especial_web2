@@ -6,15 +6,13 @@ class LoginView extends View
     parent::__construct($baseURL);
   }
 
-  function mostrarLogin($TextUser,$TextInvited = '') {
-    $this->smarty->assign('UserText',$TextUser);
-    $this->smarty->assign('InvitedText',$TextInvited);
+  function mostrarLogin($titulo = '') {
+    $this->smarty->assign('Titulo',$titulo);
     $this->smarty->display('templates/login.tpl');
   }
 
-  function mostrarLoginError($TextError,$TextInvited) {
+  function mostrarLoginError($TextError) {
     $this->smarty->assign('ErrorUsuario',$TextError);
-    $this->smarty->assign('InvitedText',$TextInvited);
     $this->smarty->display('templates/loginError.tpl');
   }
 }
