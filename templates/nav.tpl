@@ -19,7 +19,10 @@
         <a id="TextoBotonera" class="nav-link disabled" href="docentes">DOCENTES</a>
       </li>
     </ul>
-  </div>
+  </div><br>
+  <!-- <div class="container">
+    <h6>Usuario conectado: "{$Usuario}"</h6>
+  </div> -->
   {if $Usuario!=="invitado"}
   <div class="">
     <form class="" action="logout" method="post">
@@ -28,11 +31,10 @@
   </div>
   {/if}
   {if $Usuario==="invitado"}
-  <div class="">
+  <div >
     <form class="" action="login" method="post">
         <button  class="boton btn" type="submit" name="button">INICIAR SESIÓN</button>
     </form>
   </div>
-  {/if}
-</nav>
-<br>
+  {/if}<br>
+</nav><br>
