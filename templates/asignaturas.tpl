@@ -37,8 +37,11 @@
       </section><br><hr>
 
       {if $Usuario!=="invitado"}
-        <section class="container"><br>
-          <h2>AGREGAR ASIGNATURA</h2><br>
+      <section class="container"><br>
+        <h2>AGREGAR ASIGNATURA</h2><br>
+        <div class="row">
+          <div class="col">
+
           <form method="post" action="agregarAsignatura">
             <div class="form-group">
               <label for="nombreForm">Asignatura</label>
@@ -51,9 +54,17 @@
             <div class="form-group">
               <label for="docenteForm">Docente</label>
               <input type="text" class="form-control" id="docenteForm" placeholder="Nombre del docente a cargo" name="docenteForm">
-            </div>
+            </div><br><br>
             <button type="submit" class="btn boton">CREAR ASIGNATURA</button>
           </form>
+        </div>
+
+<div class="row">
+          <div class="col">
+            <img src="images/ideas.jpg" alt="">
+          </div>
+        </div>
+
         </section><br>
       {/if}
     {include file = "footer.tpl"}

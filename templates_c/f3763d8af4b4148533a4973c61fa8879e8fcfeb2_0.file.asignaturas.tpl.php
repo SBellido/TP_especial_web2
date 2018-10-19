@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-18 05:32:15
+/* Smarty version 3.1.33, created on 2018-10-19 04:50:33
   from 'C:\xampp\htdocs\TP_especial_web2\templates\asignaturas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc7febf11f2a6_29229191',
+  'unifunc' => 'content_5bc946794a3c03_69046032',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3763d8af4b4148533a4973c61fa8879e8fcfeb2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\asignaturas.tpl',
-      1 => 1539833526,
+      1 => 1539917430,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc7febf11f2a6_29229191 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc946794a3c03_69046032 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -79,8 +79,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </section><br><hr>
 
       <?php if ($_smarty_tpl->tpl_vars['Usuario']->value !== "invitado") {?>
-        <section class="container"><br>
-          <h2>AGREGAR ASIGNATURA</h2><br>
+      <section class="container"><br>
+        <h2>AGREGAR ASIGNATURA</h2><br>
+        <div class="row">
+          <div class="col">
+
           <form method="post" action="agregarAsignatura">
             <div class="form-group">
               <label for="nombreForm">Asignatura</label>
@@ -93,9 +96,17 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <div class="form-group">
               <label for="docenteForm">Docente</label>
               <input type="text" class="form-control" id="docenteForm" placeholder="Nombre del docente a cargo" name="docenteForm">
-            </div>
+            </div><br><br>
             <button type="submit" class="btn boton">CREAR ASIGNATURA</button>
           </form>
+        </div>
+
+<div class="row">
+          <div class="col">
+            <img src="images/ideas.jpg" alt="">
+          </div>
+        </div>
+
         </section><br>
       <?php }?>
     <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
