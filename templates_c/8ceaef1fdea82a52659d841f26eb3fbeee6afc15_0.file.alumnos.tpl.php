@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 16:27:38
+/* Smarty version 3.1.33, created on 2018-10-19 16:36:35
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc9e9dab28c44_86414812',
+  'unifunc' => 'content_5bc9ebf3ac5fd6_27920519',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ceaef1fdea82a52659d841f26eb3fbeee6afc15' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnos.tpl',
-      1 => 1539959256,
+      1 => 1539959793,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc9e9dab28c44_86414812 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc9ebf3ac5fd6_27920519 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -37,7 +37,7 @@ $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smart
       <div class="col">
         <form  action="alumnosPorAsignaturas" method="post">
           <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
-        </form>
+        </form><br><hr><br>
       </div>
       <div class="col">
         <h4>Filtrar alumnos por asignatura</h4>
@@ -60,9 +60,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <button class="boton btn" type="submit" name="button">FILTRAR</button>
         </form>
       </div>
-    </div><hr><br>
     </section>
-    
+
     <section class="container">
       <table class="table">
         <thead class="thead-light">

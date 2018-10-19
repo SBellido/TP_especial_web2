@@ -8,7 +8,7 @@
       <div class="col">
         <form  action="alumnosPorAsignaturas" method="post">
           <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
-        </form>
+        </form><br><hr><br>
       </div>
       <div class="col">
         <h4>Filtrar alumnos por asignatura</h4>
@@ -21,9 +21,8 @@
           <button class="boton btn" type="submit" name="button">FILTRAR</button>
         </form>
       </div>
-    </div><hr><br>
     </section>
-    
+
     <section class="container">
       <table class="table">
         <thead class="thead-light">
