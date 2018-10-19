@@ -85,7 +85,7 @@
       </form>
       </div>
       <div class="col">
-        <img src="images/alumno.jpg" alt="">
+        <img src="{$Imagen}" alt="">
       </div>
     </div>
 

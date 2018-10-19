@@ -8,6 +8,7 @@ class AsignaturasController extends SecuredController{
   private $view;
   private $model;
   private $titulo;
+  private $imagen;
   private $modelAlumnos;
 
   function __construct(){
@@ -16,12 +17,13 @@ class AsignaturasController extends SecuredController{
     $this->model = new AsignaturasModel();
     $this->modelAlumnos = new AlumnosModel();
     $this->titulo = "Lista de Asignaturas";
+    $this->imagen = "images/ideas.jpg";
   }
 
   function MostrarAsignaturas(){
     $asignaturas = $this->model->GetAsignaturas();
     $user=$this->getUser();
-    $this->view->Mostrar($this->titulo,$asignaturas,$user);
+    $this->view->Mostrar($this->titulo,$this->imagen,$asignaturas,$user);
   }
 
   function AgregarAsignatura(){

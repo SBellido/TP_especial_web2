@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 05:01:24
+/* Smarty version 3.1.33, created on 2018-10-19 15:02:14
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc94904c84681_76365761',
+  'unifunc' => 'content_5bc9d5d686d352_34661187',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ceaef1fdea82a52659d841f26eb3fbeee6afc15' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnos.tpl',
-      1 => 1539918081,
+      1 => 1539954044,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc94904c84681_76365761 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc9d5d686d352_34661187 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -138,7 +138,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </form>
       </div>
       <div class="col">
-        <img src="images/alumno.jpg" alt="">
+        <img src="<?php echo $_smarty_tpl->tpl_vars['Imagen']->value;?>
+" alt="">
       </div>
     </div>
 

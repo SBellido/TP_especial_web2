@@ -21,7 +21,7 @@
       </form><br><br>
     </div>
     <div class="col">
-      <img src="images/ideasProntas.jpg" alt="personaje poniendo un foco en una cabeza">
+      <img src="{$Imagen}" alt="personaje poniendo un foco en una cabeza">
     </div>
   </div>
 </section>

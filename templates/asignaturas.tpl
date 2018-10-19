@@ -61,7 +61,7 @@
 
 <div class="row">
           <div class="col">
-            <img src="images/ideas.jpg" alt="">
+            <img src="{$Imagen}" alt="">
           </div>
         </div>
 

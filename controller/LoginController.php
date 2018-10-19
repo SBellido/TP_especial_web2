@@ -8,16 +8,18 @@ class LoginController extends Controller {
   private $view;
   private $model;
   private $titulo;
+  private $imagen;
 
   function __construct() {
     parent::__construct();
     $this->view = new LoginView($this->baseURL);
     $this->model = new DocentesModel();
     $this->titulo = "Ingresá tu usuario y contraseña o como invitado";
+    $this->imagen = "images/ideasProntas.jpg";
   }
 
   function login(){
-    $this->view->mostrarLogin($this->titulo);
+    $this->view->mostrarLogin($this->titulo,$this->imagen);
   }
 
   function logout(){
