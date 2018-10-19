@@ -5,15 +5,12 @@
     <h4>Usuario conectado: "{$Usuario}"</h4>
     <h1>{$Titulo}</h1><br>
     <div class="row">
-
-
-    <div class="col">
-      <form  action="alumnosPorAsignaturas" method="post">
-        <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
-      </form>
-    </div>
       <div class="col">
-
+        <form  action="alumnosPorAsignaturas" method="post">
+          <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
+        </form>
+      </div>
+      <div class="col">
         <h4>Filtrar alumnos por asignatura</h4>
         <form action="mostrarAlumnosFiltro" method="post">
           <select class="" name="filtroForm">
@@ -24,10 +21,10 @@
           <button class="boton btn" type="submit" name="button">FILTRAR</button>
         </form>
       </div>
-    </div>
-
-      <hr><br>
-
+    </div><hr><br>
+    </section>
+    
+    <section class="container">
       <table class="table">
         <thead class="thead-light">
           <tr>
