@@ -1,5 +1,8 @@
-.usuario{
-  color: rgb(255, 191, 177);
+
+
+.colDerecha{
+  float: right;
+  background-color: red;
 }
 .btn{
   display: inline;

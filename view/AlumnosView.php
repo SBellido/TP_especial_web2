@@ -5,6 +5,7 @@ class AlumnosView extends View
   function __construct($baseURL){
     parent::__construct($baseURL);
   }
+  
   function MostrarAlumnos($titulo,$imagen,$alumnos,$user,$asignatura){
     $this->smarty->assign('Asignatura',$asignatura);
     $this->smarty->assign('Titulo',$titulo);
@@ -43,8 +44,6 @@ class AlumnosView extends View
     $this->smarty->assign('Alumnos',$alumnos);
     $this->smarty->assign('Asignaturas',$asignaturas);
     $this->smarty->display('templates/AlumnosPorAsignaturas.tpl');
-
-
   }
 
 }

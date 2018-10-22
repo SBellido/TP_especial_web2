@@ -23,7 +23,9 @@ class ConfigApp {
     'agregarAsignatura'=>'AsignaturasController#AgregarAsignatura',
     'editarAsignatura'=>'AsignaturasController#EditarAsignatura',
     'guardarEditarAsignatura'=>'AsignaturasController#GuardarEditarAsignatura',
+
     'listarAlumnos'=>'AsignaturasController#ListarAlumnos',
+    'mostrarAlumnosFiltro'=>'AlumnosController#MostrarAlumnosFiltro',
 
     'alumnos'=>'AlumnosController#MostrarAlumnos',
     'eliminarAlumno'=>'AlumnosController#EliminarAlumno',
@@ -31,7 +33,6 @@ class ConfigApp {
     'aprobar'=>'AlumnosController#AprobarAlumno',
     'editarAlumno'=>'AlumnosController#EditarAlumno',
     'guardarEditarAlumno'=>'AlumnosController#GuardarEditarAlumno',
-    'mostrarAlumnosFiltro'=>'AlumnosController#MostrarAlumnosFiltro',
     'mostrarDetalleAlumno'=>'AlumnosController#MostrarDetalleAlumno',
     'alumnosPorAsignaturas'=>'AlumnosController#AlumnosPorAsignaturas',
 

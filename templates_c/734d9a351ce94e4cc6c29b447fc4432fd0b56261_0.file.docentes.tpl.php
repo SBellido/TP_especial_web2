@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-17 21:28:38
+/* Smarty version 3.1.33, created on 2018-10-19 22:40:44
   from 'C:\xampp\htdocs\TP_especial_web2\templates\docentes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc78d66ef2848_01384482',
+  'unifunc' => 'content_5bca414cdb21b0_83465574',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '734d9a351ce94e4cc6c29b447fc4432fd0b56261' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\docentes.tpl',
-      1 => 1539731875,
+      1 => 1539981634,
       2 => 'file',
     ),
   ),
@@ -23,14 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc78d66ef2848_01384482 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bca414cdb21b0_83465574 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
   <body>
     <section class="container">
-      <h4>Usuario conectado: "<?php echo $_smarty_tpl->tpl_vars['Usuario']->value;?>
-"</h4>
+      <h6>Usuario conectado: "<?php echo $_smarty_tpl->tpl_vars['Usuario']->value;?>
+"</h6>
       <h1><?php echo $_smarty_tpl->tpl_vars['Titulo']->value;?>
 </h1>
       <article class="tabla">

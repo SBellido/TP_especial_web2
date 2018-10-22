@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 17:15:06
+/* Smarty version 3.1.33, created on 2018-10-22 20:50:07
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc9f4fa9671d0_77566577',
+  'unifunc' => 'content_5bce1bdf8009f6_11113483',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ceaef1fdea82a52659d841f26eb3fbeee6afc15' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnos.tpl',
-      1 => 1539962103,
+      1 => 1540234204,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc9f4fa9671d0_77566577 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bce1bdf8009f6_11113483 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -66,11 +66,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       <table class="table">
         <thead class="thead-light">
           <tr>
-            <th scope="col">ID ASIGNATURA</th>
             <th scope="col">ALUMNO</th>
             <th scope="col">EMAIL</th>
             <th scope="col">NOTA</th>
             <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">CONDICIÓN</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -82,8 +83,6 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['alumnos']->value) {
 ?>
             <tr>
-              <td scope="col"><?php echo $_smarty_tpl->tpl_vars['alumnos']->value['id_asignatura'];?>
-</td>
               <th><?php echo $_smarty_tpl->tpl_vars['alumnos']->value['nombre'];?>
 </th>
               <td><?php echo $_smarty_tpl->tpl_vars['alumnos']->value['email'];?>
@@ -95,14 +94,18 @@ foreach ($_from as $_smarty_tpl->tpl_vars['alumnos']->value) {
 ">ELIMINAR</a></td>
                 <td><a class="btn boton" href="editarAlumno/<?php echo $_smarty_tpl->tpl_vars['alumnos']->value['id_alumno'];?>
 ">EDITAR</a></td>
-              <?php }?>
-              <?php if ($_smarty_tpl->tpl_vars['alumnos']->value['aprobado'] != 1 && $_smarty_tpl->tpl_vars['Usuario']->value !== "invitado") {?>
-                <td><a class="btn boton" href="aprobar/<?php echo $_smarty_tpl->tpl_vars['alumnos']->value['id_alumno'];?>
-">APROBAR</a></td>
+                <td><a class="btn boton" href="mostrarDetalleAlumno/<?php echo $_smarty_tpl->tpl_vars['alumnos']->value['id_alumno'];?>
+">DETALLE</a></td>
               <?php }?>
               <?php if ($_smarty_tpl->tpl_vars['alumnos']->value['aprobado'] == 1) {?>
                 <td><b><i>Aprobado</i></b></td>
+                <?php } else { ?>
+                <td><b><i>Regular</i></b></td>
               <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['alumnos']->value['aprobado'] != 1 && $_smarty_tpl->tpl_vars['Usuario']->value !== "invitado") {?>
+                  <td><a class="btn boton" href="aprobar/<?php echo $_smarty_tpl->tpl_vars['alumnos']->value['id_alumno'];?>
+">APROBAR</a></td>
+                <?php }?>
             </tr>
           <?php
 }

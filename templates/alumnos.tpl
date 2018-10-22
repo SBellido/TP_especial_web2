@@ -27,11 +27,12 @@
       <table class="table">
         <thead class="thead-light">
           <tr>
-            <th scope="col">ID ASIGNATURA</th>
             <th scope="col">ALUMNO</th>
             <th scope="col">EMAIL</th>
             <th scope="col">NOTA</th>
             <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">CONDICIÓN</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -39,20 +40,22 @@
         <tbody>
           {foreach from=$Alumnos item= alumnos}
             <tr>
-              <td scope="col">{$alumnos['id_asignatura']}</td>
               <th>{$alumnos['nombre']}</th>
               <td>{$alumnos['email']}</td>
               <td>{$alumnos['nota']}</td>
               {if $Usuario!=="invitado"}
                 <td><a class="btn boton" href="eliminarAlumno/{$alumnos['id_alumno']}">ELIMINAR</a></td>
                 <td><a class="btn boton" href="editarAlumno/{$alumnos['id_alumno']}">EDITAR</a></td>
-              {/if}
-              {if $alumnos['aprobado'] != 1 && $Usuario !== "invitado"}
-                <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
+                <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumnos['id_alumno']}">DETALLE</a></td>
               {/if}
               {if $alumnos['aprobado'] == 1}
                 <td><b><i>Aprobado</i></b></td>
+                {else}
+                <td><b><i>Regular</i></b></td>
               {/if}
+                {if $alumnos['aprobado'] != 1 && $Usuario !== "invitado"}
+                  <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
+                {/if}
             </tr>
           {/foreach}
         </tbody>

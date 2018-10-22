@@ -1,29 +1,27 @@
 {include file = "header.tpl"}
 {include file = "nav.tpl"}
 <body>
+
   <section class="container">
-    <h4>Usuario conectado: "{$Usuario}"</h4>
-    <h1>{$Titulo}</h1><br>
     <div class="row">
       <div class="col">
-        <a class="btn boton" href="alumnos">VOLVER</a><br><hr><br>
+        <h6>Usuario conectado: "{$Usuario}"</h6>
+        <h1>{$Titulo}</h1><br>
       </div>
-      <div class="col">
-        {if $Usuario!=="invitado"}
-        <h4>Filtrar alumnos por asignatura</h4>
+      <div class="col"><br>
+        <h4>Listar alumnos de una asignatura</h4>
         <form action="mostrarAlumnosFiltro" method="post">
-          <select name="filtroForm">
+          <select class="" name="filtroForm">
             {foreach from=$Asignatura item= asignatura}
             <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
             {/foreach}
           </select>
-          <button class="boton btn">FILTRAR</button>
-        </form>
-        <br>
-        {/if}
+          <button class="boton btn" type="submit" name="button">FILTRAR</button>
+        </form><br>
       </div>
     </div>
-    </section>
+  </section>
+
 
     <section class="container">
       <table class="table">
@@ -33,6 +31,8 @@
             <th scope="col">ALUMNO</th>
             <th scope="col">EMAIL</th>
             <th scope="col">NOTA</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -48,12 +48,15 @@
             {if $Usuario!=="invitado"}
             <td><a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a></td>
             <td><a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a></td>
+            <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumnos['id_alumno']}">DETALLE</a></td>
             {/if}
             {if $alumnos['aprobado'] == 0 && $Usuario !== "invitado"}
             <td><a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a></td>
             {/if}
             {if $alumnos['aprobado'] == 1}
-            <td><b><i>Aprobado</i></b></td>
+              <td><b><i>Aprobado</i></b></td>
+              {else}
+              <td><b><i>Regular</i></b></td>
             {/if}
           </tr>
           {/foreach}

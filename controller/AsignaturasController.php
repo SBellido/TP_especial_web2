@@ -16,7 +16,7 @@ class AsignaturasController extends SecuredController{
     $this->view = new AsignaturasView($this->baseURL);
     $this->model = new AsignaturasModel();
     $this->modelAlumnos = new AlumnosModel();
-    $this->titulo = "Lista de Asignaturas";
+    $this->titulo = "Asignaturas del Instituto";
     $this->imagen = "images/ideas.jpg";
   }
 
@@ -62,7 +62,7 @@ class AsignaturasController extends SecuredController{
     $id_asignatura = $params[0];
     $titulo = "Alumnos de la asignatura con ID ";
     $user = $this->getUser();
-    $alumnos = $this->modelAlumnos->GetAlumno_idAsignatura($id_asignatura);
+    $alumnos = $this->modelAlumnos->GetAlumnosFiltro($id_asignatura);
     $this->view->MostrarAlumnosAsignatura($alumnos,$titulo,$user,$id_asignatura);
   }
 
