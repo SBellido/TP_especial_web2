@@ -11,7 +11,11 @@
           <p><b>EMAIL: </b>{$alumno['email']}</p>
           <p><b>NOTA: </b>{$alumno['nota']}</p>
           <p><b>ID ASIGNATURA: </b>{$alumno['id_asignatura']}</p>
-          <p><b>CONDICIÓN: <i>Aprobado</i></b></p>
+          {if $alumno['aprobado'] == 1}
+            <p><b><i>Aprobado</i></b></p>
+          {else}
+            <p><b><i>Regular</i></b></p>
+          {/if}
           <a class="btn boton" href="alumnos">VOLVER</a>
         </li><br>
       {/foreach}

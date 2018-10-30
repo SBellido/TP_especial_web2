@@ -7,11 +7,11 @@
     <div class="col">
       <form action="home" method="post">
         <div class="form-group">
-          <label for="usuario">Usuario</label>
+          <label>Usuario</label>
           <input type="input" class="form-control" id="usuarioId" name="usuario" placeholder="Nombre de usuario" required>
         </div>
         <div class="form-group">
-          <label for="password">Contraseña</label>
+          <label>Contraseña</label>
           <input type="password" class="form-control" id="passwordId" name ="password" placeholder="Contraseña válida" required>
         </div><br>
         <button id="botonID" type="submit" class="boton btn">Ingresar</button>

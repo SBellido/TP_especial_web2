@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-22 20:49:44
+/* Smarty version 3.1.33, created on 2018-10-24 20:35:19
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnoDetalle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bce1bc8d5a8f4_74360675',
+  'unifunc' => 'content_5bd0bb675fdf60_32319603',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce27a48076652e911f55381bc086daeee28be741' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnoDetalle.tpl',
-      1 => 1539729865,
+      1 => 1540406116,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bce1bc8d5a8f4_74360675 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd0bb675fdf60_32319603 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -48,7 +48,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['alumno']->value) {
 </p>
           <p><b>ID ASIGNATURA: </b><?php echo $_smarty_tpl->tpl_vars['alumno']->value['id_asignatura'];?>
 </p>
-          <p><b>CONDICIÓN: <i>Aprobado</i></b></p>
+          <?php if ($_smarty_tpl->tpl_vars['alumno']->value['aprobado'] == 1) {?>
+            <p><b><i>Aprobado</i></b></p>
+          <?php } else { ?>
+            <p><b><i>Regular</i></b></p>
+          <?php }?>
           <a class="btn boton" href="alumnos">VOLVER</a>
         </li><br>
       <?php

@@ -13,9 +13,9 @@
       <div class="col">
         <h4>Filtrar alumnos por asignatura</h4>
         <form action="mostrarAlumnosFiltro" method="post">
-          <select class="" name="filtroForm">
+          <select name="filtroForm">
             {foreach from=$Asignatura item= asignatura}
-            <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
+              <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
             {/foreach}
           </select>
           <button class="boton btn" type="submit" name="button">FILTRAR</button>
@@ -69,24 +69,24 @@
         <div class="col">
       <form method="post" action="agregarAlumno">
         <div class="form-group">
-          <label for="nombreForm">Nombre del Alumno</label>
-          <input type="text" class="form-control" id="nombreForm" name="nombreForm">
+          <label>Nombre del Alumno</label>
+          <input type="text" class="form-control" name="nombreForm">
         </div>
         <div class="form-group">
-          <label for="emailForm">Email</label>
-          <input type="email" class="form-control" id="emailForm" name="emailForm">
+          <label>Email</label>
+          <input type="email" class="form-control" name="emailForm">
         </div>
         <div class="form-group">
-          <label for="notaForm">Nota</label>
-          <input type="text" class="form-control" id="notaForm" name="notaForm">
+          <label>Nota</label>
+          <input type="text" class="form-control" name="notaForm">
         </div>
         <div class="form-group">
-          <label for="id_asignaturaForm">ID Asignatura</label>
-          <input type="text" class="form-control" id="id_asignaturaForm" name="id_asignaturaForm">
+          <label>ID Asignatura</label>
+          <input type="text" class="form-control" name="id_asignaturaForm">
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="aprobarForm" name="aprobarForm">
-          <label class="form-check-label" for="aprobarForm">Aprobar</label>
+          <input type="checkbox" class="form-check-input" name="aprobarForm">
+          <label class="form-check-label">Aprobar</label>
         </div><br>
           <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>

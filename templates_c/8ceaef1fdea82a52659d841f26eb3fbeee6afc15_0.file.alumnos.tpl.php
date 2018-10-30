@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-22 20:50:07
+/* Smarty version 3.1.33, created on 2018-10-24 20:20:21
   from 'C:\xampp\htdocs\TP_especial_web2\templates\alumnos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bce1bdf8009f6_11113483',
+  'unifunc' => 'content_5bd0b7e581f740_18056950',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ceaef1fdea82a52659d841f26eb3fbeee6afc15' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\alumnos.tpl',
-      1 => 1540234204,
+      1 => 1540386845,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bce1bdf8009f6_11113483 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd0b7e581f740_18056950 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -42,13 +42,13 @@ $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smart
       <div class="col">
         <h4>Filtrar alumnos por asignatura</h4>
         <form action="mostrarAlumnosFiltro" method="post">
-          <select class="" name="filtroForm">
+          <select name="filtroForm">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Asignatura']->value, 'asignatura');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
 ?>
-            <option value="<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
 ">ID: <?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
  | <?php echo $_smarty_tpl->tpl_vars['asignatura']->value['nombre'];?>
 </option>
@@ -122,24 +122,24 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <div class="col">
       <form method="post" action="agregarAlumno">
         <div class="form-group">
-          <label for="nombreForm">Nombre del Alumno</label>
-          <input type="text" class="form-control" id="nombreForm" name="nombreForm">
+          <label>Nombre del Alumno</label>
+          <input type="text" class="form-control" name="nombreForm">
         </div>
         <div class="form-group">
-          <label for="emailForm">Email</label>
-          <input type="email" class="form-control" id="emailForm" name="emailForm">
+          <label>Email</label>
+          <input type="email" class="form-control" name="emailForm">
         </div>
         <div class="form-group">
-          <label for="notaForm">Nota</label>
-          <input type="text" class="form-control" id="notaForm" name="notaForm">
+          <label>Nota</label>
+          <input type="text" class="form-control" name="notaForm">
         </div>
         <div class="form-group">
-          <label for="id_asignaturaForm">ID Asignatura</label>
-          <input type="text" class="form-control" id="id_asignaturaForm" name="id_asignaturaForm">
+          <label>ID Asignatura</label>
+          <input type="text" class="form-control" name="id_asignaturaForm">
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="aprobarForm" name="aprobarForm">
-          <label class="form-check-label" for="aprobarForm">Aprobar</label>
+          <input type="checkbox" class="form-check-input" name="aprobarForm">
+          <label class="form-check-label">Aprobar</label>
         </div><br>
           <button type="submit" class="btn boton">CREAR PERFIL</button>
       </form>

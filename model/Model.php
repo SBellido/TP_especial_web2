@@ -1,12 +1,12 @@
 <?php
   class Model {
-  protected $db;
+    protected $db;
     function __construct() {
-    $this->db = $this->Connect();
+      $this->db = $this->Connect();
     }
 
     function Connect() {
-    return new PDO('mysql:host=localhost;'
+      return new PDO('mysql:host=localhost;'
       .'dbname=cursada;charset=utf8'
       , 'root', '');
     }

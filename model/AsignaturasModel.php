@@ -14,9 +14,15 @@ class AsignaturasModel extends Model {
 
   function GetAsignatura($id_asignatura){
     $sentencia = $this->db->prepare("SELECT * FROM asignaturas WHERE id_asignatura = ?");
-    $sentencia->execute(array($id_asignatura));
+    $sentencia->execute([$id_asignatura]);
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  // function GetNombreAsignaturas($id_asignatura){
+  //   $sentencia = $this->db->prepare("SELECT nombre FROM asignaturas WHERE id_asignatura = ?");
+  //   $sentencia->execute();
+  //   return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  // }
 
   function AgregarAsignatura($nombre,$descripcion,$docente){
     $sentencia = $this->db->prepare("INSERT INTO asignaturas(nombre, descripcion, docente) VALUES(?,?,?)");
