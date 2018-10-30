@@ -25,6 +25,16 @@
       'editarAsignatura'=>'AsignaturasController#EditarAsignatura',
       'guardarEditarAsignatura'=>'AsignaturasController#GuardarEditarAsignatura',
 
+<<<<<<< HEAD
+    'docentes'=>'DocentesController#MostrarDocentes',
+    'agregarDocente'=>'DocentesController#InsertDocente',
+    'eliminarDocente'=>'DocentesController#EliminarDocente',
+
+    'registro'=>'RegisterController#Registro',
+
+  ];
+}
+=======
       'listarAlumnos'=>'AsignaturasController#ListarAlumnos',
       'mostrarAlumnosFiltro'=>'AlumnosController#MostrarAlumnosFiltro',
 
@@ -42,4 +52,5 @@
       'eliminarDocente'=>'DocentesController#EliminarDocente',
     ];
   }
+>>>>>>> 9efd8fc491ed8a4492605d0c37d6ae7ada4ceb59
 ?>

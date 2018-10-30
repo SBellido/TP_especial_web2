@@ -19,6 +19,9 @@
       <form action="invitado" method="get">
         <button type="submit" class="boton btn">Invitado</button>
       </form><br><br>
+      <form action="registro" method="get">
+        <button type="submit" class="boton btn">Registrarse</button>
+      </form><br><br>
     </div>
     <div class="col">
       <img src="{$Imagen}" alt="personaje poniendo un foco en una cabeza">
