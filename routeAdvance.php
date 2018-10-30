@@ -10,6 +10,7 @@
   include_once 'controller/DocentesController.php';
   include_once 'controller/LoginController.php';
   include_once 'controller/SecuredController.php';
+  include_once 'controller/RegisterController.php';
 
   function parseURL($url) {
     $urlExploded = explode('/', $url);

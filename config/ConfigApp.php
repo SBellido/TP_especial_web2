@@ -25,19 +25,13 @@
       'editarAsignatura'=>'AsignaturasController#EditarAsignatura',
       'guardarEditarAsignatura'=>'AsignaturasController#GuardarEditarAsignatura',
 
-<<<<<<< HEAD
-    'docentes'=>'DocentesController#MostrarDocentes',
-    'agregarDocente'=>'DocentesController#InsertDocente',
-    'eliminarDocente'=>'DocentesController#EliminarDocente',
+      'docentes'=>'DocentesController#MostrarDocentes',
+      'agregarDocente'=>'DocentesController#InsertDocente',
+      'eliminarDocente'=>'DocentesController#EliminarDocente',
 
-    'registro'=>'RegisterController#Registro',
-
-  ];
-}
-=======
       'listarAlumnos'=>'AsignaturasController#ListarAlumnos',
-      'mostrarAlumnosFiltro'=>'AlumnosController#MostrarAlumnosFiltro',
 
+      'mostrarAlumnosFiltro'=>'AlumnosController#MostrarAlumnosFiltro',
       'alumnos'=>'AlumnosController#MostrarAlumnos',
       'eliminarAlumno'=>'AlumnosController#EliminarAlumno',
       'agregarAlumno'=>'AlumnosController#AgregarAlumno',
@@ -47,10 +41,8 @@
       'mostrarDetalleAlumno'=>'AlumnosController#MostrarDetalleAlumno',
       'alumnosPorAsignaturas'=>'AlumnosController#AlumnosPorAsignaturas',
 
-      'docentes'=>'DocentesController#MostrarDocentes',
-      'agregarDocente'=>'DocentesController#InsertDocente',
-      'eliminarDocente'=>'DocentesController#EliminarDocente',
-    ];
-  }
->>>>>>> 9efd8fc491ed8a4492605d0c37d6ae7ada4ceb59
+      'registro'=>'RegisterController#Registro',
+  ];
+}
+
 ?>
