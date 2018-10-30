@@ -1,4 +1,5 @@
 <?php
+
   require_once  "Model.php";
 
   class DocentesModel extends Model {
@@ -6,24 +7,24 @@
         parent::__construct();
       }
 
-    function GetDocentes(){
+    function GetDocentes() {
       $sentencia = $this->db->prepare( "SELECT * FROM docentes");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function GetUser($user){
+    function GetUser($user) {
       $sentencia = $this->db->prepare("SELECT * FROM docentes WHERE usuario=?");
       $sentencia->execute([$user]);
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function InsertDocente($nombre, $usuario, $email, $cargo, $password){
+    function InsertDocente($nombre, $usuario, $email, $cargo, $password) {
       $sentencia = $this->db->prepare("INSERT INTO docentes(nombre, usuario, email, cargo, pass) VALUES(?,?,?,?,?)");
       $sentencia->execute(array($nombre, $usuario, $email, $cargo, $password));
     }
 
-    function EliminarDocente($id_docente){
+    function EliminarDocente($id_docente) {
       $sentencia = $this->db->prepare("DELETE FROM docentes WHERE id_docente=?");
       $sentencia->execute(array($id_docente)); //atento con la D
     }

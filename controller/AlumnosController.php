@@ -1,19 +1,18 @@
 <?php
+
   require_once  "./view/AlumnosView.php";
   require_once  "./model/AlumnosModel.php";
   require_once  "./model/AsignaturasModel.php";
   require_once "SecuredController.php";
 
-  class AlumnosController extends SecuredController
-  {
+  class AlumnosController extends SecuredController {
     private $view;
     private $model;
     private $titulo;
     private $imagen;
     private $modelAsignatura;
 
-    function __construct()
-    {
+    function __construct() {
       parent::__construct();
       $this->view = new AlumnosView($this->baseURL);
       $this->model = new AlumnosModel();
@@ -22,14 +21,14 @@
       $this->imagen = "images/alumno.jpg";
     }
 
-    function MostrarAlumnos(){
+    function MostrarAlumnos() {
       $alumnos = $this->model->GetAlumnos();
       $user=$this->getUser();
       $asignatura = $this->modelAsignatura->GetAsignaturas();
       $this->view->MostrarAlumnos($this->titulo,$this->imagen,$alumnos,$user,$asignatura);
     }
 
-    function AgregarAlumno(){
+    function AgregarAlumno() {
       $nombre = $_POST["nombreForm"];
       $email = $_POST["emailForm"];
       $nota = $_POST["notaForm"];
@@ -44,19 +43,19 @@
       die();
     }
 
-    function EliminarAlumno($params){
+    function EliminarAlumno($params) {
       $this->model->EliminarAlumno($params[0]);
       header("Location: ".URL_ALUMNOS);
       die();
     }
 
-    function AprobarAlumno($params){
+    function AprobarAlumno($params) {
       $this->model->AprobarAlumno($params[0]);
       header("Location: ".URL_ALUMNOS);
       die();
     }
 
-    function MostrarDetalleAlumno($params){
+    function MostrarDetalleAlumno($params) {
       $id_alumno = $params[0];
       $titulo = "Información detallada del alumno";
       $user=$this->GetUser();
@@ -64,7 +63,7 @@
       $this->view->MostrarDetalleAlumno($alumno,$titulo,$user);
     }
 
-    function MostrarAlumnosFiltro(){
+    function MostrarAlumnosFiltro() {
       $titulo = "Alumnos de una asignatura ";
       $id_asignatura = $_POST["filtroForm"];
       $asignatura = $this->modelAsignatura->GetAsignaturas();
@@ -73,7 +72,7 @@
       $this->view->MostrarAlumnosFiltro($alumnos,$titulo,$user,$asignatura);
     }
 
-    function EditarAlumno($params){
+    function EditarAlumno($params) {
       $id_alumno = $params[0];
       $titulo = "Editor de datos del Alumno";
       $user=$this->getUser();
@@ -81,7 +80,7 @@
       $this->view->MostrarEditarAlumno($alumno,$titulo,$user);
     }
 
-    function GuardarEditarAlumno(){
+    function GuardarEditarAlumno() {
       $nombre = $_POST["nombreForm"];
       $email = $_POST["emailForm"];
       $nota = $_POST["notaForm"];
@@ -90,7 +89,7 @@
       header("Location: ".URL_ALUMNOS);
     }
 
-    function AlumnosPorAsignaturas(){
+    function AlumnosPorAsignaturas() {
       $titulo = "Alumnos ordenados por ID Asignatura";
       $user = $this->getUser();
       $asignaturas = $this->modelAsignatura->GetAsignaturas_idAsignatura();
@@ -98,4 +97,5 @@
       $this->view->MostrarAlumnosPorAsignatura($alumnos,$titulo,$user,$asignaturas);
     }
   }
- ?>
+
+?>

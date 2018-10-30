@@ -21,7 +21,8 @@
           <button class="boton btn" type="submit" name="button">FILTRAR</button>
         </form>
       </div>
-    </section>
+    </div>
+  </section>
 
     <section class="container">
       <table class="table">

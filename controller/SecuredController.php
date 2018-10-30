@@ -20,13 +20,13 @@
       }
     }
 
-    function logout(){
+    function logout() {
       session_start();
       session_destroy();
       header("Location: ".URL_LOGIN);
     }
 
-    function getUser(){
+    function getUser() {
       if(isset($_SESSION['User'])){
         return  $_SESSION['User'];
       }else{
