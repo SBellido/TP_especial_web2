@@ -7,9 +7,10 @@ class RegisterView extends View
     parent::__construct($baseURL);
   }
 
-  function mostrarRegistro($titulo, $imagen = '') {
-    $this->smarty->assign('Titulo',$titulo); // El 'Titulo' del assign puede ser cualquier valor
-    $this->smarty->assign('Imagen',$imagen); // El 'Titulo' del assign puede ser cualquier valor
+  function mostrarRegistro($titulo, $imagen, $logo = '') {
+    $this->smarty->assign('Titulo',$titulo);
+    $this->smarty->assign('Imagen',$imagen);
+    $this->smarty->assign('Logo',$logo);
     $this->smarty->display('templates/registro.tpl');
   }
 

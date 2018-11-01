@@ -6,9 +6,10 @@ class LoginView extends View
     parent::__construct($baseURL);
   }
 
-  function mostrarLogin($titulo, $imagen = '') {
+  function mostrarLogin($titulo, $imagen, $logo = '') {
     $this->smarty->assign('Titulo',$titulo);
     $this->smarty->assign('Imagen',$imagen);
+    $this->smarty->assign('Logo',$logo);
     $this->smarty->display('templates/login.tpl');
   }
 

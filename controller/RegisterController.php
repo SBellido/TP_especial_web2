@@ -11,6 +11,7 @@ class RegisterController extends SecuredController
   private $model;
   private $titulo;
   private $imagen;
+  private $logo;
 
   function __construct() {
     parent::__construct();
@@ -19,12 +20,13 @@ class RegisterController extends SecuredController
     // $this->secCont = new SecuredController();
     $this->titulo = "Registro de usuarios";
     $this->imagen = "images/ideas.jpg";
+    $this->logo = "images/logo_sb.png";
   }
 
   function Registro() {
     if ($_SERVER['REQUEST_METHOD'] == 'GET' ) {
       //GET formulario de registro
-      $this->view->mostrarRegistro($this->titulo, $this->imagen);
+      $this->view->mostrarRegistro($this->titulo, $this->imagen, $this->logo);
     } else {
       //POST formulario. datos: nombre, user, email, password
       $nombre = $_POST["nombre"];

@@ -9,6 +9,7 @@
     private $model;
     private $titulo;
     private $imagen;
+    private $logo;
 
     function __construct() {
       parent::__construct();
@@ -16,10 +17,11 @@
       $this->model = new DocentesModel();
       $this->titulo = "Ingresá tu usuario y contraseña o como invitado";
       $this->imagen = "images/ideasProntas.jpg";
+      $this->logo = "images/logo_sb.png";
     }
 
     function login(){
-      $this->view->mostrarLogin($this->titulo,$this->imagen);
+      $this->view->mostrarLogin($this->titulo,$this->imagen,$this->logo);
     }
 
     function logout(){
