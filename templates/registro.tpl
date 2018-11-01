@@ -1,5 +1,5 @@
 {include file = "header.tpl"}
-{include file = "nav.tpl"}
+{include file = "navLogin.tpl"}
   <body>
     <section class="container">
             <div class="row centered-form">
@@ -48,10 +48,14 @@
 
     			    			<button type="submit" class="btn btn-info btn-block">Registrame</button>
     			    		</form>
-                  <img src="{$Imagen}" alt="personaje poniendo un foco en una cabeza">
     			    	</div>
     	    		</div>
         		</div>
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <img src="{$Imagen}" alt="personaje poniendo un foco en una cabeza">
+              </div>
+            </div>
         	</div>
         </section>
 
