@@ -1,6 +1,6 @@
   <br>
   <div id="pie">
-      <p id="pie">UniCen / F.C.E. / T.U.D.A.I. / WEB2 2018<br>Trabajo Práctico Especial<br>ALUMNO: Sebastián Bellido</p>
+      <p id="pie">UniCen / F.C.E. / T.U.D.A.I. / WEB2 2018<br>Trabajo Práctico Especial<br>ALUMNOS: Sebastián Bellido / Conrado Chiesa</p>
   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

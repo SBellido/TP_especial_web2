@@ -1,25 +1,22 @@
 <?php
 include_once "Model.php";
 
-class UsuarioModel extends Model
-{
+class UsuarioModel extends Model {
 
   function __construct() {
     parent::__construct();
   }
 
-
-
   function GetUsuarios() {
-      $sentencia = $this->db->prepare( "SELECT * FROM `usuario`");
-      $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $sentencia = $this->db->prepare( "SELECT * FROM `usuario`");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function GetUsuario($usuario) {
-      $sentencia = $this->db->prepare( "SELECT * FROM `usuario` WHERE usuario=?");
-      $sentencia->execute(array($usuario));
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $sentencia = $this->db->prepare( "SELECT * FROM `usuario` WHERE usuario=?");
+    $sentencia->execute(array($usuario));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function InsertarUsuario($nombre, $usuario, $email, $password) {
@@ -32,4 +29,5 @@ class UsuarioModel extends Model
     $sentencia->execute(array($id_usuario, $nombre, $usuario, $email));
   }
 }
+
 ?>

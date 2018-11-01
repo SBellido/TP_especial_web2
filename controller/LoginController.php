@@ -46,7 +46,7 @@
           //isset($_SESSION["nombre"]);//Consultar si existe la sessión
           //unset($_SESSION["nombre"]);//Borrar un valor en la sesión
       }else{
-        $this->view->mostrarLogin("Contraseña o usuario incorrectos", $this->imagen);
+        $this->view->mostrarLogin("Contraseña o usuario incorrectos", $this->imagen, $this->logo);
         die();
       }
     }
