@@ -19,8 +19,8 @@ class UsuarioModel extends Model {
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function InsertarUsuario($nombre, $usuario, $email, $password) {
-    $sentencia = $this->db->prepare("INSERT INTO `usuario`(`name`, `user`, `email`, `password`) VALUES (?,?,?,?)");
+  function InsertarDocente($nombre, $usuario, $email, $password) {
+    $sentencia = $this->db->prepare("INSERT INTO docente (`nombre`, `usuario`, `email`, `password`) VALUES (?,?,?,?)");
     $sentencia->execute(array($nombre, $usuario, $email, $password));
   }
 

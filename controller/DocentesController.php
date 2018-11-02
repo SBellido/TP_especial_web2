@@ -2,7 +2,7 @@
 
 require_once "./view/DocentesView.php";
 require_once "./model/DocentesModel.php";
-require_once "./view/HomeView.php";
+// require_once "./view/HomeView.php";
 require_once "SecuredController.php";
 
 class DocentesController extends SecuredController

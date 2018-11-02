@@ -2,7 +2,9 @@
 require_once "./view/AsignaturasView.php";
 require_once "./model/AsignaturasModel.php";
 require_once "SecuredController.php";
-require_once  "./model/AlumnosModel.php";
+require_once "./model/AlumnosModel.php";
+require_once "./model/DocentesModel.php";
+
 
 class AsignaturasController extends SecuredController{
   private $view;
@@ -10,19 +12,23 @@ class AsignaturasController extends SecuredController{
   private $titulo;
   private $imagen;
   private $modelAlumnos;
+  private $modelDocentes;
+  private $user;
 
   function __construct(){
     parent:: __construct();
-    $this->view = new AsignaturasView($this->baseURL);
+    $this->view = new AsignaturasView($this->baseURL, $this->user);
     $this->model = new AsignaturasModel();
     $this->modelAlumnos = new AlumnosModel();
+    $this->modelDocentes = new DocentesModel();
+
     $this->titulo = "Asignaturas del Instituto";
     $this->imagen = "images/ideas.jpg";
   }
 
   function MostrarAsignaturas(){
     $asignaturas = $this->model->GetAsignaturas();
-    $user=$this->getUser();
+    $user = $this->modelDocentes->GetDocentes();
     $this->view->Mostrar($this->titulo,$this->imagen,$asignaturas,$user);
   }
 

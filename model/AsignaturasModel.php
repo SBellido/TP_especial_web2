@@ -6,8 +6,14 @@ class AsignaturasModel extends Model {
       parent::__construct();
     }
 
+  // function GetAsignaturas(){
+  //   $sentencia = $this->db->prepare("SELECT * FROM asignatura");
+  //   $sentencia->execute();
+  //   return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  // }
+
   function GetAsignaturas(){
-    $sentencia = $this->db->prepare("SELECT * FROM asignatura");
+    $sentencia = $this->db->prepare("SELECT id_docente FROM asignatura INNER JOIN docente ON asignatura.id_docente = docente.id_docente");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

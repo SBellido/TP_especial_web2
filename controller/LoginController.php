@@ -33,10 +33,10 @@
     function verificarUsuario() {
       $usuario = $_POST["usuario"];
       $password = $_POST["password"];
-      $dbUser = $this->model->GetUser($usuario);
+      $dbUser = $this->model->GetDocente($usuario);
 
       if(isset($dbUser) && !empty($dbUser)){
-        if (password_verify($password, $dbUser[0]["pass"])){
+        if (password_verify($password, $dbUser[0]["password"])){
           session_start();
           $_SESSION["User"] = $usuario;//Guardar una variable en la sesión
           header("Location: ".URL_ASIGNATURAS);

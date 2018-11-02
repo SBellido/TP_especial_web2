@@ -34,10 +34,10 @@ class RegisterController extends SecuredController
       $email = $_POST["email"];
       $password = $_POST["password"];
       $repassword = $_POST["password_confirmation"];
-      if (($password == $repassword) && $password != '') {
+      if ($password == $repassword) {
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $this->model->InsertarUsuario($nombre, $usuario, $email, $password);
-        header(URL_ASIGNATURAS);
+        $this->model->InsertarDocente($nombre, $usuario, $email, $password);
+        header("Location: ".URL_ASIGNATURAS);
       } else {
         $this->view->mostrarRegistro("Passwor incorrecto");
       }

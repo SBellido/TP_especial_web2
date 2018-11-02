@@ -15,7 +15,7 @@
         <form action="mostrarAlumnosFiltro" method="post">
           <select name="filtroForm">
             {foreach from=$Asignatura item= asignatura}
-              <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
+              <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
             {/foreach}
           </select>
           <button class="boton btn" type="submit" name="button">FILTRAR</button>
@@ -81,10 +81,12 @@
           <label>Nota</label>
           <input type="text" class="form-control" name="notaForm">
         </div>
-        <div class="form-group">
-          <label>ID Asignatura</label>
-          <input type="text" class="form-control" name="id_asignaturaForm">
-        </div>
+        <select name="id_asignaturaForm">
+          {foreach from=$Asignatura item= asignatura}
+            <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
+          {/foreach}
+        </select>
+
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" name="aprobarForm">
           <label class="form-check-label">Aprobar</label>

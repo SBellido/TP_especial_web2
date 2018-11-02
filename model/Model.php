@@ -7,7 +7,7 @@
 
     function Connect() {
       return new PDO('mysql:host=localhost;'
-      .'dbname=cursada;charset=utf8'
+      .'dbname=db_instituto;charset=utf8'
       , 'root', '');
     }
 

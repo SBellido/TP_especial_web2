@@ -5,7 +5,7 @@
     <section class="container">
       <div class="row">
         <div class="col">
-          <h6>Usuario conectado: "{$Usuario}"</h6>
+          <h6>Docente conectado: "{$Docentes}"</h6>
           <h1>{$Titulo}</h1>
         </div>
         <div class="col"><br><br>
@@ -13,7 +13,7 @@
           <form action="mostrarAlumnosFiltro" method="post">
             <select class="" name="filtroForm">
               {foreach from=$Asignaturas item= asignatura}
-              <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
+                <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
               {/foreach}
             </select>
             <button class="boton btn" type="submit" name="button">FILTRAR</button>
@@ -38,9 +38,9 @@
           <tbody>
             <tr>
               <td><b>{$asignatura['nombre']}</b></td>
-              <td>{$asignatura['docente']}</td>
+              <td>{$asignatura['id_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
-              {if $Usuario!==invitado}
+              {if $Docentes!==invitado}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
               {/if}
@@ -53,7 +53,7 @@
       </table>
     </section><br><hr>
 
-    {if $Usuario!=="invitado"}
+    {if $Docentes!=="invitado"}
       <section class="container"><br>
         <h2>AGREGAR ASIGNATURA</h2><br>
 
@@ -68,10 +68,12 @@
                 <label for="descripcionForm">Descripción</label>
                 <input type="text" class="form-control" id="descripcionForm" placeholder="Máximo 400 caracteres" name="descripcionForm">
               </div>
-              <div class="form-group">
-                <label for="docenteForm">Docente</label>
-                <input type="text" class="form-control" id="docenteForm" placeholder="Nombre del docente a cargo" name="docenteForm">
-              </div><br><br>
+              <select name="docenteForm">
+                {foreach from=$Docentes item=docente}
+                  <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+                {/foreach}
+              </select>
+              <br><br>
               <button type="submit" class="btn boton">CREAR ASIGNATURA</button>
             </form>
           </div>
