@@ -3,8 +3,8 @@
   define('ACTION', 0);
   define('PARAMS', 1);
 
-  include_once './view/View.php';
-  include_once './config/ConfigApp.php';
+  include_once 'view/View.php';
+  include_once 'config/ConfigApp.php';
   include_once 'controller/AsignaturasController.php';
   include_once 'controller/AlumnosController.php';
   include_once 'controller/DocentesController.php';
