@@ -17,7 +17,7 @@ class AsignaturasController extends SecuredController{
 
   function __construct(){
     parent:: __construct();
-    $this->view = new AsignaturasView($this->baseURL, $this->user);
+    $this->view = new AsignaturasView($this->baseURL);
     $this->model = new AsignaturasModel();
     $this->modelAlumnos = new AlumnosModel();
     $this->modelDocentes = new DocentesModel();
@@ -28,8 +28,9 @@ class AsignaturasController extends SecuredController{
 
   function MostrarAsignaturas(){
     $asignaturas = $this->model->GetAsignaturas();
-    $user = $this->modelDocentes->GetDocentes();
-    $this->view->Mostrar($this->titulo,$this->imagen,$asignaturas,$user);
+    $docente = $this->modelDocentes->GetDocentes();
+    $user=$this->getUser();
+    $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$user);
   }
 
   function AgregarAsignatura(){
@@ -58,9 +59,8 @@ class AsignaturasController extends SecuredController{
   function GuardarEditarAsignatura(){
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
-    $docente = $_POST["docenteForm"];
     $id_asignatura = $_POST["id_asignaturaForm"];
-    $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura);
+    $this->model->GuardarEditarAsignatura($nombre,$descripcion,$id_asignatura);
     header("Location: ".URL_ASIGNATURAS);
   }
 

@@ -2,7 +2,7 @@
 {include file = "nav.tpl"}
   <body>
     <div class="container">
-      <h4>Usuario conectado "{$Usuario}"</h4>
+      <h6>Usuario conectado "{$Docente}"</h6>
       <h1>{$Titulo}</h1>
       <form method="post" action="guardarEditarAsignatura">
         {foreach from=$Asignatura item= asignatura}
@@ -14,10 +14,6 @@
           <div class="form-group">
             <label for="descripcionForm">Descripcion</label>
             <input type="text" class="form-control" id="descripcionForm" name="descripcionForm" value="{$asignatura['descripcion']}">
-          </div>
-          <div class="form-group">
-            <label for="docenteForm">Nombre de la asignatura</label>
-            <input type="text" class="form-control" id="docenteForm" name="docenteForm" value="{$asignatura['docente']}">
           </div>
         {/foreach}
         <button type="submit" class="btn boton">Guardar cambios</button>

@@ -3,7 +3,7 @@ class RegisterView extends View
 {
 
 
-  function __construct($baseURL, $user) {
+  function __construct($baseURL, $user ='') {
     parent::__construct($baseURL);
   }
 

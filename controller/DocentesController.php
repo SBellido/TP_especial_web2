@@ -41,10 +41,10 @@ class DocentesController extends SecuredController
     die();
   }
 
-  function EditarDocente($id_docente) {
-    $docente = $this->model->GetDocente($id_docente);
-    $this->view->MostrarDocente($docente);
-  }
+  // function EditarDocente($id_docente) {
+  //   $docente = $this->model->GetDocente($id_docente);
+  //   $this->view->MostrarDocente($docente);
+  // }
 }
 
  ?>

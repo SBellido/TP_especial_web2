@@ -10,9 +10,8 @@
               <li class="list-group-item">
                 <p><b>DOCENTE: </b>{$docente['nombre']}</p>
                 <p><b>NOMBRE DE USUARIO: </b>{$docente['usuario']}</p>
-                <p><b>CARGO: </b>{$docente['cargo']}</p>
                 <p><b>EMAIL: </b>{$docente['email']}</p>
-                {if $Usuario!==invitado}
+                {if $Docentes!==invitado}
                 <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
                   ELIMINAR PERFIL
                 </a>

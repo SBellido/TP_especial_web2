@@ -5,7 +5,7 @@
   <h2>{$Titulo}</h2><br>
   <div class="row">
     <div class="col">
-      <form action="home" method="post">
+      <form action="home" method="post" class=".col-12 .col-md-8">
         <div class="form-group">
           <label>Usuario</label>
           <input type="input" class="form-control" id="usuarioId" name="usuario" placeholder="Nombre de usuario" required>

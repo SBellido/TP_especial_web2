@@ -1,14 +1,15 @@
 <?php
 class AsignaturasView extends View
 {
-  function __construct($baseURL, $user){
-    parent::__construct($baseURL, $user);
+  function __construct($baseURL, $user =''){
+    parent::__construct($baseURL);
   }
-  function Mostrar($titulo,$imagen,$asignaturas,$user) {
+  function MostrarAsignaturas($titulo,$imagen,$asignaturas,$docente,$user) {
     $this->smarty->assign('Titulo',$titulo);
     $this->smarty->assign('Imagen',$imagen);
     $this->smarty->assign('Asignaturas',$asignaturas);
-    $this->smarty->assign('Docentes',$user);
+    $this->smarty->assign('Docente',$docente);
+    $this->smarty->assign('Usuario',$user);
     $this->smarty->display('templates/asignaturas.tpl');
   }
 

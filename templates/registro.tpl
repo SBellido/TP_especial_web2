@@ -1,14 +1,47 @@
 {include file = "header.tpl"}
 {include file = "navLogin.tpl"}
-  <body>
-    <section class="container">
-            <div class="row centered-form">
-            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-            	<div class="panel panel-default">
-            		<div class="panel-heading">
+<body>
 
-                    <h2>{$Titulo}</h2><br>
-    			 			</div>
+  <section class="container">
+    <h2>{$Titulo}</h2><br>
+    <div class="row">
+      <div class="col">
+        <form action="home" method="post" class=".col-12 .col-md-8">
+          <div class="form-group">
+            <label>Usuario</label>
+            <input type="input" class="form-control" id="usuarioId" name="usuario" placeholder="Nombre de usuario" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" id="email_Id" name="email" placeholder="email de usuario" required>
+          </div>
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" id="passwordId" name ="password" placeholder="Contraseña válida" required>
+          </div><br>
+          <button id="botonID" type="submit" class="boton btn">Ingresar</button>
+        </form><br><br>
+        <form action="invitado" method="get">
+          <button type="submit" class="boton btn">Invitado</button>
+        </form><br><br>
+        <form action="registro" method="get">
+          <button type="submit" class="boton btn">Registrarse</button>
+        </form><br><br>
+      </div>
+      <div class="col">
+        <img src="{$Imagen}" alt="personaje poniendo un foco en una cabeza">
+      </div>
+    </div>
+  </section>
+
+
+    <section class="container">
+      <div class="row centered-form">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>{$Titulo}</h2><br>
+    			 	</div>
     			 			<div class="panel-body">
     			    		<form role="form" action="registro" method="POST">
     			    			<div class="row">

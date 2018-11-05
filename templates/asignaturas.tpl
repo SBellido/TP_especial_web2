@@ -1,11 +1,10 @@
 {include file = "header.tpl"}
 {include file = "nav.tpl"}
   <body>
-
     <section class="container">
       <div class="row">
         <div class="col">
-          <h6>Docente conectado: "{$Docentes}"</h6>
+          <h6>Docente conectado: "{$Usuario}"</h6>
           <h1>{$Titulo}</h1>
         </div>
         <div class="col"><br><br>
@@ -13,14 +12,13 @@
           <form action="mostrarAlumnosFiltro" method="post">
             <select class="" name="filtroForm">
               {foreach from=$Asignaturas item= asignatura}
-                <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
+                <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
               {/foreach}
             </select>
             <button class="boton btn" type="submit" name="button">FILTRAR</button>
           </form>
       </div>
     </div>
-
     </section><br>
     <section class="container">
       <table class="table">
@@ -40,7 +38,7 @@
               <td><b>{$asignatura['nombre']}</b></td>
               <td>{$asignatura['id_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
-              {if $Docentes!==invitado}
+              {if $Usuario!==invitado}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
               {/if}
@@ -53,7 +51,7 @@
       </table>
     </section><br><hr>
 
-    {if $Docentes!=="invitado"}
+    {if $Usuario!=="invitado"}
       <section class="container"><br>
         <h2>AGREGAR ASIGNATURA</h2><br>
 
@@ -68,8 +66,9 @@
                 <label for="descripcionForm">Descripción</label>
                 <input type="text" class="form-control" id="descripcionForm" placeholder="Máximo 400 caracteres" name="descripcionForm">
               </div>
+              <label for="descripcionForm">Docente</label><br>
               <select name="docenteForm">
-                {foreach from=$Docentes item=docente}
+                {foreach from=$Docente item=docente}
                   <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
                 {/foreach}
               </select>
