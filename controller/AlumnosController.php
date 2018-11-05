@@ -33,7 +33,7 @@
       $email = $_POST["emailForm"];
       $nota = $_POST["notaForm"];
       $id_asignatura = $_POST["id_asignaturaForm"];
-      if(isset($_POST["aprobadoForm"])){
+      if(isset($_POST["aprobarForm"])){
         $aprobado = 1;
       }else{
         $aprobado = 0;

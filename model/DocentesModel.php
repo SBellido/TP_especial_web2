@@ -13,11 +13,11 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // function GetDocente($user) {
-    //   $sentencia = $this->db->prepare("SELECT * FROM docente WHERE usuario=?");
-    //   $sentencia->execute([$user]);
-    //   return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-    // }
+    function GetDocente($user) {
+      $sentencia = $this->db->prepare("SELECT * FROM docente WHERE usuario=?");
+      $sentencia->execute([$user]);
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     function InsertarDocente($nombre, $usuario, $email, $password) {
       $sentencia = $this->db->prepare("INSERT INTO docente (`nombre`, `usuario`, `email`, `password`) VALUES (?,?,?,?)");
