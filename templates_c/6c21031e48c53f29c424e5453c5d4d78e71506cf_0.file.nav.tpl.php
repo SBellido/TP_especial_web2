@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 22:27:12
+/* Smarty version 3.1.33, created on 2018-11-06 00:39:51
   from 'C:\xampp\htdocs\TP_especial_web2\templates\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bca3e200236c7_00035303',
+  'unifunc' => 'content_5be0d4c7c89ea6_63343882',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6c21031e48c53f29c424e5453c5d4d78e71506cf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\nav.tpl',
-      1 => 1539980829,
+      1 => 1541460601,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bca3e200236c7_00035303 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be0d4c7c89ea6_63343882 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav id="mainNav" class="navbar navbar-expand-lg navbar-light ">
   <div class="container navbar-brand js-scroll-trigger" href="#page-top">
     <a id="logoSB" class="navbar-brand js-scroll-trigger" href="asignaturas">
