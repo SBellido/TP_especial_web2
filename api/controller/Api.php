@@ -7,9 +7,9 @@ class Api {
   }
 
    protected function json_response($data, $status) {
-   header("Content-Type: application/json");
-   header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
-   return json_encode($data);
+     header("Content-Type: application/json");
+     header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
+     return json_encode($data);
 
   }
 

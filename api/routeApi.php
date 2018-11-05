@@ -3,8 +3,8 @@ define('RESOURCE', 0);
 define('PARAMS', 1);
 
   require_once 'config/ConfigApi.php';
-  require_once './controller/AsignaturasApiController.php';
-  
+  require_once 'controller/AsignaturasApiController.php';
+
   function parseURL($url)
   {
     $urlExploded = explode('/', trim($url,'/'));
