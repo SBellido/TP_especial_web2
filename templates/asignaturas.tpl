@@ -4,7 +4,7 @@
     <section class="container">
       <div class="row">
         <div class="col">
-          <h6>Docente conectado: "{$Usuario}"</h6>
+          <h6>Usuario conectado: "{$Usuario}"</h6>
           <h1>{$Titulo}</h1>
         </div>
         <div class="col"><br><br>

@@ -2,16 +2,13 @@
 {include file = "nav.tpl"}
 <body>
   <section class="container">
-    <h6>Usuario conectado: "{$Usuario}"</h6>
-    <h1>{$Titulo}</h1><br>
     <div class="row">
       <div class="col">
-        <form  action="alumnosPorAsignaturas" method="post">
-          <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
-        </form><br><hr><br>
+        <h6>Usuario conectado: "{$Usuario}"</h6>
+        <h1>{$Titulo}</h1>
       </div>
-      <div class="col">
-        <h4>Filtrar alumnos por asignatura</h4>
+      <div class="col"><br><br>
+        <h4>Listar alumnos de una asignatura</h4>
         <form action="mostrarAlumnosFiltro" method="post">
           <select name="filtroForm">
             {foreach from=$Asignatura item= asignatura}
@@ -20,7 +17,14 @@
           </select>
           <button class="boton btn" type="submit" name="button">FILTRAR</button>
         </form>
-      </div>
+    </div>
+  </div>
+  </section>
+  <section class="container">
+    <div class="col">
+      <form  action="alumnosPorAsignaturas" method="post">
+        <button class="btn boton" type="submit" name="button">ORDENAR ID</button>
+      </form><br><br>
     </div>
   </section>
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-18 05:44:26
+/* Smarty version 3.1.33, created on 2018-11-06 17:00:40
   from 'C:\xampp\htdocs\TP_especial_web2\templates\mostrarEditarAlumno.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc8019ade4257_03940433',
+  'unifunc' => 'content_5be1baa828e961_93514742',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd7e6b599c0ad25b04be5c3fca15dee5961ba6bf7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\mostrarEditarAlumno.tpl',
-      1 => 1539524366,
+      1 => 1541520034,
       2 => 'file',
     ),
   ),
@@ -23,14 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bc8019ade4257_03940433 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be1baa828e961_93514742 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
   <body>
     <div class="container">
-      <h4>Usuario conectado "<?php echo $_smarty_tpl->tpl_vars['Usuario']->value;?>
-"</h4>
+      <h6>Usuario conectado: "<?php echo $_smarty_tpl->tpl_vars['Usuario']->value;?>
+"</h6>
       <h1><?php echo $_smarty_tpl->tpl_vars['Titulo']->value;?>
 </h1>
       <form method="post" action="guardarEditarAlumno">

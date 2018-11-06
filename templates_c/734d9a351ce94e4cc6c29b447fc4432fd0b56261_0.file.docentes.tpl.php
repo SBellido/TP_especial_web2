@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 22:40:44
+/* Smarty version 3.1.33, created on 2018-11-06 17:01:31
   from 'C:\xampp\htdocs\TP_especial_web2\templates\docentes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bca414cdb21b0_83465574',
+  'unifunc' => 'content_5be1badb97fb50_09313034',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '734d9a351ce94e4cc6c29b447fc4432fd0b56261' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\docentes.tpl',
-      1 => 1539981634,
+      1 => 1541520072,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bca414cdb21b0_83465574 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be1badb97fb50_09313034 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -45,11 +45,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['docente']->value) {
 </p>
                 <p><b>NOMBRE DE USUARIO: </b><?php echo $_smarty_tpl->tpl_vars['docente']->value['usuario'];?>
 </p>
-                <p><b>CARGO: </b><?php echo $_smarty_tpl->tpl_vars['docente']->value['cargo'];?>
-</p>
                 <p><b>EMAIL: </b><?php echo $_smarty_tpl->tpl_vars['docente']->value['email'];?>
 </p>
-                <?php if ($_smarty_tpl->tpl_vars['Usuario']->value !== 'invitado') {?>
+                <?php if ($_smarty_tpl->tpl_vars['Docentes']->value !== 'invitado') {?>
                 <a class="btn boton"href="eliminarDocente/<?php echo $_smarty_tpl->tpl_vars['docente']->value['id_docente'];?>
 ">
                   ELIMINAR PERFIL

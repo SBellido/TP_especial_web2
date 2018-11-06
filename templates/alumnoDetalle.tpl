@@ -2,7 +2,7 @@
 {include file = "nav.tpl"}
 <body>
   <section class="container">
-    <h4>Usuario conectado: "{$Usuario}"</h4>
+    <h6>Usuario conectado: "{$Usuario}"</h6>
     <h1>{$Titulo}</h1>
     <ul class="list-group">
       {foreach from=$Alumno item= alumno}

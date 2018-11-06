@@ -25,18 +25,18 @@ class AsignaturasModel extends Model {
   }
 
   function AgregarAsignatura($nombre,$descripcion,$docente){
-    $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, docente) VALUES(?,?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, id_docente) VALUES(?,?,?)");
     $sentencia->execute([$nombre,$descripcion,$docente]);
   }
 
   function EliminarAsignatura($idAsignatura){
     $sentencia = $this->db->prepare("DELETE FROM asignatura WHERE id_asignatura=?");
-    $sentencia->execute(array($idAsignatura));
+    $sentencia->execute([$idAsignatura]);
   }
 
-  function GuardarEditarAsignatura($nombre,$descripcion,$id_asignatura){
-    $sentencia = $this->db->prepare( "UPDATE asignatura SET nombre=?, descripcion=? WHERE id_asignatura=?");
-    $sentencia->execute(array($nombre,$descripcion,$id_asignatura));
+  function GuardarEditarAsignatura($nombre,$descripcion,$id_asignatura,$docente){
+    $sentencia = $this->db->prepare( "UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
+    $sentencia->execute([$nombre,$descripcion,$id_asignatura,$docente]);
   }
 
   function GetAsignaturas_idAsignatura(){
