@@ -19,14 +19,9 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function InsertarDocente($nombre, $usuario, $email, $password) {
-      $sentencia = $this->db->prepare("INSERT INTO docente (`nombre`, `usuario`, `email`, `password`) VALUES (?,?,?,?)");
-      $sentencia->execute(array($nombre, $usuario, $email, $password));
-    }
-
-    function InsertDocente($nombre, $usuario, $email, $cargo, $password) {
-      $sentencia = $this->db->prepare("INSERT INTO docente(nombre, usuario, email, cargo, pass) VALUES(?,?,?,?,?)");
-      $sentencia->execute(array($nombre, $usuario, $email, $cargo, $password));
+    function InsertarDocente($nombre, $usuario, $email, $password, $rol) {
+      $sentencia = $this->db->prepare("INSERT INTO docente (`nombre`, `usuario`, `email`, `password`, `rol`) VALUES (?,?,?,?,?)");
+      $sentencia->execute(array($nombre, $usuario, $email, $password, $rol));
     }
 
     function EliminarDocente($id_docente) {

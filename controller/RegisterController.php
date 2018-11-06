@@ -1,7 +1,7 @@
 <?php
 
 require_once  "./view/RegisterView.php";
-require_once  "./model/UsuarioModel.php";
+require_once  "./model/DocentesModel.php";
 require_once  "SecuredController.php";
 
 
@@ -16,7 +16,7 @@ class RegisterController extends SecuredController
   function __construct() {
     parent::__construct();
     $this->view = new RegisterView($this->baseURL);
-    $this->model = new UsuarioModel();
+    $this->model = new DocentesModel();
     // $this->secCont = new SecuredController();
     $this->titulo = "Registro de usuarios";
     $this->imagen = "images/ideas.jpg";
@@ -34,9 +34,10 @@ class RegisterController extends SecuredController
       $email = $_POST["email"];
       $password = $_POST["password"];
       $repassword = $_POST["password_confirmation"];
+      $rol = 'docente';
       if ($password == $repassword) {
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $this->model->InsertarDocente($nombre, $usuario, $email, $password);
+        $this->model->InsertarDocente($nombre, $usuario, $email, $password, $rol);
         header("Location: ".URL_ASIGNATURAS);
       } else {
         $this->view->mostrarRegistro("Passwor incorrecto");
