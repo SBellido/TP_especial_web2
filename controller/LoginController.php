@@ -39,6 +39,8 @@
         if (password_verify($password, $dbUser[0]["password"])){
           session_start();
           $_SESSION["User"] = $usuario;//Guardar una variable en la sesión
+          $_SESSION["permisions"] = $usuario[0]["rol"];
+          $_SESSION["ID"] = $usuario[0]["id_docente"];
           header("Location: ".URL_ASIGNATURAS);
           die();
         }

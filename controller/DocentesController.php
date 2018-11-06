@@ -23,17 +23,17 @@ class DocentesController extends SecuredController
     $user=$this->getUser();
     $this->view->MostrarDocentes($this->titulo,$docentes,$user);
   }
-
-  function InsertDocente() {
-    $nombre = $_POST["nombreForm"];
-    $usuario = $_POST["usuarioForm"];
-    $email = $_POST["emailForm"];
-    $cargo = $_POST["cargoForm"];
-    $password = $_POST["passwordForm"];
-    $this->model->InsertDocente($nombre,$usuario,$email,$cargo,$password);
-    header("Location: ".URL_DOCENTES);
-    die();
-  }
+  //
+  // function InsertDocente() {
+  //   $nombre = $_POST["nombreForm"];
+  //   $usuario = $_POST["usuarioForm"];
+  //   $email = $_POST["emailForm"];
+  //   $cargo = $_POST["cargoForm"];
+  //   $password = $_POST["passwordForm"];
+  //   $this->model->InsertDocente($nombre,$usuario,$email,$cargo,$password);
+  //   header("Location: ".URL_DOCENTES);
+  //   die();
+  // }
 
   function EliminarDocente($params) {
     $this->model->EliminarDocente($params[0]);
