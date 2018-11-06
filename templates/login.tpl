@@ -14,13 +14,13 @@
           <label>Contraseña</label>
           <input type="password" class="form-control" id="passwordId" name ="password" placeholder="Contraseña válida" required>
         </div><br>
-        <button id="botonID" type="submit" class="boton btn">Ingresar</button>
+        <button id="botonID" type="submit" class="boton btn btn-info btn-block">Ingresar</button>
       </form><br><br>
       <form action="invitado" method="get">
-        <button type="submit" class="boton btn">Invitado</button>
+        <button type="submit" class="boton btn btn-info btn-block">Invitado</button>
       </form><br><br>
       <form action="registro" method="get">
-        <button type="submit" class="boton btn">Registrarse</button>
+        <button type="submit" class="boton btn btn-info btn-block">Registrarse</button>
       </form><br><br>
     </div>
     <div class="col">
