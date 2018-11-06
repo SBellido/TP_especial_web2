@@ -10,13 +10,13 @@
       </div>
       <div class="col"><br>
         <h4>Listar alumnos de una asignatura</h4>
-        <form action="mostrarAlumnosFiltro" method="post">
+        <form action="mostrarAlumnosFiltro" method="GET">
           <select class="" name="filtroForm">
             {foreach from=$Asignatura item= asignatura}
               <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
             {/foreach}
           </select>
-          <button class="boton btn" type="submit" name="button">FILTRAR</button>
+          <button class="boton btn" type="submit" >FILTRAR</button>
         </form><br>
       </div>
     </div>
@@ -37,21 +37,21 @@
         </tr>
       </thead>
       <tbody>
-        {foreach from=$Alumnos item= alumnos}
+        {foreach from=$Alumnos item= alumno}
           <tr>
-            <td scope="col">{$alumnos['id_asignatura']}</td>
-            <th>{$alumnos['nombre']}</th>
-            <td>{$alumnos['email']}</td>
-            <td>{$alumnos['nota']}</td>
+            <td scope="col">{$alumno['id_asignatura']}</td>
+            <th>{$alumno['nombre']}</th>
+            <td>{$alumno['email']}</td>
+            <td>{$alumno['nota']}</td>
             {if $Usuario!=="invitado"}
               <td><a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a></td>
               <td><a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a></td>
-              <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumnos['id_alumno']}">DETALLE</a></td>
+              <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumno['id_alumno']}">DETALLE</a></td>
             {/if}
-            {if $alumnos['aprobado'] == 0 && $Usuario !== "invitado"}
+            {if $alumno['aprobado'] == 0 && $Usuario !== "invitado"}
               <td><a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a></td>
             {/if}
-            {if $alumnos['aprobado'] == 1}
+            {if $alumno['aprobado'] == 1}
               <td><b><i>Aprobado</i></b></td>
               {else}
               <td><b><i>Regular</i></b></td>

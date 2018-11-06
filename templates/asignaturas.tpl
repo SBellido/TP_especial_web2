@@ -9,13 +9,13 @@
         </div>
         <div class="col"><br><br>
           <h4>Listar alumnos de una asignatura</h4>
-          <form action="mostrarAlumnosFiltro" method="post">
+          <form action="mostrarAlumnosFiltro" method="GET">
             <select class="" name="filtroForm">
               {foreach from=$Asignaturas item= asignatura}
                 <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
               {/foreach}
             </select>
-            <button class="boton btn" type="submit" name="button">FILTRAR</button>
+            <button class="boton btn" type="submit">FILTRAR</button>
           </form>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <tbody>
             <tr>
               <td><b>{$asignatura['nombre']}</b></td>
-              <td>{$asignatura['id_docente']}</td>
+              <td>{$asignatura['nombre_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
               {if $Usuario!==invitado}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
