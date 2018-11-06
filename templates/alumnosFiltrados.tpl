@@ -1,6 +1,7 @@
 {include file = "header.tpl"}
 {include file = "nav.tpl"}
 <body>
+
   <section class="container">
     <div class="row">
       <div class="col">
@@ -12,7 +13,7 @@
         <form action="mostrarAlumnosFiltro" method="post">
           <select class="" name="filtroForm">
             {foreach from=$Asignatura item= asignatura}
-              <option value="{$asignatura['id_asignatura']}">ID: {$asignatura['id_asignatura']} | {$asignatura['nombre']}</option>
+              <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
             {/foreach}
           </select>
           <button class="boton btn" type="submit" name="button">FILTRAR</button>

@@ -17,8 +17,8 @@
             </select>
             <button class="boton btn" type="submit" name="button">FILTRAR</button>
           </form>
+        </div>
       </div>
-    </div>
     </section><br>
     <section class="container">
       <table class="table">
