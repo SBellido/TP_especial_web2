@@ -10,8 +10,7 @@ class Api {
      header("Content-Type: application/json");
      header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
      return json_encode($data);
-
-  }
+   }
 
   private function _requestStatus($code){
       $status = array(

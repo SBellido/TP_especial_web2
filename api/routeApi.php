@@ -22,10 +22,10 @@ define('PARAMS', 1);
         $controller =  new $resource[0]();
         $metodo = $resource[1];
         if(isset($params) &&  $params != null){
-             $controller->$metodo($params);
+          echo $controller->$metodo($params);
         }
         else{
-            $controller->$metodo();
+          echo $controller->$metodo();
        }
     }
   }
