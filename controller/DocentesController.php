@@ -2,8 +2,8 @@
 
 require_once "./view/DocentesView.php";
 require_once "./model/DocentesModel.php";
-// require_once "./view/HomeView.php";
 require_once "SecuredController.php";
+// require_once "./view/HomeView.php";
 
 class DocentesController extends SecuredController
 {
@@ -23,6 +23,20 @@ class DocentesController extends SecuredController
     $user=$this->getUser();
     $this->view->MostrarDocentes($this->titulo,$docentes,$user);
   }
+
+  function EliminarDocente($params) {
+
+    $permiso=$this->verificaPermisos();
+    if ($permiso) {
+      $this->model->EliminarDocente($params[0]);
+      header("Location: ".URL_DOCENTES);
+      die();
+    }else{
+      header("Location: ".URL_LOGIN);
+      die();
+    }
+
+  }
   //
   // function InsertDocente() {
   //   $nombre = $_POST["nombreForm"];
@@ -34,12 +48,6 @@ class DocentesController extends SecuredController
   //   header("Location: ".URL_DOCENTES);
   //   die();
   // }
-
-  function EliminarDocente($params) {
-    $this->model->EliminarDocente($params[0]);
-    header("Location: ".URL_DOCENTES);
-    die();
-  }
 
   // function EditarDocente($id_docente) {
   //   $docente = $this->model->GetDocente($id_docente);

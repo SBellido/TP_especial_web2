@@ -30,15 +30,8 @@ class AsignaturasModel extends Model {
   }
 
   function GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura){
-<<<<<<< HEAD
     $sentencia = $this->db->prepare("UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
     $sentencia->execute([$nombre,$descripcion,$docente]);
-=======
-    //echo json_encode([$nombre,$descripcion,$docente,$id_asignatura]);
-    //die;
-    $sentencia = $this->db->prepare( "UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
-    $sentencia->execute([$nombre,$descripcion,$docente,$id_asignatura]);
->>>>>>> conrado
   }
 
   function GetAsignaturas_idAsignatura(){
