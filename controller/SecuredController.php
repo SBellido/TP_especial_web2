@@ -34,10 +34,11 @@
         die();
       }
     }
+
     function verificaPermisos() {
       if (isset($_SESSION['User']) && $_SESSION['permisions'] == 'admin') {
         return true;
-      }else {
+      }else{
         return false;
       }
     }

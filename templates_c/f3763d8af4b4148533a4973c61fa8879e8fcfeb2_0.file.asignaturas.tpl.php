@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-06 22:02:13
+/* Smarty version 3.1.33, created on 2018-11-07 18:44:48
   from 'C:\xampp\htdocs\TP_especial_web2\templates\asignaturas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5be2015512db76_07005612',
+  'unifunc' => 'content_5be32490678833_10789333',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3763d8af4b4148533a4973c61fa8879e8fcfeb2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\asignaturas.tpl',
-      1 => 1541538130,
+      1 => 1541597985,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5be2015512db76_07005612 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be32490678833_10789333 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -38,7 +38,7 @@ $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smart
         </div>
         <div class="col"><br><br>
           <h4>Listar alumnos de una asignatura</h4>
-          <form action="mostrarAlumnosFiltro" method="post">
+          <form action="mostrarAlumnosFiltro" method="GET">
             <select class="" name="filtroForm">
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Asignaturas']->value, 'asignatura');
@@ -53,7 +53,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </select>
-            <button class="boton btn" type="submit" name="button">FILTRAR</button>
+            <button class="boton btn" type="submit">FILTRAR</button>
           </form>
         </div>
       </div>
@@ -79,7 +79,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
             <tr>
               <td><b><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['nombre'];?>
 </b></td>
-              <td><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_docente'];?>
+              <td><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['nombre_docente'];?>
 </td>
               <td><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['descripcion'];?>
 </td>

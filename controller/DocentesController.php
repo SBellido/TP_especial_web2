@@ -11,6 +11,7 @@ class DocentesController extends SecuredController
   private $model;
   private $titulo;
 
+
   function __construct() {
     parent::__construct();
     $this->view = new DocentesView($this->baseURL);

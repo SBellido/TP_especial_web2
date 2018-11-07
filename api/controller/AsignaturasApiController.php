@@ -20,7 +20,7 @@ class AsignaturasApiController extends Api {
         if ($item1['nombre'] == $item2['nombre']) return 0;
         if($_GET['orden'] == 'desc')
           return $item1['nombre'] < $item2['nombre'] ? -1 : 1;
-          retu rn $item1['nombre'] > $item2['nombre'] ? -1 : 1;
+          return $item1['nombre'] > $item2['nombre'] ? -1 : 1;
       });
       if(isset($asignaturas)) {
        return $this->json_response($asignaturas, 200);
