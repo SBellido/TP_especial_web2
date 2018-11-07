@@ -25,7 +25,7 @@
     <table class="table">
       <thead class="thead-light">
         <tr>
-          <th scope="col">ID ASIGNATURA</th>
+          <th scope="col">ASIGNATURA</th>
           <th scope="col">ALUMNO</th>
           <th scope="col">EMAIL</th>
           <th scope="col">NOTA</th>
