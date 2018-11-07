@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-06 18:02:23
+/* Smarty version 3.1.33, created on 2018-11-06 22:02:13
   from 'C:\xampp\htdocs\TP_especial_web2\templates\asignaturas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5be1c91f55cb07_76680887',
+  'unifunc' => 'content_5be2015512db76_07005612',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3763d8af4b4148533a4973c61fa8879e8fcfeb2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\asignaturas.tpl',
-      1 => 1541523712,
+      1 => 1541538130,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5be1c91f55cb07_76680887 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be2015512db76_07005612 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -133,7 +133,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['docente']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               </select>
               <br><br>
-              <button type="submit" class="btn boton">CREAR ASIGNATURA</button>
+              <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
             </form>
           </div>
           <div class="col">

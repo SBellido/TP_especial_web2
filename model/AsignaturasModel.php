@@ -12,12 +12,6 @@ class AsignaturasModel extends Model {
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  // function GetAsignaturas() {
-  //   $sentencia = $this->db->prepare("SELECT * FROM asignatura INNER JOIN docente ON asignatura.id_docente = docente.id_docente");
-  //   $sentencia->execute();
-  //   return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  // }
-
   function GetAsignatura($id_asignatura) {
     $sentencia = $this->db->prepare("SELECT * FROM asignatura WHERE id_asignatura = ?");
     $sentencia->execute([$id_asignatura]);
@@ -34,9 +28,9 @@ class AsignaturasModel extends Model {
     $sentencia->execute([$idAsignatura]);
   }
 
-  function GuardarEditarAsignatura($nombre,$descripcion,$id_asignatura,$docente){
-    $sentencia = $this->db->prepare( "UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
-    $sentencia->execute([$nombre,$descripcion,$id_asignatura,$docente]);
+  function GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura){
+    $sentencia = $this->db->prepare("UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
+    $sentencia->execute([$nombre,$descripcion,$docente]);
   }
 
   function GetAsignaturas_idAsignatura(){

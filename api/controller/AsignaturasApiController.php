@@ -13,9 +13,17 @@ class AsignaturasApiController extends Api {
     }
 
     function MostrarAsignaturas(){
-      $asignatura = $this->model->GetAsignaturas();
-      if(isset($asignatura)) {
-       return $this->json_response($asignatura, 200);
+      //$asignaturas = $this->model->GetAsignaturas($_GET['orden']);
+      $asignaturas = $this->model->GetAsignaturas();
+      //usort Ordena un arracy asociativo por el valor de un elemento
+      usort($asignaturas, function ($item1, $item2) {
+        if ($item1['nombre'] == $item2['nombre']) return 0;
+        if($_GET['orden'] == 'desc')
+          return $item1['nombre'] < $item2['nombre'] ? -1 : 1;
+          retu rn $item1['nombre'] > $item2['nombre'] ? -1 : 1;
+      });
+      if(isset($asignaturas)) {
+       return $this->json_response($asignaturas, 200);
       }else{
         return $this->json_response(null, 400);
       }

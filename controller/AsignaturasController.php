@@ -51,9 +51,9 @@ class AsignaturasController extends SecuredController{
   function EditarAsignatura($params){
     $id_asignatura = $params[0];
     $titulo = "Editor de la Asignatura";
+    $asignatura = $this->model->GetAsignatura($id_asignatura);
     $docente = $this->modelDocentes->GetDocentes();
     $user=$this->getUser();
-    $asignatura = $this->model->GetAsignatura($id_asignatura);
     $this->view->MostrarEditarAsignatura($asignatura,$titulo,$user,$docente);
   }
 
@@ -61,9 +61,8 @@ class AsignaturasController extends SecuredController{
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
     $docente = $_POST["docenteForm"];
-
     $id_asignatura = $_POST["id_asignaturaForm"];
-    $this->model->GuardarEditarAsignatura($nombre,$descripcion,$id_asignatura,$docente);
+    $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura);
     header("Location: ".URL_ASIGNATURAS);
   }
 

@@ -95,7 +95,7 @@
           <input type="checkbox" class="form-check-input" name="aprobarForm">
           <label class="form-check-label">Aprobar</label>
         </div><br>
-          <button type="submit" class="btn boton">CREAR PERFIL</button>
+          <button type="submit" class="boton btn btn-info btn-block">CREAR PERFIL</button>
       </form>
       </div>
       <div class="col">
