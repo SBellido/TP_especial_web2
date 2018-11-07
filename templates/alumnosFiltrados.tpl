@@ -39,7 +39,7 @@
       <tbody>
         {foreach from=$Alumnos item= alumno}
           <tr>
-            <td scope="col">{$alumno['id_asignatura']}</td>
+            <td scope="col">{$alumno['nombre_asignatura']}</td>
             <th>{$alumno['nombre']}</th>
             <td>{$alumno['email']}</td>
             <td>{$alumno['nota']}</td>
