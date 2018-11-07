@@ -17,14 +17,11 @@
           </div>
         {/foreach}
         <label>Docente</label><br>
-
-          <select name="docenteForm">
-            {foreach from=$Docente item=docente}
-              <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
-            {/foreach}
-          </select>
-
-        <br><br>
+        <select name="docenteForm">
+          {foreach from=$Docente item=docente}
+            <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+          {/foreach}
+        </select><br><br>
         <button type="submit" class="btn boton">Guardar cambios</button>
       </form>
     </div>

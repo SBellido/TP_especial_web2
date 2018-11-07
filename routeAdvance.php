@@ -29,10 +29,10 @@
         $controller =  new $action[0]();
         $metodo = $action[1];
         if(isset($params) &&  $params != null){
-             $controller->$metodo($params);
+          $controller->$metodo($params);
         }
         else{
-            $controller->$metodo();
+          $controller->$metodo();
        }
     }
   }

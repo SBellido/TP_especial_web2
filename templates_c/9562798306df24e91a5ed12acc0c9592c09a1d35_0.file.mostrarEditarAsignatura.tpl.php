@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-06 17:53:31
+/* Smarty version 3.1.33, created on 2018-11-06 22:35:04
   from 'C:\xampp\htdocs\TP_especial_web2\templates\mostrarEditarAsignatura.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5be1c70ba8f063_03528498',
+  'unifunc' => 'content_5be209086aeea6_89159184',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9562798306df24e91a5ed12acc0c9592c09a1d35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\mostrarEditarAsignatura.tpl',
-      1 => 1541523209,
+      1 => 1541540101,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5be1c70ba8f063_03528498 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be209086aeea6_89159184 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -56,23 +56,20 @@ foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <label>Docente</label><br>
-
-          <select name="docenteForm">
-            <?php
+        <select name="docenteForm">
+          <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Docente']->value, 'docente');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['docente']->value) {
 ?>
-              <option value="<?php echo $_smarty_tpl->tpl_vars['docente']->value['id_docente'];?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['docente']->value['id_docente'];?>
 "><?php echo $_smarty_tpl->tpl_vars['docente']->value['nombre'];?>
 </option>
-            <?php
+          <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-          </select>
-
-        <br><br>
+        </select><br><br>
         <button type="submit" class="btn boton">Guardar cambios</button>
       </form>
     </div>

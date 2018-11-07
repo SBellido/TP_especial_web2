@@ -73,7 +73,7 @@
                 {/foreach}
               </select>
               <br><br>
-              <button type="submit" class="btn boton">CREAR ASIGNATURA</button>
+              <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
             </form>
           </div>
           <div class="col">

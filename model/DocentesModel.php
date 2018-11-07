@@ -21,12 +21,12 @@
 
     function InsertarDocente($nombre, $usuario, $email, $password, $rol) {
       $sentencia = $this->db->prepare("INSERT INTO docente (`nombre`, `usuario`, `email`, `password`, `rol`) VALUES (?,?,?,?,?)");
-      $sentencia->execute(array($nombre, $usuario, $email, $password, $rol));
+      $sentencia->execute([$nombre, $usuario, $email, $password, $rol]);
     }
 
     function EliminarDocente($id_docente) {
       $sentencia = $this->db->prepare("DELETE FROM docente WHERE id_docente=?");
-      $sentencia->execute(array($id_docente)); //atento con la D
+      $sentencia->execute([$id_docente]); //atento con la D
     }
 
   }
