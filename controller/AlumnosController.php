@@ -65,7 +65,7 @@
 
     function MostrarAlumnosFiltro() {
       $titulo = "Alumnos de una asignatura ";
-      $id_asignatura = $_POST["filtroForm"];
+      $id_asignatura = $_GET["filtroForm"];
       $asignatura = $this->modelAsignatura->GetAsignaturas();
       $user = $this->getUser();
       $alumnos = $this->model->GetAlumnosFiltro($id_asignatura);

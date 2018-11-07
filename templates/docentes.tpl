@@ -11,6 +11,7 @@
                 <p><b>DOCENTE: </b>{$docente['nombre']}</p>
                 <p><b>NOMBRE DE USUARIO: </b>{$docente['usuario']}</p>
                 <p><b>EMAIL: </b>{$docente['email']}</p>
+                <p><b>Cargo: </b>{$docente['rol']}</p>
                 {if $Docentes!==invitado}
                 <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
                   ELIMINAR PERFIL

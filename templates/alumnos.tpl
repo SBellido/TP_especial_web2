@@ -9,13 +9,13 @@
       </div>
       <div class="col"><br><br>
         <h4>Listar alumnos de una asignatura</h4>
-        <form action="mostrarAlumnosFiltro" method="post">
+        <form action="mostrarAlumnosFiltro" method="GET">
           <select name="filtroForm">
             {foreach from=$Asignatura item= asignatura}
               <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
             {/foreach}
           </select>
-          <button class="boton btn" type="submit" name="button">FILTRAR</button>
+          <button class="boton btn" type="submit" >FILTRAR</button>
         </form>
     </div>
   </div>

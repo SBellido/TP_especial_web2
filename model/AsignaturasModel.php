@@ -7,7 +7,8 @@ class AsignaturasModel extends Model {
     }
 
   function GetAsignaturas() {
-    $sentencia = $this->db->prepare("SELECT * FROM asignatura");
+    $sentencia = $this->db->prepare("SELECT a.*, d.nombre as nombre_docente
+                                     FROM asignatura a INNER JOIN docente d ON(a.id_docente = d.id_docente)");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -29,8 +30,15 @@ class AsignaturasModel extends Model {
   }
 
   function GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura){
+<<<<<<< HEAD
     $sentencia = $this->db->prepare("UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
     $sentencia->execute([$nombre,$descripcion,$docente]);
+=======
+    //echo json_encode([$nombre,$descripcion,$docente,$id_asignatura]);
+    //die;
+    $sentencia = $this->db->prepare( "UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
+    $sentencia->execute([$nombre,$descripcion,$docente,$id_asignatura]);
+>>>>>>> conrado
   }
 
   function GetAsignaturas_idAsignatura(){
