@@ -1,6 +1,6 @@
 <?php
 
-  class AdminView extends View {
+  class ComentariosView extends View {
     function __construct($baseURL) {
       parent::__construct($baseURL);
     }

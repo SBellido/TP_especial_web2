@@ -36,7 +36,7 @@
     }
 
     function verificaPermisos() {
-      if (isset($_SESSION['User']) && $_SESSION['permisions'] == 'admin') {
+      if (isset($_SESSION['User']) && $_SESSION['Permisos'] == 'admin') {
         return true;
       }else{
         return false;

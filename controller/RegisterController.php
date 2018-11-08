@@ -40,7 +40,7 @@ class RegisterController extends SecuredController
         $this->model->InsertarDocente($nombre, $usuario, $email, $password, $rol);
         session_start();
         $_SESSION["User"] = $usuario;
-        $_SESSION["permisions"] = $usuario[0]["rol"];
+        $_SESSION["Permisos"] = $usuario[0]["rol"];
         header("Location: ".URL_ASIGNATURAS);
       } else {
         $this->view->mostrarRegistro("Passwor incorrecto");

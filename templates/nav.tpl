@@ -18,6 +18,9 @@
       <li class="nav-item">
         <a id="TextoBotonera" class="nav-link disabled" href="docentes">DOCENTES</a>
       </li>
+      <li class="nav-item">
+        <a id="TextoBotonera" class="nav-link" href="api/comentarios">COMENTARIOS</a>
+      </li>
     </ul>
   </div><br>
   <!-- <div class="container">
