@@ -7,10 +7,8 @@
 
       'comentarios#GET'=> 'ComentariosController#GetComentarios',
       'asignaturas#GET'=> 'AsignaturasApiController#MostrarAsignaturas',
-      'ordenarcomentarios#GET'=> 'ComentariosController#OrdenarComentarios',
-      // 'comentarios#GET'=> 'ComentariosApiController#getComentarios'
-
   ];
+
 }
 
 ?>

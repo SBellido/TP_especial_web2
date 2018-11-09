@@ -29,19 +29,28 @@ class AsignaturasController extends SecuredController{
   function MostrarAsignaturas(){
     $asignaturas = $this->model->GetAsignaturas();
     $docente = $this->modelDocentes->GetDocentes();
+    $permiso = $this->verificaPermisos();
     $user=$this->getUser();
-    $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$user);
+    // $userConnect = $this->modelDocentes->GetDocente($user);
+    // $id_docente = $this->
+    $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$user,$permiso);
   }
 
   function AgregarAsignatura(){
+    $permiso=$this->verificaPermisos();
+    if ($permiso) {
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
     $docente = $_POST["docenteForm"];
     $this->model->AgregarAsignatura($nombre,$descripcion,$docente);
     header("Location: ".URL_ASIGNATURAS);
     die();
+    }else{
+      header("Location: ".URL_LOGIN);
+      die();
+    }
   }
-
+  
   function EliminarAsignatura($params){
     $this->model->EliminarAsignatura($params[0]);
     header("Location: ".URL_ASIGNATURAS);

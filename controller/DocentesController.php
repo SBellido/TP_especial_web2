@@ -21,23 +21,31 @@ class DocentesController extends SecuredController
 
   function MostrarDocentes() {
     $docentes = $this->model->GetDocentes();
-    $user=$this->getUser();
-    $this->view->MostrarDocentes($this->titulo,$docentes,$user);
+    $usuario=$this->getUser();
+    // $userConnect = $this->model->GetAdmin($usuario);
+    $userConnect = $this->model->GetDocente($usuario);
+    $this->view->MostrarDocentes($this->titulo,$docentes,$userConnect);
   }
 
-  function EliminarDocente($params) {
+  // function GetRol() {
+  //
+  // }
 
+  function EliminarDocente($params) {
     $permiso=$this->verificaPermisos();
     if ($permiso) {
       $this->model->EliminarDocente($params[0]);
+      $this->view->EliminarDocente($permiso);
       header("Location: ".URL_DOCENTES);
       die();
     }else{
       header("Location: ".URL_LOGIN);
       die();
     }
-
+    
   }
+
+
   //
   // function InsertDocente() {
   //   $nombre = $_POST["nombreForm"];
@@ -55,5 +63,6 @@ class DocentesController extends SecuredController
   //   $this->view->MostrarDocente($docente);
   // }
 }
+
 
  ?>

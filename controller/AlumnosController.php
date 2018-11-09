@@ -44,9 +44,15 @@
     }
 
     function EliminarAlumno($params) {
-      $this->model->EliminarAlumno($params[0]);
-      header("Location: ".URL_ALUMNOS);
-      die();
+      $permiso=$this->verificaPermisos();
+      if ($permiso) {
+        $this->model->EliminarAlumno($params[0]);
+        header("Location: ".URL_ALUMNOS);
+        die();
+      }else{
+        header("Location: ".URL_LOGIN);
+        die();
+      }
     }
 
     function AprobarAlumno($params) {

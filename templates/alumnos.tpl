@@ -43,6 +43,9 @@
           </tr>
         </thead>
         <tbody>
+          {foreach from=$Usuario item=usuario}
+          <h2>{$usuario}</h2>
+            {/foreach}
           {foreach from=$Alumnos item= alumnos}
             <tr>
               <th>{$alumnos['nombre']}</th>

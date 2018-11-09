@@ -10,7 +10,12 @@
     function GetComentarios() {
       $sentencia = $this->db->prepare("SELECT * FROM comentario");
       $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      // return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      $comentarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      // foreach ($comenrtarios as $key => $comentario) {
+      //   $comentarios[$key]['valoracion'] = $comentarios[$key]['valoracion'] == "0" ? false : true;
+      return $comentarios;
+      // }
     }
   }
 

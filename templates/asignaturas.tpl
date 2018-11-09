@@ -4,7 +4,8 @@
     <section class="container">
       <div class="row">
         <div class="col">
-          <h6>Usuario conectado: "{$Usuario}"</h6>
+          <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
+
           <h1>{$Titulo}</h1>
         </div>
         <div class="col"><br><br>
@@ -38,7 +39,7 @@
               <td><b>{$asignatura['nombre']}</b></td>
               <td>{$asignatura['nombre_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
-              {if $Usuario!==invitado}
+              {if $Permisos == "admin"}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
               {/if}
@@ -50,37 +51,41 @@
         </tbody>
       </table>
     </section><br><hr>
+  {foreach from=$Docente item= docentes}
+    {if $docentes['rol'] ==="admin"}
+    <section class="container"><br>
+      <h2>AGREGAR ASIGNATURA</h2><br>
 
-    {if $Usuario!=="invitado"}
-      <section class="container"><br>
-        <h2>AGREGAR ASIGNATURA</h2><br>
-
-        <div class="row">
-          <div class="col">
-            <form method="post" action="agregarAsignatura">
-              <div class="form-group">
-                <label for="nombreForm">Asignatura</label>
-                <input type="text" class="form-control" id="nombreForm" placeholder="Nombre de la asignatura" name="nombreForm">
-              </div>
-              <div class="form-group">
-                <label for="descripcionForm">Descripción</label>
-                <input type="text" class="form-control" id="descripcionForm" placeholder="Máximo 400 caracteres" name="descripcionForm">
-              </div>
-              <label for="descripcionForm">Docente</label><br>
-              <select name="docenteForm">
-                {foreach from=$Docente item=docente}
-                  <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
-                {/foreach}
-              </select>
-              <br><br>
-              <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
-            </form>
-          </div>
-          <div class="col">
-            <img src="{$Imagen}" alt="">
-          </div>
-        </section><br>
+      <div class="row">
+        <div class="col">
+          <form method="post" action="agregarAsignatura">
+            <div class="form-group">
+              <label for="nombreForm">Asignatura</label>
+              <input type="text" class="form-control" id="nombreForm" placeholder="Nombre de la asignatura" name="nombreForm">
+            </div>
+            <div class="form-group">
+              <label for="descripcionForm">Descripción</label>
+              <input type="text" class="form-control" id="descripcionForm" placeholder="Máximo 400 caracteres" name="descripcionForm">
+            </div>
+            <label for="descripcionForm">Docente</label><br>
+            <select name="docenteForm">
+              {foreach from=$Docente item=docente}
+                <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+              {/foreach}
+            </select>
+            <br><br>
+            <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
+          </form>
+        </div>
+        <div class="col">
+          <img src="{$Imagen}" alt="">
+        </div>
+      </section><br>
       {/if}
+
+
+  {/foreach}
+
     {include file = "footer.tpl"}
   </body>
 </html>

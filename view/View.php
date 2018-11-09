@@ -8,6 +8,7 @@
     function __construct($baseURL, $user = ''){
       $this->smarty = new Smarty();
       $this->smarty->assign('baseURL',$baseURL);
+      // $this->smarty->assign('Admin', $admin);
       $this->smarty->assign('Docentes',$user);
     }
 

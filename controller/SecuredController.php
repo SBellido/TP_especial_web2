@@ -27,8 +27,11 @@
     }
 
     function getUser() {
-      if(isset($_SESSION['User'])){
-        return  $_SESSION['User'];
+      if(isset($_SESSION['Usuario'])){
+        $user = new stdClass();
+        $user->nombre = $_SESSION['Usuario'];
+        $user->permisos = $_SESSION['Permisos'];
+        return  $user;
       }else{
         header("Location: ".URL_LOGIN);
         die();
@@ -36,12 +39,20 @@
     }
 
     function verificaPermisos() {
-      if (isset($_SESSION['User']) && $_SESSION['Permisos'] == 'admin') {
+      if (isset($_SESSION['Usuario']) && $_SESSION['Permisos'] == 'admin') {
         return true;
       }else{
         return false;
       }
     }
+    // function getRol() {
+    //   if(isset($_SESSION['Permisos'] == 'admin')){
+    //     return  $_SESSION['Permisos'];
+    //   }else{
+    //     header("Location: ".URL_LOGIN);
+    //     die();
+    //   }
+    // }
   }
 
 ?>

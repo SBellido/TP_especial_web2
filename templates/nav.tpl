@@ -24,16 +24,16 @@
     </ul>
   </div><br>
   <!-- <div class="container">
-    <h6>Usuario conectado: "{$Usuario}"</h6>
+    <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
   </div> -->
-  {if $Usuario!=="invitado"}
+  {if $Usuario->permisos!=="invitado"}
   <div class="">
     <form class="" action="logout" method="post">
         <button  class="boton btn" type="submit" name="button">CERRAR SESIÓN</button>
     </form>
   </div>
   {/if}
-  {if $Usuario==="invitado"}
+  {if $Usuario->permisos==="invitado"}
   <div >
     <form class="" action="login" method="post">
         <button  class="boton btn" type="submit" name="button">INICIAR SESIÓN</button>

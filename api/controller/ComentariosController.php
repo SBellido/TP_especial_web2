@@ -17,14 +17,16 @@ class ComentariosController extends Api {
     $this->modelAsignatura = new AsignaturasModel();
   }
 
-  function GetComentarios(){
+  function GetComentarios($params = []) {
     $comentarios = $this->model->GetComentarios();
+    if($_GET['order'] == 'desc') {
+      $comentarios = $this->OrdenarComentarios($comentarios);
+    }
     return $this->json_response($comentarios, 200);
   }
 
-  function OrdenarComentarios() {
+  function OrdenarComentarios($comentarios) { 
     // $asignaturas = $this->model->GetAsignaturas($_GET['orden']);
-    $comentarios = $this->model->GetComentarios();
     //usort Ordena un arracy asociativo por el valor de un elemento
     usort($comentarios, function ($item1, $item2) {
     if ($item1['valoracion'] == $item2['valoracion']) return 0;
@@ -32,13 +34,8 @@ class ComentariosController extends Api {
       return $item1['valoracion'] > $item2['valoracion'] ? -1 : 1;
       // return $item1['valoracion'] > $item2['valoracion'] ? -1 : 1;
     });
-    if(isset($comentarios)) {
-     return $this->json_response($comentarios, 200);
-    }else{
-      return $this->json_response(null, 400);
-      }
-    }
+    return $comentarios;
 
   }
-
+}
 ?>

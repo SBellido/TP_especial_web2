@@ -38,9 +38,10 @@
       if(isset($dbUser) && !empty($dbUser)){
         if (password_verify($password, $dbUser[0]["password"])){
           session_start();
-          $_SESSION["User"] = $usuario;//Guardar una variable en la sesión
+          $_SESSION["Nombre"] = $dbUser[0]["nombre"];//Guardar una variable en la sesión
           $_SESSION["Permisos"] = $dbUser[0]["rol"];
-          $_SESSION["ID"] = $usuario[0]["id_docente"];
+          $_SESSION["Id"] = $dbUser[0]["id_docente"];
+          $_SESSION["Usuario"] = $dbUser[0]["usuario"];
           header("Location: ".URL_ASIGNATURAS);
           die();
         }
@@ -59,7 +60,7 @@
     function invitado(){
         $usuario = "invitado";
         session_start();
-        $_SESSION["User"] = $usuario;
+        $_SESSION["Usuario"] = $usuario;
         header("Location: ".URL_ASIGNATURAS);
         die();
     }
