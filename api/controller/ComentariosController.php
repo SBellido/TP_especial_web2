@@ -19,13 +19,13 @@ class ComentariosController extends Api {
 
   function GetComentarios($params = []) {
     $comentarios = $this->model->GetComentarios();
-    if($_GET['order'] == 'desc') {
+    if(isset($_GET['order']) && $_GET['order'] == 'desc') {
       $comentarios = $this->OrdenarComentarios($comentarios);
     }
     return $this->json_response($comentarios, 200);
   }
 
-  function OrdenarComentarios($comentarios) { 
+  function OrdenarComentarios($comentarios) {
     // $asignaturas = $this->model->GetAsignaturas($_GET['orden']);
     //usort Ordena un arracy asociativo por el valor de un elemento
     usort($comentarios, function ($item1, $item2) {

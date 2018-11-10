@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-09 15:59:51
+/* Smarty version 3.1.33, created on 2018-11-09 19:58:44
   from 'C:\xampp\htdocs\TP_especial_web2\templates\asignaturas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5be5a0e76a9db6_77440371',
+  'unifunc' => 'content_5be5d8e437a9f8_11126546',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3763d8af4b4148533a4973c61fa8879e8fcfeb2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\asignaturas.tpl',
-      1 => 1541775334,
+      1 => 1541789916,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5be5a0e76a9db6_77440371 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be5d8e437a9f8_11126546 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -84,14 +84,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['asignatura']->value) {
 </td>
               <td><?php echo $_smarty_tpl->tpl_vars['asignatura']->value['descripcion'];?>
 </td>
-              <?php if ($_smarty_tpl->tpl_vars['Permisos']->value == "admin") {?>
+              <?php if ($_smarty_tpl->tpl_vars['Usuario']->value->permisos == "admin") {?>
                 <td><a class="btn boton" href="eliminarAsignatura/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
 ">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
 ">EDITAR</a></td>
               <?php }?>
-              <td><a class="btn boton" href="listarAlumnos/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
-">LISTA DE ALUMNOS</a></td>
+              <td><a class="btn boton" href="detalleAsignatura/<?php echo $_smarty_tpl->tpl_vars['asignatura']->value['id_asignatura'];?>
+">DETALLE</a></td>
+              <td id=""></td>
             </tr><tr>
               <td></td>
             </tr>
@@ -102,12 +103,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </tbody>
       </table>
     </section><br><hr>
-  <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Docente']->value, 'docentes');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['docentes']->value) {
-?>
-    <?php if ($_smarty_tpl->tpl_vars['docentes']->value['rol'] === "admin") {?>
+      <?php if ($_smarty_tpl->tpl_vars['Usuario']->value->permisos == "admin") {?>
     <section class="container"><br>
       <h2>AGREGAR ASIGNATURA</h2><br>
 
@@ -147,12 +143,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
       </section><br>
       <?php }?>
-
-
-  <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
     <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>

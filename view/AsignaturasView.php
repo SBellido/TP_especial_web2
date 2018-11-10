@@ -5,13 +5,13 @@ class AsignaturasView extends View
     parent::__construct($baseURL);
   }
 
-  function MostrarAsignaturas($titulo,$imagen,$asignaturas,$docente,$usuario,$permiso) {
+  function MostrarAsignaturas($titulo,$imagen,$asignaturas,$docente,$usuario) {
     $this->smarty->assign('Titulo',$titulo);
     $this->smarty->assign('Imagen',$imagen);
     $this->smarty->assign('Asignaturas',$asignaturas);
     $this->smarty->assign('Docente',$docente);
     $this->smarty->assign('Usuario',$usuario);
-    $this->smarty->assign('Permisos',$permiso);
+    // $this->smarty->assign('Permisos',$permiso);
     // $this->smarty->assign('UserConnect',$userConnect );
     $this->smarty->display('templates/asignaturas.tpl');
   }
@@ -24,12 +24,12 @@ class AsignaturasView extends View
     $this->smarty->display('templates/mostrarEditarAsignatura.tpl');
   }
 
-  function MostrarAlumnosAsignatura($alumnos,$titulo,$usuario,$id_asignatura){
+  function MostrarDetalleAsignatura($alumnos,$titulo,$usuario,$asignatura){
     $this->smarty->assign('Titulo',$titulo);
-    $this->smarty->assign('Docente',$usuario);
+    $this->smarty->assign('Usuario',$usuario);
     $this->smarty->assign('Alumnos',$alumnos);
-    $this->smarty->assign('ID_Asignatura',$id_asignatura);
-    $this->smarty->display('templates/listaAlumnos.tpl');
+    $this->smarty->assign('Asignatura',$asignatura);
+    $this->smarty->display('templates/detalleAsignatura.tpl');
   }
 
 

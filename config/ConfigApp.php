@@ -29,7 +29,7 @@
       'agregarDocente'=>'DocentesController#InsertDocente',
       'eliminarDocente'=>'DocentesController#EliminarDocente',
 
-      'listarAlumnos'=>'AsignaturasController#ListarAlumnos',
+      'detalleAsignatura'=>'AsignaturasController#DetalleAsignatura',
 
       'mostrarAlumnosFiltro'=>'AlumnosController#MostrarAlumnosFiltro',
       'alumnos'=>'AlumnosController#MostrarAlumnos',

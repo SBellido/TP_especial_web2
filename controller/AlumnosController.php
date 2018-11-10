@@ -29,15 +29,17 @@
     }
 
     function AgregarAlumno() {
-      $nombre = $_POST["nombreForm"];
-      $email = $_POST["emailForm"];
-      $nota = $_POST["notaForm"];
-      $id_asignatura = $_POST["id_asignaturaForm"];
-      if(isset($_POST["aprobarForm"])){
-        $aprobado = 1;
-      }else{
-        $aprobado = 0;
+      if (isset($_SESSION['Permisos'])) {
+        $nombre = $_POST["nombreForm"];
+        $email = $_POST["emailForm"];
+        $nota = $_POST["notaForm"];
+        $id_asignatura = $_POST["id_asignaturaForm"];
+        if(isset($_POST["aprobarForm"])){
+          $aprobado = 1;
+        }else{
+          $aprobado = 0;
         }
+      }
       $this->model->AgregarAlumno($nombre,$email,$nota,$id_asignatura,$aprobado);
       header("Location: ".URL_ALUMNOS);
       die();

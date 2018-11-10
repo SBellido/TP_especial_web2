@@ -4,7 +4,7 @@
   <section class="container">
     <div class="row">
       <div class="col">
-        <h6>Usuario conectado: "{$Usuario}"</h6>
+        <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
         <h1>{$Titulo}</h1>
       </div>
       <div class="col"><br><br>
@@ -37,76 +37,74 @@
             <th scope="col">NOTA</th>
             <th scope="col"></th>
             <th scope="col"></th>
-            <th scope="col">CONDICIÓN</th>
+            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          {foreach from=$Usuario item=usuario}
-          <h2>{$usuario}</h2>
-            {/foreach}
           {foreach from=$Alumnos item= alumnos}
             <tr>
               <th>{$alumnos['nombre']}</th>
               <td>{$alumnos['email']}</td>
               <td>{$alumnos['nota']}</td>
-              {if $Usuario!=="invitado"}
+              {if $Usuario->permisos =="admin"}
                 <td><a class="btn boton" href="eliminarAlumno/{$alumnos['id_alumno']}">ELIMINAR</a></td>
                 <td><a class="btn boton" href="editarAlumno/{$alumnos['id_alumno']}">EDITAR</a></td>
-                <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumnos['id_alumno']}">DETALLE</a></td>
               {/if}
+              <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumnos['id_alumno']}">DETALLE</a></td>
+
               {if $alumnos['aprobado'] == 1}
                 <td><b><i>Aprobado</i></b></td>
                 {else}
                 <td><b><i>Regular</i></b></td>
               {/if}
-                {if $alumnos['aprobado'] != 1 && $Usuario !== "invitado"}
-                  <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
-                {/if}
+              {if $Usuario->permisos =="docente"}
+              <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
+              {/if}
+
             </tr>
           {/foreach}
         </tbody>
       </table>
     </section><br><hr><br>
 
-    {if $Usuario !== "invitado"}
-    <section class="container">
-      <h2>AGREGAR ALUMNO</h2><br>
-      <div class="row">
+    {if $Usuario->permisos!="invitado"}
+      <section class="container">
+        <h2>AGREGAR ALUMNO</h2><br>
+        <div class="row">
+          <div class="col">
+        <form method="post" action="agregarAlumno">
+          <div class="form-group">
+            <label>Nombre del Alumno</label>
+            <input type="text" class="form-control" name="nombreForm">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="emailForm">
+          </div>
+          <div class="form-group">
+            <label>Nota</label>
+            <input type="text" class="form-control" name="notaForm">
+          </div>
+          <select name="id_asignaturaForm">
+            {foreach from=$Asignatura item= asignatura}
+              <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
+            {/foreach}
+          </select>
+
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" name="aprobarForm">
+            <label class="form-check-label">Aprobar</label>
+          </div><br>
+            <button type="submit" class="boton btn btn-info btn-block">CREAR PERFIL</button>
+        </form>
+        </div>
         <div class="col">
-      <form method="post" action="agregarAlumno">
-        <div class="form-group">
-          <label>Nombre del Alumno</label>
-          <input type="text" class="form-control" name="nombreForm">
+          <img src="{$Imagen}" alt="">
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" class="form-control" name="emailForm">
-        </div>
-        <div class="form-group">
-          <label>Nota</label>
-          <input type="text" class="form-control" name="notaForm">
-        </div>
-        <select name="id_asignaturaForm">
-          {foreach from=$Asignatura item= asignatura}
-            <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
-          {/foreach}
-        </select>
-
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" name="aprobarForm">
-          <label class="form-check-label">Aprobar</label>
-        </div><br>
-          <button type="submit" class="boton btn btn-info btn-block">CREAR PERFIL</button>
-      </form>
       </div>
-      <div class="col">
-        <img src="{$Imagen}" alt="">
-      </div>
-    </div>
-
-    </section>
+      </section>
     {/if}
     <br>
   {include file = "footer.tpl"}

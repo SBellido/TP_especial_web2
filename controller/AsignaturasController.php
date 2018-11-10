@@ -29,11 +29,11 @@ class AsignaturasController extends SecuredController{
   function MostrarAsignaturas(){
     $asignaturas = $this->model->GetAsignaturas();
     $docente = $this->modelDocentes->GetDocentes();
-    $permiso = $this->verificaPermisos();
+    // $permiso = $this->verificaPermisos();
     $user=$this->getUser();
     // $userConnect = $this->modelDocentes->GetDocente($user);
     // $id_docente = $this->
-    $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$user,$permiso);
+    $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$user);
   }
 
   function AgregarAsignatura(){
@@ -50,7 +50,7 @@ class AsignaturasController extends SecuredController{
       die();
     }
   }
-  
+
   function EliminarAsignatura($params){
     $this->model->EliminarAsignatura($params[0]);
     header("Location: ".URL_ASIGNATURAS);
@@ -75,12 +75,13 @@ class AsignaturasController extends SecuredController{
     header("Location: ".URL_ASIGNATURAS);
   }
 
-  function ListarAlumnos($params){
+  function DetalleAsignatura($params){
     $id_asignatura = $params[0];
+    $asignatura = $this->model->GetAsignatura($id_asignatura);
     $titulo = "Alumnos de la asignatura con ID ";
-    $user = $this->getUser();
+    $usuario = $this->getUser();
     $alumnos = $this->modelAlumnos->GetAlumnosFiltro($id_asignatura);
-    $this->view->MostrarAlumnosAsignatura($alumnos,$titulo,$user,$id_asignatura);
+    $this->view->MostrarDetalleAsignatura($alumnos,$titulo,$usuario,$asignatura);
   }
 
 

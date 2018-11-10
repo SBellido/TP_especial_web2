@@ -39,11 +39,12 @@
               <td><b>{$asignatura['nombre']}</b></td>
               <td>{$asignatura['nombre_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
-              {if $Permisos == "admin"}
+              {if $Usuario->permisos =="admin"}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
               {/if}
-              <td><a class="btn boton" href="listarAlumnos/{$asignatura['id_asignatura']}">LISTA DE ALUMNOS</a></td>
+              <td><a class="btn boton" href="detalleAsignatura/{$asignatura['id_asignatura']}">DETALLE</a></td>
+              <td id=""></td>
             </tr><tr>
               <td></td>
             </tr>
@@ -51,8 +52,7 @@
         </tbody>
       </table>
     </section><br><hr>
-  {foreach from=$Docente item= docentes}
-    {if $docentes['rol'] ==="admin"}
+      {if $Usuario->permisos =="admin"}
     <section class="container"><br>
       <h2>AGREGAR ASIGNATURA</h2><br>
 
@@ -82,9 +82,6 @@
         </div>
       </section><br>
       {/if}
-
-
-  {/foreach}
 
     {include file = "footer.tpl"}
   </body>
