@@ -2,7 +2,7 @@
 {include file = "nav.tpl"}
   <body>
     <section class="container">
-      <h6>Usuario conectado: "{$Usuario}"</h6>
+      <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
       <h1>{$Titulo}</h1>
       <article class="tabla">
         <ul class="list-group">
@@ -12,7 +12,7 @@
                 <p><b>NOMBRE DE USUARIO: </b>{$docente['usuario']}</p>
                 <p><b>EMAIL: </b>{$docente['email']}</p>
                 <p><b>Cargo: </b>{$docente['rol']}</p>
-                {if $Usuario!==invitado}
+                {if $Usuario->permisos == "admin"}
                 <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
                   ELIMINAR PERFIL
                 </a>
@@ -23,8 +23,7 @@
       </article>
     </section>
     <br>
-    {if $Usuario!==invitado}
-    {/if}
+
     {include file = "footer.tpl"}
   </body>
 </html>
