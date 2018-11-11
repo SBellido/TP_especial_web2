@@ -18,7 +18,8 @@ class ComentariosController extends Api {
   }
 
   function GetComentarios($params = []) {
-    $comentarios = $this->model->GetComentarios();
+    // $params[0] = $id_asignatura;
+    $comentarios = $this->model->GetComentarios(); // GetComentariosAsignatura($id_asignatura);
     if(isset($_GET['order']) && $_GET['order'] == 'desc') {
       $comentarios = $this->OrdenarComentarios($comentarios);
     }
@@ -31,7 +32,7 @@ class ComentariosController extends Api {
     usort($comentarios, function ($item1, $item2) {
     if ($item1['valoracion'] == $item2['valoracion']) return 0;
     // if($_GET['valor'] == 'desc')
-      return $item1['valoracion'] > $item2['valoracion'] ? -1 : 1;
+    return $item1['valoracion'] > $item2['valoracion'] ? -1 : 1;
       // return $item1['valoracion'] > $item2['valoracion'] ? -1 : 1;
     });
     return $comentarios;
