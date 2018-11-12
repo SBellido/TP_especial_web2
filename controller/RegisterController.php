@@ -39,7 +39,7 @@ class RegisterController extends SecuredController
         $password = password_hash($password, PASSWORD_DEFAULT);
         $this->model->InsertarDocente($nombre, $usuario, $email, $password, $rol);
         session_start();
-        $_SESSION["User"] = $usuario;
+        $_SESSION["Usuario"] = $usuario;
         $_SESSION["Permisos"] = $usuario[0]["rol"];
         header("Location: ".URL_ASIGNATURAS);
       } else {
@@ -50,14 +50,14 @@ class RegisterController extends SecuredController
   // function EditarDatos() {
   //   if ($this->secCont->logeado()) {
   //     // $id_usuario = $param[0];
-  //     // $usuario = $this->model->GetUsuario($usuario);
+  //     // $usuario = $this->model->getUsuario($usuario);
   //     $this->view->modificarDatos();
   //   }
   // }
 
   // function EditarUsuario($usuario) { //EditarUsuario($param)
   //   if ($this->secCont->logeado()) {
-  //     $usuario = $this->model->GetUsuario($usuario);
+  //     $usuario = $this->model->getUsuario($usuario);
   //     $this->view->modificarDatos('Modifique sus datos');
   //   }
   // }
@@ -65,7 +65,7 @@ class RegisterController extends SecuredController
   //   if ($this->secCont->logeado()) {
   //     if (isset($usuario) && $usuario == true) {
   //       // $this->view->modificarDatos('Modifique sus datos');
-  //       // $this->model->GetUsuario($usuario)
+  //       // $this->model->getUsuario($usuario)
   //       if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
   //         $id_usuario = $_POST["id_usuario"];
   //         $nombre = $_POST["nombre"];

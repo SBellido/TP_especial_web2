@@ -13,7 +13,7 @@ class AsignaturasController extends SecuredController{
   private $imagen;
   private $modelAlumnos;
   private $modelDocentes;
-  private $user;
+  private $usuario;
 
   function __construct(){
     parent:: __construct();
@@ -30,10 +30,10 @@ class AsignaturasController extends SecuredController{
     $asignaturas = $this->model->GetAsignaturas();
     $docente = $this->modelDocentes->GetDocentes();
     // $permiso = $this->verificaPermisos();
-    $user=$this->getUser();
-    // $userConnect = $this->modelDocentes->GetDocente($user);
+    $usuario=$this->getUsuario();
+    // $usuarioConnect = $this->modelDocentes->GetDocente($usuario);
     // $id_docente = $this->
-    $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$user);
+    $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$usuario);
   }
 
   function AgregarAsignatura(){
@@ -62,8 +62,8 @@ class AsignaturasController extends SecuredController{
     $titulo = "Editor de la Asignatura";
     $asignatura = $this->model->GetAsignatura($id_asignatura);
     $docente = $this->modelDocentes->GetDocentes();
-    $user=$this->getUser();
-    $this->view->MostrarEditarAsignatura($asignatura,$titulo,$user,$docente);
+    $usuario=$this->getUsuario();
+    $this->view->MostrarEditarAsignatura($asignatura,$titulo,$usuario,$docente);
   }
 
   function GuardarEditarAsignatura(){
@@ -79,7 +79,7 @@ class AsignaturasController extends SecuredController{
     $id_asignatura = $params[0];
     $asignatura = $this->model->GetAsignatura($id_asignatura);
     $titulo = "Alumnos de la asignatura con ID ";
-    $usuario = $this->getUser();
+    $usuario = $this->getUsuario();
     $alumnos = $this->modelAlumnos->GetAlumnosFiltro($id_asignatura);
     $this->view->MostrarDetalleAsignatura($alumnos,$titulo,$usuario,$asignatura);
   }

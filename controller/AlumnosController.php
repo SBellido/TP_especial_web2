@@ -3,6 +3,7 @@
   require_once  "./view/AlumnosView.php";
   require_once  "./model/AlumnosModel.php";
   require_once  "./model/AsignaturasModel.php";
+  require_once  "./model/ImagenModel.php";
   require_once "SecuredController.php";
 
   class AlumnosController extends SecuredController {
@@ -11,25 +12,27 @@
     private $titulo;
     private $imagen;
     private $modelAsignatura;
+    private $imagenModel;
 
     function __construct() {
       parent::__construct();
       $this->view = new AlumnosView($this->baseURL);
       $this->model = new AlumnosModel();
       $this->modelAsignatura = new AsignaturasModel();
+      $this->imagenModel = new ImagenModel();
       $this->titulo = "Lista de Alumnos";
       $this->imagen = "images/alumno.jpg";
     }
 
     function MostrarAlumnos() {
       $alumnos = $this->model->GetAlumnos();
-      $user=$this->getUser();
+      $usuario=$this->getUsuario();
       $asignatura = $this->modelAsignatura->GetAsignaturas();
-      $this->view->MostrarAlumnos($this->titulo,$this->imagen,$alumnos,$user,$asignatura);
+      $this->view->MostrarAlumnos($this->titulo,$this->imagen,$alumnos,$usuario,$asignatura);
     }
 
     function AgregarAlumno() {
-      if (isset($_SESSION['Permisos'])) {
+      if (isset($_SESSION['Permisos']) && $_SESSION['Permisos'] != "invitado") {
         $nombre = $_POST["nombreForm"];
         $email = $_POST["emailForm"];
         $nota = $_POST["notaForm"];
@@ -66,43 +69,61 @@
     function MostrarDetalleAlumno($params) {
       $id_alumno = $params[0];
       $titulo = "Información detallada del alumno";
-      $user=$this->GetUser();
+      $usuario=$this->getUsuario();
       $alumno = $this->model->GetAlumno($id_alumno);
-      $this->view->MostrarDetalleAlumno($alumno,$titulo,$user);
+      $this->view->MostrarDetalleAlumno($alumno,$titulo,$usuario);
     }
 
     function MostrarAlumnosFiltro() {
       $titulo = "Alumnos de una asignatura ";
       $id_asignatura = $_GET["filtroForm"];
       $asignatura = $this->modelAsignatura->GetAsignaturas();
-      $user = $this->getUser();
+      $usuario = $this->getUsuario();
       $alumnos = $this->model->GetAlumnosFiltro($id_asignatura);
-      $this->view->MostrarAlumnosFiltro($alumnos,$titulo,$user,$asignatura);
+      $this->view->MostrarAlumnosFiltro($alumnos,$titulo,$usuario,$asignatura);
     }
 
     function EditarAlumno($params) {
-      $id_alumno = $params[0];
-      $titulo = "Editor de datos del Alumno";
-      $user=$this->getUser();
-      $alumno = $this->model->GetAlumno($id_alumno);
-      $this->view->MostrarEditarAlumno($alumno,$titulo,$user);
+      if (isset($_SESSION['Permisos']) && $_SESSION['Permisos'] != "invitado") {
+        $id_alumno = $params[0];
+        $titulo = "Editor de datos del Alumno";
+        $usuario=$this->getUsuario();
+        $alumno = $this->model->GetAlumno($id_alumno);
+        $this->view->MostrarEditarAlumno($alumno,$titulo,$usuario);
+      }
     }
-
     function GuardarEditarAlumno() {
       $nombre = $_POST["nombreForm"];
       $email = $_POST["emailForm"];
       $nota = $_POST["notaForm"];
       $id_alumno = $_POST["id_alumnoForm"];
+      $imagen = $_POST["fotoForm"];
+      $imagen = base64_encode( string $imagen );
       $this->model->GuardarEditarAlumno($nombre,$email,$nota,$id_alumno);
+      $thid->imagenModel->GuardarImagen($id_alumno,$imagen,$descripcion)
       header("Location: ".URL_ALUMNOS);
     }
 
     function AlumnosPorAsignaturas() {
       $titulo = "Alumnos ordenados por ID Asignatura";
-      $user = $this->getUser();
+      $usuario = $this->getUsuario();
       $asignaturas = $this->modelAsignatura->GetAsignaturas_idAsignatura();
       $alumnos = $this->model->GetAlumnos_idAsignatura($asignaturas);
-      $this->view->MostrarAlumnosPorAsignatura($alumnos,$titulo,$user,$asignaturas);
+      $this->view->MostrarAlumnosPorAsignatura($alumnos,$titulo,$usuario,$asignaturas);
+    }
+
+    function base64_encode_image ($filename=string,$filetype=string) {
+      $permiso=$this->verificaPermisos();
+      if ($permiso) {
+        if ($filename) {
+          $imgbinary = fread(fopen($filename, "r"), filesize($filename));
+          return 'data:image/' . $filetype . ';base64,' . base64_encode($imgbinary);
+          die();
+        }
+      }else{
+        header("Location: ".URL_LOGIN);
+        die();
+      }
     }
   }
 

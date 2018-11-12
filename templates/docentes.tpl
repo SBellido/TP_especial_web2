@@ -16,6 +16,9 @@
                 <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
                   ELIMINAR PERFIL
                 </a>
+                <a class="btn boton"href="darAdmin/{$docente['id_docente']}">
+                  HACER ADMINISTRADOR
+                </a>
                 {/if}
               </li>
           {/foreach}

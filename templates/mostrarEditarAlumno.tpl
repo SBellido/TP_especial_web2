@@ -2,7 +2,7 @@
 {include file = "nav.tpl"}
   <body>
     <div class="container">
-      <h6>Usuario conectado: "{$Usuario}"</h6>
+      <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
       <h1>{$Titulo}</h1>
       <form method="post" action="guardarEditarAlumno">
         {foreach from=$Alumno item=alumno}
@@ -20,6 +20,15 @@
             <input type="nota" class="form-control" id="notaForm" name="notaForm" value="{$alumno['nota']}">
           </div>
         {/foreach}
+        <div>
+          <img src="" alt="">
+          {if $Usuario->permisos == "admin"}
+          <label for="fotoForm">Ingrese foto</label>
+          <input type="file" class="form-control" id="fotoForm" name="fotoForm" value="">
+          <label for="descForm">descripcion</label>
+          <input type="text" class="form-control" id="descForm" name="descForm" value="" maxlength="50">
+          {/if}
+        </div><br>
         <button type="submit" class="btn boton">Guardar cambios</button>
       </form>
     </div>

@@ -18,14 +18,9 @@
       <li class="nav-item">
         <a id="TextoBotonera" class="nav-link disabled" href="docentes">DOCENTES</a>
       </li>
-      <li class="nav-item">
-        <a id="TextoBotonera" class="nav-link" href="api/comentarios">COMENTARIOS</a>
-      </li>
     </ul>
   </div><br>
-  <!-- <div class="container">
-    <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
-  </div> -->
+
   {if $Usuario->permisos!=="invitado"}
   <div class="">
     <form class="" action="logout" method="post">
@@ -33,7 +28,7 @@
     </form>
   </div>
   {/if}
-  {if $Usuario->permisos==="invitado"}
+  {if $Usuario->permisos=="invitado"}
   <div >
     <form class="" action="login" method="post">
         <button  class="boton btn" type="submit" name="button">INICIAR SESIÓN</button>
