@@ -4,6 +4,7 @@
   class AlumnosModel extends Model {
     function __construct() {
       parent::__construct();
+
     }
 
     function GetAlumnos() {
@@ -52,8 +53,9 @@
 
     function GetAlumnosFiltro($id_asignatura) {
       $sentencia = $this->db->prepare("SELECT a.*, b.nombre as nombre_asignatura
-                                       FROM alumno a INNER JOIN asignatura b ON(a.id_asignatura = b.id_asignatura)");
-      $sentencia->execute();
+                                       FROM alumno a INNER JOIN asignatura b ON (a.id_asignatura = b.id_asignatura) WHERE b.id_asignatura=?");
+      $sentencia->execute([$id_asignatura]);
+
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
