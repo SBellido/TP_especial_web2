@@ -22,9 +22,9 @@ class DocentesController extends SecuredController
 
   function MostrarDocentes() {
     $docentes = $this->model->GetDocentes();
-    $usuario=$this->getUsuario();
-    // $usuarioConnect = $this->model->GetAdmin($usuario);
-    // $usuarioConnect = $this->model->GetDocente($usuario);
+    $usuario=$this->getUser();
+    // $userConnect = $this->model->GetAdmin($usuario);
+    // $userConnect = $this->model->GetDocente($usuario);
     $this->view->MostrarDocentes($this->titulo,$docentes,$usuario);
   }
   // $alumnos = $this->model->GetAlumnos();
@@ -48,6 +48,7 @@ class DocentesController extends SecuredController
       header("Location: ".URL_LOGIN);
       die();
     }
+
   }
 
   function darAdmin($params) {
