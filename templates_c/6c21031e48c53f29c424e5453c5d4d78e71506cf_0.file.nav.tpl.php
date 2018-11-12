@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-09 16:02:33
+/* Smarty version 3.1.33, created on 2018-11-12 14:01:17
   from 'C:\xampp\htdocs\TP_especial_web2\templates\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5be5a1896a3142_71856773',
+  'unifunc' => 'content_5be9799dbde5d3_77349780',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6c21031e48c53f29c424e5453c5d4d78e71506cf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\nav.tpl',
-      1 => 1541775748,
+      1 => 1542027673,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5be5a1896a3142_71856773 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be9799dbde5d3_77349780 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav id="mainNav" class="navbar navbar-expand-lg navbar-light ">
   <div class="container navbar-brand js-scroll-trigger" href="#page-top">
     <a id="logoSB" class="navbar-brand js-scroll-trigger" href="asignaturas">
@@ -40,9 +40,6 @@ function content_5be5a1896a3142_71856773 (Smarty_Internal_Template $_smarty_tpl)
       </li>
       <li class="nav-item">
         <a id="TextoBotonera" class="nav-link disabled" href="docentes">DOCENTES</a>
-      </li>
-      <li class="nav-item">
-        <a id="TextoBotonera" class="nav-link" href="api/comentarios">COMENTARIOS</a>
       </li>
     </ul>
   </div><br>

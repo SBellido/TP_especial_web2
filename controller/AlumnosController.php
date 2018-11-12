@@ -66,9 +66,9 @@
     function MostrarDetalleAlumno($params) {
       $id_alumno = $params[0];
       $titulo = "Información detallada del alumno";
-      $user=$this->GetUser();
+      $usuario = $this->GetUser();
       $alumno = $this->model->GetAlumno($id_alumno);
-      $this->view->MostrarDetalleAlumno($alumno,$titulo,$user);
+      $this->view->MostrarDetalleAlumno($alumno,$titulo,$usuario);
     }
 
     function MostrarAlumnosFiltro() {

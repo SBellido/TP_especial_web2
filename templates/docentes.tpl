@@ -2,7 +2,7 @@
 {include file = "nav.tpl"}
   <body>
     <section class="container">
-      <h6>Usuario conectado: "{$Usuario}"</h6>
+      <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
       <h1>{$Titulo}</h1>
       <article class="tabla">
         <ul class="list-group">
