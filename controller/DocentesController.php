@@ -22,7 +22,7 @@ class DocentesController extends SecuredController
 
   function MostrarDocentes() {
     $docentes = $this->model->GetDocentes();
-    $usuario=$this->getUser();
+    $usuario=$this->getUsuario();
     // $userConnect = $this->model->GetAdmin($usuario);
     // $userConnect = $this->model->GetDocente($usuario);
     $this->view->MostrarDocentes($this->titulo,$docentes,$usuario);

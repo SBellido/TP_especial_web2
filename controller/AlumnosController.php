@@ -98,9 +98,9 @@
       $nota = $_POST["notaForm"];
       $id_alumno = $_POST["id_alumnoForm"];
       $imagen = $_POST["fotoForm"];
-      $imagen = base64_encode( string $imagen );
+      $imagen = base64_encode($imagen);
       $this->model->GuardarEditarAlumno($nombre,$email,$nota,$id_alumno);
-      $thid->imagenModel->GuardarImagen($id_alumno,$imagen,$descripcion)
+      $this->imagenModel->GuardarImagen($id_alumno,$imagen,$descripcion);
       header("Location: ".URL_ALUMNOS);
     }
 
