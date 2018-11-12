@@ -98,9 +98,18 @@
       $nota = $_POST["notaForm"];
       $id_alumno = $_POST["id_alumnoForm"];
       $imagen = $_POST["fotoForm"];
-      $imagen = base64_encode($imagen);
+      $descripcion = $_POST['descForm'];
+      if (isset($imagen)) {
+        // if (getimagesize($_FILES['fotoForm']['tmp_name'])) {
+          // $imagen = addslashes($_FILES['fotoForm']['tmp_name']);
+          // $nombre = addslashes($_FILES['fotoForm']['name']);
+          // $imagen = file_get_contents ($imgen);
+          // $imagen = base64_encode($imagen);
+          $imagen = $_FILES['fotoForm']['tmp_name'];
+          $this->imagenModel->GuardarImagen($id_alumno,$imagen,$descripcion);
+        // }
+      }
       $this->model->GuardarEditarAlumno($nombre,$email,$nota,$id_alumno);
-      $this->imagenModel->GuardarImagen($id_alumno,$imagen,$descripcion);
       header("Location: ".URL_ALUMNOS);
     }
 
