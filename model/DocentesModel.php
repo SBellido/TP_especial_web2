@@ -12,9 +12,10 @@
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
-    function GetAdmin($usuario) {
-      $sentencia = $this->db->prepare( "SELECT * FROM docente WHERE rol=?");
-      $sentencia->execute();
+
+    function GetRol($id_docente) {
+      $sentencia = $this->db->prepare( "SELECT rol FROM docente WHERE id_docente=?");
+      $sentencia->execute([$id_docente]);
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -30,8 +31,14 @@
     }
 
     function EliminarDocente($id_docente) {
-      $sentencia = $this->db->prepare("DELETE FROM docente WHERE id_docente=?");
-      $sentencia->execute([$id_docente]); //atento con la D
+      try{
+        $sentencia = $this->db->prepare("DELETE FROM docente WHERE id_docente=?");
+        $sentencia->execute([$id_docente]);
+
+    } catch (PDOException $e) {
+      echo "Error: " . $e->getMessage() . "<br />\n";
+    }
+
     }
 
     function CambiarRol($rol,$id_docente) {
@@ -39,5 +46,3 @@
       $sentencia->execute([$rol,$id_docente]);
     }
   }
-
-?>

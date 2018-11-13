@@ -2,15 +2,17 @@
 {include file = "nav.tpl"}
 <body>
   <section class="container">
-    <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
-    <h1>{$Titulo}</h1>
+    <div class="col">
+      <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
+      <h1>{$Titulo}</h1>
+    </div>
     <ul class="list-group">
       {foreach from=$Alumno item= alumno}
         <li class="list-group-item">
           <p><b>ALUMNO: </b>{$alumno['nombre']}</p>
           <p><b>EMAIL: </b>{$alumno['email']}</p>
           <p><b>NOTA: </b>{$alumno['nota']}</p>
-          <p><b>ID ASIGNATURA: </b>{$alumno['id_asignatura']}</p>
+          <p><b>ASIGNATURA: </b>{$alumno['nombre_asignatura']}</p>
           {if $alumno['aprobado'] == 1}
             <p><b><i>Aprobado</i></b></p>
           {else}

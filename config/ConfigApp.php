@@ -29,6 +29,8 @@
       'agregarDocente'=>'DocentesController#InsertDocente',
       'eliminarDocente'=>'DocentesController#EliminarDocente',
       'cambiarRol'=>'DocentesController#CambiarRol',
+      // 'cambiarRolDocente'=>'DocentesController#CambiarRol',
+
 
 
       'detalleAsignatura'=>'AsignaturasController#DetalleAsignatura',

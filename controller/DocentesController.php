@@ -23,32 +23,20 @@ class DocentesController extends SecuredController
   function MostrarDocentes() {
     $docentes = $this->model->GetDocentes();
     $usuario=$this->getUsuario();
-    // $userConnect = $this->model->GetAdmin($usuario);
-    // $userConnect = $this->model->GetDocente($usuario);
     $this->view->MostrarDocentes($this->titulo,$docentes,$usuario);
   }
-  // $alumnos = $this->model->GetAlumnos();
-  // $usuario=$this->getUsuario();
-  // $asignatura = $this->modelAsignatura->GetAsignaturas();
-  // $this->view->MostrarAlumnos($this->titulo,$this->imagen,$alumnos,$usuario,$asignatura);
-  // function GetRol() {
-  //
-  // }
 
   function EliminarDocente($params) {
-    $permiso=$this->verificaPermisos();
+    $permiso = $this->verificaPermisos();
     if ($permiso) {
-      $usuario=$this->getUsuario();
-      $docentes = $this->model->GetDocentes();
       $this->model->EliminarDocente($params[0]);
-      $this->view->MostrarDocentes($this->titulo,$docentes,$usuario);
-      header("Location: ".URL_DOCENTES);
-      die();
+      // print_r($params[0]);
+      //header("Location: ".URL_DOCENTES);
+      //die();
     }else{
       header("Location: ".URL_LOGIN);
       die();
     }
-
   }
 
   function CambiarRol($params) {
@@ -56,12 +44,12 @@ class DocentesController extends SecuredController
     if ($permiso) {
       $usuario = $this->getUsuario();
       $id_docente = $params[0];
-      $docente = $this->model->GetDocentes();
-      if ($docente["rol"] == 'docente') {
-        $rol = "admin";
-      }else{
-        $rol = "docente";
-      }
+      $rolActual = $this->model->GetRol($id_docente);
+      if($rolActual[0]['rol'] == "admin") {
+         $rol = "docente";
+       }elseif ($rolActual[0]['rol'] == "docente") {
+         $rol = "admin";
+       }
       $this->model->CambiarRol($rol,$id_docente);
       header("Location: ".URL_DOCENTES);
     }else{
@@ -70,19 +58,6 @@ class DocentesController extends SecuredController
     }
   }
 
-  function QuitarAdmin($params) {
-    $permiso = $this->verificaPermisos();
-    if ($permiso) {
-      $usuario = $this->getUsuario();
-      $id_docente = $params[0];
-      $rol = "docente";
-      $this->model->QuitarAdmin($rol,$id_docente);
-      header("Location: ".URL_DOCENTES);
-    }else{
-      header("Location: ".URL_LOGIN);
-      die();
-    }
-  }
 
   // function EditarDocente($id_docente) {
   //   $docente = $this->model->GetDocente($id_docente);

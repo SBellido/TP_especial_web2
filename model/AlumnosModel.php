@@ -14,7 +14,10 @@
     }
 
     function GetAlumno($id_alumno) {
-      $sentencia = $this->db->prepare("SELECT * FROM alumno WHERE id_alumno=?");
+      $sentencia = $this->db->prepare("SELECT a.*, b.nombre as nombre_asignatura
+                                      FROM alumno a INNER JOIN asignatura b
+                                      ON (a.id_asignatura = b.id_asignatura)
+                                      WHERE a.id_alumno=?");
       $sentencia->execute([$id_alumno]);
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -53,15 +56,15 @@
 
     function GetAlumnosFiltro($id_asignatura) {
       $sentencia = $this->db->prepare("SELECT a.*, b.nombre as nombre_asignatura
-                                       FROM alumno a INNER JOIN asignatura b ON (a.id_asignatura = b.id_asignatura) WHERE b.id_asignatura=?");
+                                       FROM alumno a INNER JOIN asignatura b
+                                       ON (a.id_asignatura = b.id_asignatura)
+                                       WHERE b.id_asignatura=?");
       $sentencia->execute([$id_asignatura]);
-
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function GetAlumnosFiltroAsignatura($id_asignatura) {
       $sentencia = $this->db->prepare("SELECT * FROM alumno WHERE id_asignatura=?");
-
       $sentencia->execute([$id_asignatura]);
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }

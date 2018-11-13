@@ -43,24 +43,25 @@
           </tr>
         </thead>
         <tbody>
-          {foreach from=$Alumnos item= alumnos}
+          {foreach from=$Alumnos item= alumno}
             <tr>
-              <th>{$alumnos['nombre']}</th>
-              <td>{$alumnos['email']}</td>
-              <td>{$alumnos['nota']}</td>
+              <th>{$alumno['nombre']}</th>
+              <td>{$alumno['email']}</td>
+              <td>{$alumno['nota']}</td>
               {if $Usuario->permisos =="admin"}
-                <td><a class="btn boton" href="eliminarAlumno/{$alumnos['id_alumno']}">ELIMINAR</a></td>
-                <td><a class="btn boton" href="editarAlumno/{$alumnos['id_alumno']}">EDITAR</a></td>
+                <td><a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a></td>
+                <td><a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a></td>
               {/if}
-              <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumnos['id_alumno']}">DETALLE</a></td>
-              {if $alumnos['aprobado'] == 1}
+              <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumno['id_alumno']}">DETALLE</a></td>
+              {if $alumno['aprobado'] == 1}
                 <td><b><i>Aprobado</i></b></td>
                 {else}
                 <td><b><i>Regular</i></b></td>
               {/if}
-              {if $alumnos['aprobado'] == 0 && $Usuario->permisos != "invitado"}
+              {if $alumno['aprobado'] == 0 && $Usuario->permisos != "invitado"}
                 <td><a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a></td>
               {/if}
+
             </tr>
           {/foreach}
         </tbody>

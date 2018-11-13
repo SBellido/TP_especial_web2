@@ -26,7 +26,7 @@ class AsignaturasModel extends Model {
   }
 
   function AgregarAsignatura($nombre,$descripcion,$docente){
-    $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre_asignatura, descripcion, id_docente) VALUES(?,?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, id_docente) VALUES(?,?,?)");
     $sentencia->execute([$nombre,$descripcion,$docente]);
   }
 
@@ -36,7 +36,7 @@ class AsignaturasModel extends Model {
   }
 
   function GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura){
-    $sentencia = $this->db->prepare( "UPDATE asignatura SET nombre_asignatura=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
+    $sentencia = $this->db->prepare( "UPDATE asignatura SET nombre=?, descripcion=?, id_docente=? WHERE id_asignatura=?");
     $sentencia->execute([$nombre,$descripcion,$docente,$id_asignatura]);
   }
 

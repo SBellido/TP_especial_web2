@@ -1,9 +1,8 @@
 
-
-.colDerecha{
-  float: right;
-  background-color: red;
+header {
+  background-color: rgb(21, 39, 55);
 }
+
 .btn{
   display: inline;
   padding: .100rem .50rem;
@@ -21,7 +20,13 @@
 #TextoBotonera, #pie {
   font-family: sans-serif;
   color: rgb(255, 191, 177);
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
 }
+
+
 
 #logo_esquina {
   float: none;
@@ -30,7 +35,9 @@
 #mainNav, #footer {
   background-color: rgb(21, 39, 55);
 }
-
+.cerrarSesion {
+  margin-left: 10px;
+}
 #pie {
   background-color: rgb(21, 39, 55);
   margin: 0px;
@@ -52,9 +59,9 @@
 }
 
 .boton {
-background-color: rgb(255, 191, 177);
-color: rgb(21, 39, 55);
-font-family: sans-serif;
+  background-color: rgb(255, 191, 177);
+  color: rgb(21, 39, 55);
+  font-family: sans-serif;
 }
 
 .boton:hover {

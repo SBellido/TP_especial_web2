@@ -44,7 +44,6 @@
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
               {/if}
               <td><a class="btn boton" href="detalleAsignatura/{$asignatura['id_asignatura']}">DETALLE</a></td>
-              <td id=""></td>
             </tr><tr>
               <td></td>
             </tr>
