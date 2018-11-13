@@ -12,9 +12,18 @@
                 <p><b>NOMBRE DE USUARIO: </b>{$docente['usuario']}</p>
                 <p><b>EMAIL: </b>{$docente['email']}</p>
                 <p><b>Cargo: </b>{$docente['rol']}</p>
-                {if $Usuario!==invitado}
+                {if $Usuario->permisos == "admin" && $docente['rol'] == "admin"}
                 <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
                   ELIMINAR PERFIL
+                </a>
+
+                {/if}
+                {if $Usuario->permisos == "admin" && $docente['rol'] == "docente"}
+                <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
+                  ELIMINAR PERFIL
+                </a>
+                <a class="btn boton"href="nombrarAdmin/{$docente['id_docente']}">
+                  HACER ADMIN
                 </a>
                 {/if}
               </li>
@@ -23,8 +32,7 @@
       </article>
     </section>
     <br>
-    {if $Usuario!==invitado}
-    {/if}
+
     {include file = "footer.tpl"}
   </body>
 </html>

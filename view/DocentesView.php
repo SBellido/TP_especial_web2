@@ -13,8 +13,9 @@
       $this->smarty->display('templates/docentes.tpl');
     }
 
-    function EliminarDocente($permiso) {
-      $this->smarty->assign('Admin',$permiso );
+    function EliminarDocente($usuario) {
+
+      $this->smarty->assign('Usuario',$usuario );
       $this->smarty->display('templates/docentes.tpl');
     }
 

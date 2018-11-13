@@ -28,6 +28,7 @@
       'docentes'=>'DocentesController#MostrarDocentes',
       'agregarDocente'=>'DocentesController#InsertDocente',
       'eliminarDocente'=>'DocentesController#EliminarDocente',
+      'nombrarAdmin'=>'DocentesController#NombrarAdmin',
 
       'detalleAsignatura'=>'AsignaturasController#DetalleAsignatura',
 

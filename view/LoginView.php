@@ -3,7 +3,7 @@
 class LoginView extends View
 {
   function __construct($baseURL) {
-    parent::__construct($baseURL, $user = '');
+    parent::__construct($baseURL, $usuario = '');
   }
 
   function mostrarLogin($titulo, $imagen, $logo = '') {

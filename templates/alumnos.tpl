@@ -58,10 +58,9 @@
                 {else}
                 <td><b><i>Regular</i></b></td>
               {/if}
-              {if $Usuario->permisos =="docente" &&  $alumnos['aprobado'] == 0}
-                <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
+              {if $alumnos['aprobado'] == 0 && $Usuario->permisos != "invitado"}
+                <td><a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a></td>
               {/if}
-
             </tr>
           {/foreach}
         </tbody>

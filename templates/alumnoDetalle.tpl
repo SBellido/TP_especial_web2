@@ -19,6 +19,7 @@
           <a class="btn boton" href="alumnos">VOLVER</a>
         </li><br>
       {/foreach}
+
     </ul><br>
   </section>
   <br>

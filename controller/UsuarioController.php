@@ -30,7 +30,7 @@ class UsuarioController extends controller
   }
 
   function MostrarUsuario(){
-      $Usuarios = $this->model->GetUsuario();
+      $Usuarios = $this->model->getUsuario();
       $this->view->Mostrar($this->Titulo, $Usuarios);
   }
 

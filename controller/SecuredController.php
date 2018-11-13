@@ -26,12 +26,12 @@
       header("Location: ".URL_LOGIN);
     }
 
-    function getUser() {
+    function getUsuario() {
       if(isset($_SESSION['Usuario'])){
-        $user = new stdClass();
-        $user->nombre = $_SESSION['Usuario'];
-        $user->permisos = $_SESSION['Permisos'];
-        return  $user;
+        $usuario = new stdClass();
+        $usuario->nombre = $_SESSION['Usuario'];
+        $usuario->permisos = $_SESSION['Permisos'];
+        return  $usuario;
       }else{
         header("Location: ".URL_LOGIN);
         die();
