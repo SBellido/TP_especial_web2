@@ -43,12 +43,12 @@
             <th>{$alumno['nombre']}</th>
             <td>{$alumno['email']}</td>
             <td>{$alumno['nota']}</td>
-            {if $Usuario!=="invitado"}
+            {if $Usuario->permisos == "admin"}
               <td><a class="btn boton" href="eliminarAlumno/{$alumno['id_alumno']}">ELIMINAR</a></td>
               <td><a class="btn boton" href="editarAlumno/{$alumno['id_alumno']}">EDITAR</a></td>
               <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumno['id_alumno']}">DETALLE</a></td>
             {/if}
-            {if $alumno['aprobado'] == 0 && $Usuario !== "invitado"}
+            {if $alumno['aprobado'] == 0 && $Usuario->permisos == "admin"}
               <td><a class="btn boton" href="aprobar/{$alumno['id_alumno']}">APROBAR</a></td>
             {/if}
             {if $alumno['aprobado'] == 1}

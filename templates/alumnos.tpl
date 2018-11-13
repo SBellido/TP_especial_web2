@@ -53,14 +53,13 @@
                 <td><a class="btn boton" href="editarAlumno/{$alumnos['id_alumno']}">EDITAR</a></td>
               {/if}
               <td><a class="btn boton" href="mostrarDetalleAlumno/{$alumnos['id_alumno']}">DETALLE</a></td>
-
               {if $alumnos['aprobado'] == 1}
                 <td><b><i>Aprobado</i></b></td>
                 {else}
                 <td><b><i>Regular</i></b></td>
               {/if}
-              {if $Usuario->permisos =="docente"}
-              <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
+              {if $Usuario->permisos =="docente" &&  $alumnos['aprobado'] == 0}
+                <td><a class="btn boton" href="aprobar/{$alumnos['id_alumno']}">APROBAR</a></td>
               {/if}
 
             </tr>

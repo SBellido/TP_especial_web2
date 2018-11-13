@@ -2,9 +2,9 @@
 {include file = "nav.tpl"}
   <body>
     <section class="container">
-      <h6>Usuario conectado: "{$Usuario}"</h6>
+      <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
       <h1>{$Titulo}</h1><br>
-        <a class="btn boton" href="alumnos">VOLVER</a><hr><br>
+        <a class="btn boton" href="alumnos">VOLVER</a><br><br>
       <table class="table">
         <thead class="thead-light">
           <tr>
