@@ -51,19 +51,39 @@ class DocentesController extends SecuredController
 
   }
 
-  function NombrarAdmin($params) {
+  function CambiarRol($params) {
     $permiso = $this->verificaPermisos();
     if ($permiso) {
       $usuario = $this->getUsuario();
       $id_docente = $params[0];
-      $rol = "admin";
-      $this->model->NombrarAdmin($rol,$id_docente);
+      $docente = $this->model->GetDocentes();
+      if ($docente["rol"] == 'docente') {
+        $rol = "admin";
+      }else{
+        $rol = "docente";
+      }
+      $this->model->CambiarRol($rol,$id_docente);
       header("Location: ".URL_DOCENTES);
     }else{
       header("Location: ".URL_LOGIN);
       die();
     }
   }
+
+  function QuitarAdmin($params) {
+    $permiso = $this->verificaPermisos();
+    if ($permiso) {
+      $usuario = $this->getUsuario();
+      $id_docente = $params[0];
+      $rol = "docente";
+      $this->model->QuitarAdmin($rol,$id_docente);
+      header("Location: ".URL_DOCENTES);
+    }else{
+      header("Location: ".URL_LOGIN);
+      die();
+    }
+  }
+
   // function EditarDocente($id_docente) {
   //   $docente = $this->model->GetDocente($id_docente);
   //   $this->view->MostrarDocente($docente);

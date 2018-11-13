@@ -16,13 +16,15 @@
                 <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
                   ELIMINAR PERFIL
                 </a>
-
+                <a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
+                  HACER DOCENTE
+                </a>
                 {/if}
                 {if $Usuario->permisos == "admin" && $docente['rol'] == "docente"}
                 <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
                   ELIMINAR PERFIL
                 </a>
-                <a class="btn boton"href="nombrarAdmin/{$docente['id_docente']}">
+                <a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
                   HACER ADMIN
                 </a>
                 {/if}

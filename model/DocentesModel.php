@@ -34,11 +34,10 @@
       $sentencia->execute([$id_docente]); //atento con la D
     }
 
-    function NombrarAdmin($rol,$id_docente){
+    function CambiarRol($rol,$id_docente) {
       $sentencia = $this->db->prepare("UPDATE docente SET rol=? WHERE id_docente=?");
       $sentencia->execute([$rol,$id_docente]);
     }
-
   }
 
 ?>
