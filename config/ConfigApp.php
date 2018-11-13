@@ -24,6 +24,7 @@
       'agregarAsignatura'=>'AsignaturasController#AgregarAsignatura',
       'editarAsignatura'=>'AsignaturasController#EditarAsignatura',
       'guardarEditarAsignatura'=>'AsignaturasController#GuardarEditarAsignatura',
+      'mostrarAsignaturaFiltro'=>'AsignaturasController#MostrarAsignaturaFiltro',
 
       'docentes'=>'DocentesController#MostrarDocentes',
       'agregarDocente'=>'DocentesController#InsertDocente',
@@ -35,7 +36,6 @@
 
       'detalleAsignatura'=>'AsignaturasController#DetalleAsignatura',
 
-      'mostrarAlumnosFiltro'=>'AlumnosController#MostrarAlumnosFiltro',
       'alumnos'=>'AlumnosController#MostrarAlumnos',
       'eliminarAlumno'=>'AlumnosController#EliminarAlumno',
       'agregarAlumno'=>'AlumnosController#AgregarAlumno',

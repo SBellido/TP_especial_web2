@@ -2,7 +2,7 @@
 require_once "./view/AsignaturasView.php";
 require_once "./model/AsignaturasModel.php";
 require_once "SecuredController.php";
-require_once "./model/AlumnosModel.php";
+
 require_once "./model/DocentesModel.php";
 
 
@@ -11,7 +11,7 @@ class AsignaturasController extends SecuredController{
   private $model;
   private $titulo;
   private $imagen;
-  private $modelAlumnos;
+
   private $modelDocentes;
   private $usuario;
 
@@ -19,7 +19,7 @@ class AsignaturasController extends SecuredController{
     parent:: __construct();
     $this->view = new AsignaturasView($this->baseURL);
     $this->model = new AsignaturasModel();
-    $this->modelAlumnos = new AlumnosModel();
+
     $this->modelDocentes = new DocentesModel();
 
     $this->titulo = "Asignaturas del Instituto";
@@ -80,10 +80,18 @@ class AsignaturasController extends SecuredController{
     $asignatura = $this->model->GetAsignatura($id_asignatura);
     $titulo = "Alumnos de la asignatura con ID ";
     $usuario = $this->getUsuario();
-    $alumnos = $this->modelAlumnos->GetAlumnosFiltro($id_asignatura);
-    $this->view->MostrarDetalleAsignatura($alumnos,$titulo,$usuario,$asignatura);
+
+    $this->view->MostrarDetalleAsignatura([],$titulo,$usuario,$asignatura);
+    //TODO buscar en el view donde usabas alumnoss
   }
 
+  function MostrarAsignaturaFiltro() {
+    $titulo = "Asignaturas de un docente";
+    $id_docente = $_GET["filtroForm"];
+    $usuario = $this->getUsuario();
+    $asignaturas = $this->model->GetAsignaturasFiltro($id_docente);
+    $this->view->MostrarAsignaturasFiltro($titulo,$usuario,$asignaturas);
+  }
 
 
 }

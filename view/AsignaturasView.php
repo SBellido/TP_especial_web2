@@ -9,7 +9,7 @@ class AsignaturasView extends View
     $this->smarty->assign('Titulo',$titulo);
     $this->smarty->assign('Imagen',$imagen);
     $this->smarty->assign('Asignaturas',$asignaturas);
-    $this->smarty->assign('Docente',$docente);
+    $this->smarty->assign('Docentes',$docente);
     $this->smarty->assign('Usuario',$usuario);
     // $this->smarty->assign('Permisos',$permiso);
     // $this->smarty->assign('UserConnect',$userConnect );
@@ -19,7 +19,7 @@ class AsignaturasView extends View
   function MostrarEditarAsignatura($asignatura,$titulo,$usuario,$docente){
     $this->smarty->assign('Asignatura',$asignatura);
     $this->smarty->assign('Titulo',$titulo);
-    $this->smarty->assign('Docente',$docente);
+    $this->smarty->assign('Docentes',$docente);
     $this->smarty->assign('Usuario',$usuario);
     $this->smarty->display('templates/mostrarEditarAsignatura.tpl');
   }

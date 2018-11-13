@@ -9,11 +9,11 @@
           <h1>{$Titulo}</h1>
         </div>
         <div class="col"><br><br>
-          <h4>Listar alumnos de una asignatura</h4>
-          <form action="mostrarAlumnosFiltro" method="GET">
+          <h4>Listar asignatura de docente</h4>
+          <form action="mostrarAsiganturaFiltro" method="GET">
             <select class="" name="filtroForm">
-              {foreach from=$Asignaturas item= asignatura}
-                <option value="{$asignatura['id_asignatura']}">{$asignatura['nombre']}</option>
+              {foreach from=$Docentes item= docente}
+                <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
               {/foreach}
             </select>
             <button class="boton btn" type="submit">FILTRAR</button>
@@ -68,7 +68,7 @@
             </div>
             <label for="descripcionForm">Docente</label><br>
             <select name="docenteForm">
-              {foreach from=$Docente item=docente}
+              {foreach from=$Docentes item=docente}
                 <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
               {/foreach}
             </select>
