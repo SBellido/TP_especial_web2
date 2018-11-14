@@ -6,9 +6,30 @@
       parent::__construct();
     }
 
-    function GuardarImagen($id_docente,$imagen,$descripcion) {
-      $sentencia = $this->db->prepare("INSERT INTO imagen (id_docente, imagen, descripcion) VALUES(?,?,?)");
-      $sentencia->execute([$id_docente,$imagen,$descripcion]);
+    // function GetImagen($id_imagen){
+    //
+    // }
+
+    function GuardarImagen($imagen,$descripcion) {
+      $path = $this->subirImagen($imagen);
+      $lastId =  $this->db->lastInsertId();
+      $sentencia = $this->db->prepare("INSERT INTO imagen (id_asignatura, imagen, descripcion) VALUES(?,?,?)");
+      $sentencia->execute([$lastId,$path,$descripcion]);
     }
+
+   private function subirImagen($imagen){
+      $destino_final = 'images/' . uniqid() . '.jpg';
+      echo "destino_final: ".$destino_final;
+      move_uploaded_file($imagen, $destino_final);
+      return $destino_final;
   }
-  ?>
+
+  function InsertarTarea($titulo,$descripcion,$completada,$tempPath){
+    $path = $this->subirImagen($tempPath);
+    $sentencia = $this->db->prepare("INSERT INTO tarea(titulo, descripcion, completada) VALUES(?,?,?)");
+    $sentencia->execute(array($titulo,$descripcion,$completada));
+    $lastId =  $this->db->lastInsertId();
+    return $this->GetTarea($lastId);
+  }
+
+  }

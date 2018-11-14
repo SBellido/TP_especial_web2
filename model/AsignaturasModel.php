@@ -27,10 +27,10 @@ class AsignaturasModel extends Model {
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function AgregarAsignatura($nombre,$descripcion,$docente,$cupo){
-    $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, id_docente,cupo)
+  function AgregarAsignatura($nombre,$descripcion,$docente,$cupo) {
+    $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, id_docente, cupo)
                                      VALUES(?,?,?,?)");
-    $sentencia->execute([$nombre,$descripcion,$docente,$cupo]);
+    $sentencia->execute([$nombre,$descripcion,$docente,$cupo]);  
   }
 
   function EliminarAsignatura($idAsignatura){

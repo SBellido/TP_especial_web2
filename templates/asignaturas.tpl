@@ -41,9 +41,7 @@
               <td><b>{$asignatura['nombre']}</b></td>
               <td>{$asignatura['nombre_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
-
               <td><a class="btn boton" href="detalleAsignatura/{$asignatura['id_asignatura']}">DETALLE</a></td>
-
               {if $Usuario->permisos =="admin"}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
@@ -66,41 +64,37 @@
       {if $Usuario->permisos =="admin"}
     <section class="container"><br>
       <h2>AGREGAR ASIGNATURA</h2><br>
-
-      <div class="row">
-        <div class="col">
-          <form method="post" action="agregarAsignatura">
-            <div class="form-group">
-              <label for="nombreForm">Asignatura</label>
-              <input type="text" class="form-control" id="nombreForm" placeholder="Nombre de la asignatura" name="nombreForm">
-            </div>
-            <div class="form-group">
-              <label for="descripcionForm">Descripción</label>
-              <input type="text" class="form-control" id="descripcionForm" placeholder="Máximo 400 caracteres" name="descripcionForm">
-            </div>
-            <label for="descripcionForm">Docente</label><br>
-            <select name="docenteForm">
-              {foreach from=$Docentes item=docente}
-                <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
-              {/foreach}
-            </select>
-
-
-            <div class="row">
-              <div class="col">
-                <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" name="cupoForm">
-                  <label class="form-check-label">Cupo completo</label>
-                </div><br>
+        <div class="row">
+          <div class="col">
+            <form method="POST" action="agregarAsignatura" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="nombreForm">Asignatura</label>
+                <input type="text" class="form-control" id="nombreForm" placeholder="Nombre de la asignatura" name="nombreForm">
               </div>
-              <div class="col">
-                <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
+              <div class="form-group">
+                <label for="descripcionForm">Descripción</label>
+                <input type="text" class="form-control" id="descripcionForm" placeholder="Máximo 400 caracteres" name="descripcionForm">
               </div>
-            </div>
-          </form>
-        </div>
-        <div class="col">
-          <img src="{$Imagen}" alt="">
+              <label for="descripcionForm">Docente</label><br>
+              <select name="docenteForm">
+                {foreach from=$Docentes item=docente}
+                  <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+                {/foreach}
+              </select>
+              <div class="form-group">
+                <label for="imgForm">Imagen</label>
+                <input type="file" class="form-control" id="imgForm" name="imgForm[]">
+              </div>
+              <div class="form-group">
+                <label for="descImgForm">Descripcion de la imagen</label>
+                <input type="text" class="form-control" id="descImgForm" name="descImgForm">
+              </div>
+              <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
+            </form>
+          </div>
+          <div class="col">
+            <img src="{$Imagen}" alt="">
+          </div>
         </div>
       </section><br>
       {/if}

@@ -1,10 +1,10 @@
 {include file = "header.tpl"}
 {include file = "nav.tpl"}
   <body>
-    <div class="container">
+    <section class="container">
       <h6>Usuario conectado "{$Usuario->nombre}"</h6>
       <h1>{$Titulo}</h1>
-      <form method="post" action="guardarEditarAsignatura">
+      <form method="post" action="guardarEditarAsignatura" enctype="multipart/form-data">
         {foreach from=$Asignatura item= asignatura}
           <input type="hidden" class="form-control" id="id_asignaturaForm" name="id_asignaturaForm" value="{$asignatura['id_asignatura']}">
           <div class="form-group">
@@ -30,9 +30,17 @@
               </div>
             {/if}
           {/foreach}
+          <div class="form-group">
+            <label for="descImgForm">Descripcion de la imagen</label>
+            <input type="text" class="form-control" id="descImgForm" name="descImgForm">
+          </div>
+          <div class="form-group">
+            <label for="imgForm">Imagen</label>
+            <input type="file" class="form-control" id="imgForm" name="imgForm">
+          </div>
         <button type="submit" class="btn boton">Guardar cambios</button>
       </form>
-    </div>
+    </section>
   {include file = "footer.tpl"}
   </body>
 </html>
