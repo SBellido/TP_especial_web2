@@ -30,7 +30,10 @@ class AsignaturasModel extends Model {
   function AgregarAsignatura($nombre,$descripcion,$docente,$cupo) {
     $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, id_docente, cupo)
                                      VALUES(?,?,?,?)");
-    $sentencia->execute([$nombre,$descripcion,$docente,$cupo]);  
+    $sentencia->execute([$nombre,$descripcion,$docente,$cupo]);
+    $lastId =  $this->db->lastInsertId();
+    return $this->GetAsignatura($lastId);
+
   }
 
   function EliminarAsignatura($idAsignatura){
