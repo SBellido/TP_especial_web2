@@ -15,9 +15,6 @@
               <a id="TextoBotonera" class="nav-link" href="asignaturas">ASIGNATURAS</a>
             </li>
             <li class="nav-item">
-              <a id="TextoBotonera" class="nav-link disabled" href="alumnos">ALUMNOS</a>
-            </li>
-            <li class="nav-item">
               <a id="TextoBotonera" class="nav-link disabled" href="docentes">DOCENTES</a>
             </li>
           </ul>

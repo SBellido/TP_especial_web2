@@ -6,9 +6,9 @@
       parent::__construct();
     }
 
-    function GuardarImagen($id_alumno,$imagen,$descripcion) {
-      $sentencia = $this->db->prepare("INSERT INTO imagen (id_alumno, imagen, descripcion) VALUES(?,?,?)");
-      $sentencia->execute([$id_alumno,$imagen,$descripcion]);
+    function GuardarImagen($id_docente,$imagen,$descripcion) {
+      $sentencia = $this->db->prepare("INSERT INTO imagen (id_docente, imagen, descripcion) VALUES(?,?,?)");
+      $sentencia->execute([$id_docente,$imagen,$descripcion]);
     }
   }
   ?>

@@ -10,7 +10,7 @@
         </div>
         <div class="col"><br><br>
           <h4>Listar asignatura de docente</h4>
-          <form action="mostrarAsiganturaFiltro" method="GET">
+          <form action="mostrarAsignaturaFiltro" method="GET">
             <select class="" name="filtroForm">
               {foreach from=$Docentes item= docente}
                 <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
@@ -31,6 +31,8 @@
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         {foreach from=$Asignaturas item= asignatura}
@@ -39,12 +41,22 @@
               <td><b>{$asignatura['nombre']}</b></td>
               <td>{$asignatura['nombre_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
+
+              <td><a class="btn boton" href="detalleAsignatura/{$asignatura['id_asignatura']}">DETALLE</a></td>
+
               {if $Usuario->permisos =="admin"}
                 <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
                 <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
+                {if $asignatura['cupo'] == 0 && $Usuario->permisos != "invitado"}
+                  <td><a class="btn boton" href="cerrar/{$asignatura['id_asignatura']}">CERRAR CUPOS</a></td>
+                {/if}
+                {if $asignatura['cupo'] == 1}
+                  <td><b><i>Completa</i></b></td>
+                {else}
+                  <td><b><i>Bancantes</i></b></td>
+                {/if}
               {/if}
-              <td><a class="btn boton" href="detalleAsignatura/{$asignatura['id_asignatura']}">DETALLE</a></td>
-            </tr><tr>
+              </tr><tr>
               <td></td>
             </tr>
           {/foreach}
@@ -72,8 +84,19 @@
                 <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
               {/foreach}
             </select>
-            <br><br>
-            <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
+
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" name="cupoForm">
+                  <label class="form-check-label">Cupo completo</label>
+                </div><br>
+              </div>
+              <div class="col">
+                <button type="submit" class="boton btn btn-info btn-block">CREAR ASIGNATURA</button>
+              </div>
+            </div>
           </form>
         </div>
         <div class="col">

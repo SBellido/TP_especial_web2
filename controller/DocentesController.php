@@ -3,7 +3,7 @@
 require_once "./view/DocentesView.php";
 require_once "./model/DocentesModel.php";
 require_once "SecuredController.php";
-// require_once "./view/HomeView.php";
+
 
 class DocentesController extends SecuredController
 {
@@ -22,17 +22,23 @@ class DocentesController extends SecuredController
 
   function MostrarDocentes() {
     $docentes = $this->model->GetDocentes();
-    $usuario=$this->getUsuario();
-    $this->view->MostrarDocentes($this->titulo,$docentes,$usuario);
+    $this->view->MostrarDocentes($this->titulo,$docentes,$this->usuario);
   }
 
   function EliminarDocente($params) {
     $permiso = $this->verificaPermisos();
+
     if ($permiso) {
-      $this->model->EliminarDocente($params[0]);
-      // print_r($params[0]);
-      //header("Location: ".URL_DOCENTES);
-      //die();
+      // try {
+        $this->model->EliminarDocente($params[0]);
+        header("Location: ".URL_DOCENTES);
+      // } catch (Exception $e) {
+      //   echo 'Excepción capturada: ',  $e->getMessage();
+      // } finally {
+      //   echo $e . "<h3>El docnete tiene una asignatura a su cargo y no puede ser eliminado, borre primero la asignatura.</h3>";
+      //   // header("Location: ".URL_DOCENTES);
+      // }
+
     }else{
       header("Location: ".URL_LOGIN);
       die();
@@ -42,7 +48,6 @@ class DocentesController extends SecuredController
   function CambiarRol($params) {
     $permiso = $this->verificaPermisos();
     if ($permiso) {
-      $usuario = $this->getUsuario();
       $id_docente = $params[0];
       $rolActual = $this->model->GetRol($id_docente);
       if($rolActual[0]['rol'] == "admin") {
@@ -58,11 +63,11 @@ class DocentesController extends SecuredController
     }
   }
 
+  function EditarDocente($id_docente) {
+    $docente = $this->model->GetDocente($id_docente);
+    $this->view->MostrarDocente($docente);
+  }
 
-  // function EditarDocente($id_docente) {
-  //   $docente = $this->model->GetDocente($id_docente);
-  //   $this->view->MostrarDocente($docente);
-  // }
 
 
   //
@@ -78,6 +83,3 @@ class DocentesController extends SecuredController
   // }
 
 }
-
-
- ?>

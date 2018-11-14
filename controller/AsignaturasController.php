@@ -19,9 +19,7 @@ class AsignaturasController extends SecuredController{
     parent:: __construct();
     $this->view = new AsignaturasView($this->baseURL);
     $this->model = new AsignaturasModel();
-
     $this->modelDocentes = new DocentesModel();
-
     $this->titulo = "Asignaturas del Instituto";
     $this->imagen = "images/ideas.jpg";
   }
@@ -42,7 +40,13 @@ class AsignaturasController extends SecuredController{
     $nombre = $_POST["nombreForm"];
     $descripcion = $_POST["descripcionForm"];
     $docente = $_POST["docenteForm"];
-    $this->model->AgregarAsignatura($nombre,$descripcion,$docente);
+    $cupo =$_POST["cupoForm"];
+    if(isset($_POST["cupoForm"])){
+          $cupo = 1;
+        }else{
+          $cupo = 0;
+        }
+    $this->model->AgregarAsignatura($nombre,$descripcion,$docente,$cupo);
     header("Location: ".URL_ASIGNATURAS);
     die();
     }else{
@@ -71,27 +75,41 @@ class AsignaturasController extends SecuredController{
     $descripcion = $_POST["descripcionForm"];
     $docente = $_POST["docenteForm"];
     $id_asignatura = $_POST["id_asignaturaForm"];
-    $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$id_asignatura);
+    $cupo = $_POST["cupoForm"];
+    // if (isset($_POST["cupoForm"])) {
+    //   $_POST["cupoForm"] = 1;
+    // } else {
+    //   $_POST["cupoForm"] = 0;
+    // }
+    // print_r($cupo);
+    // die;
+    $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$cupo,$id_asignatura);
     header("Location: ".URL_ASIGNATURAS);
   }
 
+  function CerrarCupo($params) {
+        $this->model->CerrarCupo($params[0]);
+        header("Location: ".URL_ASIGNATURAS);
+        die();
+      }
   function DetalleAsignatura($params){
     $id_asignatura = $params[0];
     $asignatura = $this->model->GetAsignatura($id_asignatura);
-    $titulo = "Alumnos de la asignatura con ID ";
     $usuario = $this->getUsuario();
-
-    $this->view->MostrarDetalleAsignatura([],$titulo,$usuario,$asignatura);
-    //TODO buscar en el view donde usabas alumnoss
+    $this->view->MostrarDetalleAsignatura($this->titulo,$usuario,$asignatura);
+    // buscar en el view donde usabas alumnoss
   }
 
   function MostrarAsignaturaFiltro() {
-    $titulo = "Asignaturas de un docente";
+    $titulo = "Asignaturas a cargo de un docente";
     $id_docente = $_GET["filtroForm"];
+    $docente = $this->modelDocentes->GetDocentes();
     $usuario = $this->getUsuario();
     $asignaturas = $this->model->GetAsignaturasFiltro($id_docente);
-    $this->view->MostrarAsignaturasFiltro($titulo,$usuario,$asignaturas);
+    // $this->view->MostrarAsignaturasFiltro($titulo,$usuario,$asignaturas);
+    $this->view->MostrarAsignaturas($titulo,$this->imagen,$asignaturas,$docente,$usuario);
   }
 
 
 }
+?>

@@ -6,7 +6,6 @@
   include_once 'view/View.php';
   include_once 'config/ConfigApp.php';
   include_once 'controller/AsignaturasController.php';
-  include_once 'controller/AlumnosController.php';
   include_once 'controller/DocentesController.php';
   include_once 'controller/LoginController.php';
   include_once 'controller/SecuredController.php';
@@ -35,5 +34,3 @@
        }
     }
   }
-
-?>

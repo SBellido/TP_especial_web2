@@ -16,12 +16,20 @@
             <input type="text" class="form-control" id="descripcionForm" name="descripcionForm" value="{$asignatura['descripcion']}">
           </div>
         {/foreach}
-        <label>Docente</label><br>
+        <label>Seleccione un docente</label><br>
         <select name="docenteForm">
           {foreach from=$Docentes item=docente}
             <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
           {/foreach}
         </select><br><br>
+          {foreach from=$Asignatura item= asignatura}
+            {if $asignatura['cupo'] == 1}
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" name="cupoForm">
+                <label class="form-check-label">Abrir cupo</label>
+              </div>
+            {/if}
+          {/foreach}
         <button type="submit" class="btn boton">Guardar cambios</button>
       </form>
     </div>

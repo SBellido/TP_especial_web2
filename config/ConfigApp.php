@@ -5,7 +5,6 @@
   define('URL_LOGOUT', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/logout');
   define('URL_LOGINERROR', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/login');
   define('URL_ASIGNATURAS', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/asignaturas');
-  define('URL_ALUMNOS', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/alumnos');
   define('URL_DOCENTES', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/docentes');
 
   class ConfigApp {
@@ -25,28 +24,14 @@
       'editarAsignatura'=>'AsignaturasController#EditarAsignatura',
       'guardarEditarAsignatura'=>'AsignaturasController#GuardarEditarAsignatura',
       'mostrarAsignaturaFiltro'=>'AsignaturasController#MostrarAsignaturaFiltro',
+      'detalleAsignatura'=>'AsignaturasController#DetalleAsignatura',
+      'cerrar'=>'AsignaturasController#CerrarCupo',
 
       'docentes'=>'DocentesController#MostrarDocentes',
       'agregarDocente'=>'DocentesController#InsertDocente',
       'eliminarDocente'=>'DocentesController#EliminarDocente',
       'cambiarRol'=>'DocentesController#CambiarRol',
-      // 'cambiarRolDocente'=>'DocentesController#CambiarRol',
-
-
-
-      'detalleAsignatura'=>'AsignaturasController#DetalleAsignatura',
-
-      'alumnos'=>'AlumnosController#MostrarAlumnos',
-      'eliminarAlumno'=>'AlumnosController#EliminarAlumno',
-      'agregarAlumno'=>'AlumnosController#AgregarAlumno',
-      'aprobar'=>'AlumnosController#AprobarAlumno',
-      'editarAlumno'=>'AlumnosController#EditarAlumno',
-      'guardarEditarAlumno'=>'AlumnosController#GuardarEditarAlumno',
-      'mostrarDetalleAlumno'=>'AlumnosController#MostrarDetalleAlumno',
-      'alumnosPorAsignaturas'=>'AlumnosController#AlumnosPorAsignaturas',
 
       'registro'=>'RegisterController#Registro',
   ];
 }
-
-?>
