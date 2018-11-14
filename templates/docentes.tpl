@@ -1,65 +1,56 @@
 {include file = "header.tpl"}
 {include file = "nav.tpl"}
-  <body>
-    <section class="container">
-      <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
-      <h1>{$Titulo}</h1>
-      <article class="tabla">
-        <ul class="list-group">
-          {foreach from=$Docentes item= docente}
-            <li class="list-group-item">
-              <p><b>DOCENTE: </b>{$docente['nombre']}</p>
-              <p><b>NOMBRE DE USUARIO: </b>{$docente['usuario']}</p>
-              <p><b>EMAIL: </b>{$docente['email']}</p>
-              <p><b>Cargo: </b>{$docente['rol']}</p>
-              {if $Usuario->permisos == "admin"}
-              <a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
-                ELIMINAR PERFIL
-              </a>
-              {/if}
-              {if $docente['rol'] == "docente" && $Usuario->permisos == "admin"}
-                <a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
-                  HACER ADMIN
-                </a>
-              {/if}
-              {if $docente['rol'] == "admin" && $Usuario->permisos == "admin"}
-                <a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
-                HACER DOCENTE
-                </a>
-              {/if}
-            </li>
-          {/foreach}
-        </ul>
-      </article>
-    </section>
-    <br>
+<body>
+  <section class="container">
+    <div class="row">
+      <div class="col">
+        <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
 
+        <h1>{$Titulo}</h1>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </section><br>
+  <section class="container">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">DOCENTE</th>
+          <th scope="col">NOMBRE DE USUARIO</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">ROL</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      {foreach from=$Docentes item= docente}
+      <tbody>
+        <tr>
+          <td><b>{$docente['nombre']}</b></td>
+          <td>{$docente['usuario']}</td>
+          <td>{$docente['email']}</td>
+          <td>{$docente['rol']}</td>
+          {if $Usuario->permisos == "admin"}
+          <td><a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
+            ELIMINAR PERFIL
+          </a></td>
+          {/if}
+          {if $docente['rol'] == "docente" && $Usuario->permisos == "admin"}
+            <td><a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
+              HACER ADMIN
+            </a></td>
+          {/if}
+          {if $docente['rol'] == "admin" && $Usuario->permisos == "admin"}
+          <td>  <a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
+            HACER DOCENTE
+            </a></td>
+          {/if}
+        </tr>
+      {/foreach}
+      </tbody>
+    </table>
+  </section>
     {include file = "footer.tpl"}
   </body>
 </html>
-    <!-- <section class="container"><br>
-      <h2>REGISTRAR USUARIO</h2>
-      <form method="post" action="agregarDocente" >
-        <div class="form-group">
-          <label for="nombreForm">Nombre y Apellido</label>
-          <input type="text" class="form-control" id="nombreForm" name="nombreForm">
-        </div>
-        <div class="form-group">
-          <label for="usuarioForm">Nombre de Usuario</label>
-          <input type="text" class="form-control" id="usuarioForm" name="usuarioForm">
-        </div>
-        <div class="form-group">
-          <label for="emailForm">Email</label>
-          <input type="email" class="form-control" id="emailForm" name="emailForm">
-        </div>
-        <div class="form-group">
-          <label for="cargoForm">Cargo asignado</label>
-          <input type="text" class="form-control" id="cargoForm" name="cargoForm">
-        </div>
-        <div class="form-group">
-          <label for="passwordForm">Password</label>
-          <input type="text" class="form-control" id="passwordForm" name="passwordForm">
-        </div>
-        <button type="submit" class="btn boton">CREAR PERFIL</button>
-      </form>
-    </section> -->

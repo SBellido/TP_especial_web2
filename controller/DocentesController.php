@@ -16,7 +16,7 @@ class DocentesController extends SecuredController
     parent::__construct();
     $this->view = new DocentesView($this->baseURL);
     $this->model = new DocentesModel();
-    $this->titulo = "Listado de Docentes con usuario registrado";
+    $this->titulo = "Listado de Docentes";
     $this->usuario = $this->getUsuario();
   }
 
