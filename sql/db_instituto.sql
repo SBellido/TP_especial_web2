@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-11-2018 a las 19:04:33
+-- Tiempo de generación: 15-11-2018 a las 19:56:39
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -51,7 +51,7 @@ INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `descripcion`, `id_docente`
 (15, 'Matemática 45', '454545454545454545', 4, 0),
 (16, 'afdadgfsdfg', 'dsfasfgsadgawertgrfsf', 4, 0),
 (18, 'HTML', 'una cosa linda', 2, 0),
-(19, 'HTML', 'una cosa linda', 2, 0),
+(19, 'HTML', 'una cosa linda', 2, 1),
 (27, 'Web 1', 'FrontEnd', 3, 0),
 (28, 'Web 1', 'FrontEnd', 3, 0),
 (29, 'Web 1', 'FrontEnd', 3, 0),
@@ -106,6 +106,19 @@ INSERT INTO `docente` (`id_docente`, `nombre`, `usuario`, `email`, `password`, `
 (5, 'Eureka', 'Eureka', 'conradochiesa@gmail.com', '$2y$10$DvdXtkdANw/RoN5aA9LAFuXDsYSc0APv.0rJUrbTLLtvFEQNZcEry', 'docente'),
 (7, 'Tusansito', 'Tusan', 'tuky@tuky.comn', '$2y$10$qjbwDSepfrBViCc.u2dL8elupBOGYA5OQBc1BbVCQ2Cd6j9mhQ5UO', 'docente');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagen`
+--
+
+CREATE TABLE `imagen` (
+  `id_imagen` int(11) NOT NULL,
+  `id_asignatura` int(11) NOT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `descripcion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Índices para tablas volcadas
 --
@@ -132,6 +145,13 @@ ALTER TABLE `docente`
   ADD PRIMARY KEY (`id_docente`);
 
 --
+-- Indices de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD PRIMARY KEY (`id_imagen`),
+  ADD KEY `id_asignatura` (`id_asignatura`) USING BTREE;
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -154,6 +174,12 @@ ALTER TABLE `docente`
   MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -169,6 +195,12 @@ ALTER TABLE `asignatura`
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`id_docente`),
   ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id_asignatura`);
+
+--
+-- Filtros para la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD CONSTRAINT `imagen_ibfk_1` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id_asignatura`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
