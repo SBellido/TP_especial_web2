@@ -51,8 +51,10 @@ class AsignaturasController extends SecuredController{
     $img = $_FILES['imgForm']['tmp_name'];
     $imgDescripcion = $_POST["descImgForm"];
     $rutaTempImagenes = $_FILES['imgForm']['tmp_name'];
-    $this->model->AgregarAsignatura($nombre,$descripcion,$docente,$cupo,$rutaTempImagenes);
-    $this->modelImagen->GuardarImagen($rutaTempImagenes[0],$imgDescripcion);
+    $ultimoId = $this->model->AgregarAsignatura($nombre,$descripcion,$docente,$cupo);
+
+  //esto no esta haciendo le falta recibir $lastId
+    $this->modelImagen->GuardarImagen($ultimoId[0]['id_asignatura'],$rutaTempImagenes[0],$imgDescripcion);
     header("Location: ".URL_ASIGNATURAS);
     die();
     } else {

@@ -31,8 +31,8 @@ class AsignaturasModel extends Model {
     $sentencia = $this->db->prepare("INSERT INTO asignatura(nombre, descripcion, id_docente, cupo)
                                      VALUES(?,?,?,?)");
     $sentencia->execute([$nombre,$descripcion,$docente,$cupo]);
-    $lastId =  $this->db->lastInsertId();
-    return $this->GetAsignatura($lastId);
+    $ultimoId =  $this->db->lastInsertId();
+    return $this->GetAsignatura($ultimoId);
 
   }
 
@@ -44,8 +44,8 @@ class AsignaturasModel extends Model {
 
   function GuardarEditarAsignatura($nombre,$descripcion,$docente,$cupo,$id_asignatura) {
     $sentencia = $this->db->prepare( "UPDATE asignatura
-      SET nombre=?, descripcion=?, id_docente=?, cupo=?
-      WHERE id_asignatura=?");
+                                      SET nombre=?, descripcion=?, id_docente=?, cupo=?
+                                      WHERE id_asignatura=?");
       $sentencia->execute([$nombre,$descripcion,$docente,$cupo,$id_asignatura]);
     }
   // function GuardarEditarAsignatura($nombre,$descripcion,$docente,$cupo,$id_asignatura){
