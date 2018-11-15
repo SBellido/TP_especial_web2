@@ -7,7 +7,7 @@ require_once "SecuredController.php";
 require_once "./model/DocentesModel.php";
 
 
-class AsignaturasController extends SecuredController{
+class AsignaturasController extends SecuredController {
   private $view;
   private $model;
   private $titulo;
@@ -48,7 +48,6 @@ class AsignaturasController extends SecuredController{
     if(isset($_POST['cupoForm'])) {
       $cupo = 1;
     }
-    $img = $_FILES['imgForm']['tmp_name'];
     $imgDescripcion = $_POST["descImgForm"];
     $rutaTempImagenes = $_FILES['imgForm']['tmp_name'];
     $ultimoId = $this->model->AgregarAsignatura($nombre,$descripcion,$docente,$cupo);
@@ -81,7 +80,7 @@ class AsignaturasController extends SecuredController{
   }
 
 
-  }
+  
 
   function EliminarAsignatura($params){
     $this->model->EliminarAsignatura($params[0]);
@@ -134,6 +133,4 @@ class AsignaturasController extends SecuredController{
     $this->view->MostrarAsignaturas($titulo,$this->imagen,$asignaturas,$docente,$usuario);
   }
 
-
 }
-?>
