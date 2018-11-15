@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-11-2018 a las 14:26:09
+-- Tiempo de generación: 15-11-2018 a las 19:04:33
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -25,29 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumno`
---
-
-CREATE TABLE `alumno` (
-  `id_alumno` int(11) NOT NULL,
-  `id_asignatura` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `nota` float NOT NULL,
-  `aprobado` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `alumno`
---
-
-INSERT INTO `alumno` (`id_alumno`, `id_asignatura`, `nombre`, `email`, `nota`, `aprobado`) VALUES
-(1, 2, 'Conrado Chiesa', 'conradochiesa@gmail.com', 8, 0),
-(2, 2, 'Carlos Bilardo', 'altoflan@sduilpa.com', 3, 0);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `asignatura`
 --
 
@@ -55,17 +32,30 @@ CREATE TABLE `asignatura` (
   `id_asignatura` int(11) NOT NULL,
   `nombre` varchar(50) CHARACTER SET latin1 NOT NULL,
   `descripcion` varchar(400) CHARACTER SET latin1 NOT NULL,
-  `id_docente` int(11) NOT NULL
+  `id_docente` int(11) NOT NULL,
+  `cupo` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `asignatura`
 --
 
-INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `descripcion`, `id_docente`) VALUES
-(1, 'Web 2', 'goíanuiopehnguiopeb', 2),
-(2, 'Web 2', 'goíanuiopehnguiopeb', 2),
-(3, 'Web 1', 'dgfdsgsg', 2);
+INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `descripcion`, `id_docente`, `cupo`) VALUES
+(3, 'Web 1', 'Pura mierda', 4, 0),
+(5, 'Biología', '', 2, 0),
+(7, 'PHP', 'Recitales del Indioeeeee', 2, 0),
+(10, 'Matemática', '123', 2, 0),
+(12, 'JS', 'mucha práctica', 4, 0),
+(13, '4Biología ', '4', 2, 0),
+(14, 'asdgasfgds', 'asdfgasdgsadfgsd', 2, 0),
+(15, 'Matemática 45', '454545454545454545', 4, 0),
+(16, 'afdadgfsdfg', 'dsfasfgsadgawertgrfsf', 4, 0),
+(18, 'HTML', 'una cosa linda', 2, 0),
+(19, 'HTML', 'una cosa linda', 2, 0),
+(27, 'Web 1', 'FrontEnd', 3, 0),
+(28, 'Web 1', 'FrontEnd', 3, 0),
+(29, 'Web 1', 'FrontEnd', 3, 0),
+(30, 'Web 1', 'FrontEnd', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -76,9 +66,19 @@ INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `descripcion`, `id_docente`
 CREATE TABLE `comentario` (
   `id_comentario` int(11) NOT NULL,
   `id_asignatura` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `comentario` varchar(500) NOT NULL
+  `id_docente` int(11) NOT NULL,
+  `comentario` varchar(500) NOT NULL,
+  `valoracion` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `id_asignatura`, `id_docente`, `comentario`, `valoracion`) VALUES
+(1, 3, 7, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 6),
+(2, 3, 3, 'Njhahshfjhfuwebnfvuipnrguopnrguionopuiragnuio', 2),
+(3, 5, 3, 'Esta esmi catedra y hago lo que se me canta', 5);
 
 -- --------------------------------------------------------
 
@@ -102,18 +102,13 @@ CREATE TABLE `docente` (
 INSERT INTO `docente` (`id_docente`, `nombre`, `usuario`, `email`, `password`, `rol`) VALUES
 (2, 'conrado', 'conrado', 'conradochiesa@gmail.com', '$2y$10$26R12nBWk6v9/9yOraaiP.QpIPbwPPytpQDSVIyzx8Gm0ITF6UPTi', 'admin'),
 (3, 'Gabriela Soler', 'Gaby', 'gaby@gaby.com', '$2y$10$tGOxSBaizmuAPkFM8wGJm.Xt8ztm0.gQOuWZA.YI5daaQaNmc2Gh2', 'docente'),
-(4, 'Sebastian Bellido', 'Seba', 'seba@seba.com', '$2y$10$2Be7TdokSbmqY0TlAxvFoeI1CpbscQcF1eGh2.RC61wmKLP8DBIrO', '');
+(4, 'Sebastian Bellido', 'Seba', 'seba@seba.com', '$2y$10$2Be7TdokSbmqY0TlAxvFoeI1CpbscQcF1eGh2.RC61wmKLP8DBIrO', 'docente'),
+(5, 'Eureka', 'Eureka', 'conradochiesa@gmail.com', '$2y$10$DvdXtkdANw/RoN5aA9LAFuXDsYSc0APv.0rJUrbTLLtvFEQNZcEry', 'docente'),
+(7, 'Tusansito', 'Tusan', 'tuky@tuky.comn', '$2y$10$qjbwDSepfrBViCc.u2dL8elupBOGYA5OQBc1BbVCQ2Cd6j9mhQ5UO', 'docente');
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `alumno`
---
-ALTER TABLE `alumno`
-  ADD PRIMARY KEY (`id_alumno`),
-  ADD KEY `id_asignatura` (`id_asignatura`);
 
 --
 -- Indices de la tabla `asignatura`
@@ -128,7 +123,7 @@ ALTER TABLE `asignatura`
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id_comentario`),
   ADD KEY `id_asignatura` (`id_asignatura`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_docente` (`id_docente`) USING BTREE;
 
 --
 -- Indices de la tabla `docente`
@@ -141,38 +136,26 @@ ALTER TABLE `docente`
 --
 
 --
--- AUTO_INCREMENT de la tabla `alumno`
---
-ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT de la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
-  MODIFY `id_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `alumno`
---
-ALTER TABLE `alumno`
-  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id_asignatura`);
 
 --
 -- Filtros para la tabla `asignatura`
@@ -184,7 +167,7 @@ ALTER TABLE `asignatura`
 -- Filtros para la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `docente` (`id_docente`),
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`id_docente`),
   ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_asignatura`) REFERENCES `asignatura` (`id_asignatura`);
 COMMIT;
 
