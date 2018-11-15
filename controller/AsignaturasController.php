@@ -52,8 +52,6 @@ class AsignaturasController extends SecuredController{
     $imgDescripcion = $_POST["descImgForm"];
     $rutaTempImagenes = $_FILES['imgForm']['tmp_name'];
     $ultimoId = $this->model->AgregarAsignatura($nombre,$descripcion,$docente,$cupo);
-
-  //esto no esta haciendo le falta recibir $lastId
     $this->modelImagen->GuardarImagen($ultimoId[0]['id_asignatura'],$rutaTempImagenes[0],$imgDescripcion);
     header("Location: ".URL_ASIGNATURAS);
     die();
@@ -62,6 +60,16 @@ class AsignaturasController extends SecuredController{
       die();
     }
   }
+
+  // function AgregarImagen($params) {
+  //   $permiso=$this->verificaPermisos();
+  //   if ($permiso) {
+  //     $id_asignatura = $params[0];
+  //     $img = $_FILES["imgForm"];
+  //     print_r($img);die;
+  //     $imgDescripcion = $_POST["descImgForm"];
+  //     $this->modelImagen->GuardarImagen($id_asignatura,$img,$imgDescripcion);
+  //   }
 
   function EditarAsignatura($params){
     $id_asignatura = $params[0];
@@ -73,14 +81,6 @@ class AsignaturasController extends SecuredController{
   }
 
 
-  function AgregarImagen($params) {
-    $permiso=$this->verificaPermisos();
-    if ($permiso) {
-      $id_asignatura = $params[0];
-      $img = $_FILES["imgForm"];
-      $imgDescripcion = $_POST["descImgForm"];
-      $this->modelImagen->GuardarImagen($id_asignatura,$imagen,$imgDescripcion);
-    }
   }
 
   function EliminarAsignatura($params){
@@ -108,16 +108,20 @@ class AsignaturasController extends SecuredController{
   }
 
   function CerrarCupo($params) {
-        $this->model->CerrarCupo($params[0]);
-        header("Location: ".URL_ASIGNATURAS);
-        die();
-      }
+    $this->model->CerrarCupo($params[0]);
+    header("Location: ".URL_ASIGNATURAS);
+    die();
+  }
+
+
   function DetalleAsignatura($params){
     $id_asignatura = $params[0];
     $asignatura = $this->model->GetAsignatura($id_asignatura);
     $usuario = $this->getUsuario();
-    $this->view->MostrarDetalleAsignatura($this->titulo,$usuario,$asignatura);
+    $imagen = $this->modelImagen->GetImagen($id_asignatura);
+    $this->view->MostrarDetalleAsignatura($this->titulo,$usuario,$asignatura,$imagen);
     // buscar en el view donde usabas alumnoss
+    // $this->view->MostrarImagen($id_imagen);
   }
 
   function MostrarAsignaturaFiltro() {

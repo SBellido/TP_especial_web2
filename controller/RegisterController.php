@@ -17,7 +17,6 @@ class RegisterController extends SecuredController
     parent::__construct();
     $this->view = new RegisterView($this->baseURL);
     $this->model = new DocentesModel();
-    // $this->secCont = new SecuredController();
     $this->titulo = "Registro de usuarios";
     $this->imagen = "images/ideas.jpg";
     $this->logo = "images/logo_sb.png";
@@ -47,41 +46,5 @@ class RegisterController extends SecuredController
       }
     }
   }
-  // function EditarDatos() {
-  //   if ($this->secCont->logeado()) {
-  //     // $id_usuario = $param[0];
-  //     // $usuario = $this->model->getUsuario($usuario);
-  //     $this->view->modificarDatos();
-  //   }
-  // }
 
-  // function EditarUsuario($usuario) { //EditarUsuario($param)
-  //   if ($this->secCont->logeado()) {
-  //     $usuario = $this->model->getUsuario($usuario);
-  //     $this->view->modificarDatos('Modifique sus datos');
-  //   }
-  // }
-  // function modificarDatos($usuario) {
-  //   if ($this->secCont->logeado()) {
-  //     if (isset($usuario) && $usuario == true) {
-  //       // $this->view->modificarDatos('Modifique sus datos');
-  //       // $this->model->getUsuario($usuario)
-  //       if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-  //         $id_usuario = $_POST["id_usuario"];
-  //         $nombre = $_POST["nombre"];
-  //         $usuario = $_POST["usuario"];
-  //         $email = $_POST["email"];
-  //         $this->model->modificaUsuario($id_usuario, $nombre, $usuario, $email);
-  //         $this->view->modificarDatos('Usuario modificado con exito');
-  //       } else {
-  //         header(LOGIN);
-  //         // $this->view->modificarDatos('El ususario no fue modificado');
-  //       }
-  //     }
-  //   } else {
-  //     $this->view->modificarDatos('');
-  //   }
-  // }
 }
-
- ?>

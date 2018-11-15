@@ -45,14 +45,5 @@
         return false;
       }
     }
-    // function getRol() {
-    //   if(isset($_SESSION['Permisos'] == 'admin')){
-    //     return  $_SESSION['Permisos'];
-    //   }else{
-    //     header("Location: ".URL_LOGIN);
-    //     die();
-    //   }
-    // }
-  }
 
-?>
+  }

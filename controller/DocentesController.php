@@ -68,18 +68,4 @@ class DocentesController extends SecuredController
     $this->view->MostrarDocente($docente);
   }
 
-
-
-  //
-  // function InsertDocente() {
-  //   $nombre = $_POST["nombreForm"];
-  //   $usuario = $_POST["usuarioForm"];
-  //   $email = $_POST["emailForm"];
-  //   $cargo = $_POST["cargoForm"];
-  //   $password = $_POST["passwordForm"];
-  //   $this->model->InsertDocente($nombre,$usuario,$email,$cargo,$password);
-  //   header("Location: ".URL_DOCENTES);
-  //   die();
-  // }
-
 }

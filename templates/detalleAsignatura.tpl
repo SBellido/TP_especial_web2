@@ -20,6 +20,11 @@
         <div class="col">
           <div id="container-comentarios">
           </div>
+          <div class="col">
+            {foreach from=$Imagen item=img}
+              <img src="{$img['imagen']}" alt="{$img['descripcion']}">
+            {/foreach}
+          </div>
         </div>
       </div>
     </section>

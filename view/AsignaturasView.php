@@ -24,10 +24,11 @@ class AsignaturasView extends View
     $this->smarty->display('templates/mostrarEditarAsignatura.tpl');
   }
 
-  function MostrarDetalleAsignatura($titulo,$usuario,$asignatura){
+  function MostrarDetalleAsignatura($titulo,$usuario,$asignatura,$imagen){
     $this->smarty->assign('Titulo',$titulo);
     $this->smarty->assign('Usuario',$usuario);
     $this->smarty->assign('Asignatura',$asignatura);
+    $this->smarty->assign('Imagen',$imagen);
     $this->smarty->display('templates/detalleAsignatura.tpl');
   }
 
@@ -37,6 +38,8 @@ class AsignaturasView extends View
     $this->smarty->assign('Asignaturas',$asignaturas);
     $this->smarty->assign('Docentes',$docente);
     $this->smarty->assign('Usuario',$usuario);
-    $this->smarty->display('templates/docentesFiltrados.tpl');  }
+    $this->smarty->display('templates/docentesFiltrados.tpl');
+  }
+
 
 }
