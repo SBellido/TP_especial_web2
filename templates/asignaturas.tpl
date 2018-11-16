@@ -83,7 +83,7 @@
               </select>
               <div class="form-group">
                 <label for="imgForm">Imagen</label>
-                <input type="file" class="form-control" id="imgForm" name="imgForm[]">
+                <input type="file" class="form-control-file" id="imgForm" name="imgForm[]">
               </div>
               <div class="form-group">
                 <label for="descImgForm">Descripcion de la imagen</label>

@@ -6,6 +6,7 @@
   define('URL_LOGINERROR', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/login');
   define('URL_ASIGNATURAS', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/asignaturas');
   define('URL_DOCENTES', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/docentes');
+  define('URL_DETALLEASIG', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/detalleAsignatura');
 
   class ConfigApp {
     public static $ACTION = 'action';
@@ -26,6 +27,7 @@
       'mostrarAsignaturaFiltro'=>'AsignaturasController#MostrarAsignaturaFiltro',
       'detalleAsignatura'=>'AsignaturasController#DetalleAsignatura',
       'cerrar'=>'AsignaturasController#CerrarCupo',
+      'borrarImagen'=>'AsignaturasController#BorrarImagen',
 
       'docentes'=>'DocentesController#MostrarDocentes',
       'agregarDocente'=>'DocentesController#InsertDocente',

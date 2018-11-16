@@ -12,8 +12,7 @@
 
   function GuardarImagen($id_asignatura,$imagen,$descripcion) {
     $path = $this->subirImagen($imagen);
-    $sentencia = $this->db->prepare("INSERT INTO imagen (id_asignatura, imagen, descripcion)
-                                     VALUES(?,?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO imagen (id_asignatura, imagen, descripcion) VALUES(?,?,?)");
     $sentencia->execute([$id_asignatura,$path,$descripcion]);
   }
 
@@ -32,18 +31,15 @@
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function BorrarImagenes($id_asignatura) {
-    $sentencia = $this->db->prepare("DELETE FROM imagen
-                                     WHERE id_asignatura=?");
-    $sentencia->execute([$id_asignatura]);
-
-    }
-
   function BorrarImagen($id_imagen) {
-    $sentencia = $this->db->prepare("DELETE FROM imagen
-                                     WHERE id_imagen=?");
-    $sentencia->execute([$id_imagen]);
-    $ultimoId =  $this->db->lastInsertId();
-    return $this->GetImagen($ultimoId);
+   $sentencia = $this->db->prepare("DELETE FROM imagen
+                                    WHERE id_imagen=?");
+   $sentencia-> execute([$id_imagen]);
+  }
+
+  function EliminarImagenes($id_asignatura) {
+   $sentencia = $this->db->prepare("DELETE FROM imagen
+                                    WHERE id_asignatura=?");
+   $sentencia-> execute([$id_asignatura]);
   }
 }
