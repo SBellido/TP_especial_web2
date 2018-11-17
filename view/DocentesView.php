@@ -13,7 +13,5 @@
       $this->smarty->display('templates/docentes.tpl');
     }
 
-  
-  }
 
-?>
+  }

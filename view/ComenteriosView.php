@@ -5,5 +5,3 @@
       parent::__construct($baseURL);
     }
   }
-
-?>

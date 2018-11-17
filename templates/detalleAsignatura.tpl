@@ -6,7 +6,6 @@
         <div class="col">
           <h6>Usuario conectado: "{$Usuario->nombre}"</h6>
           {foreach from=$Asignatura item=indice}
-          <input type="hidden" class="form-control" id="id_asignaturaForm" name="id_asignaturaForm" value="{$indice['id_asignatura']}">
           <h3>Asignatura: {$indice['nombre']}</h3>
         </div>
       </div>
@@ -24,7 +23,9 @@
           <div class="col">
             {foreach from=$Imagen item=img}
               <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}">
+              {if $Usuario->permisos == "admin"}
               <a href="borrarImagen/{$img['id_imagen']}" name="id_img" >Borrar Imagen</a>
+              {/if}
             {/foreach}
           </div>
         </div>

@@ -18,5 +18,3 @@ class LoginView extends View
   //   $this->smarty->display('templates/loginError.tpl');
   // }
 }
-
- ?>

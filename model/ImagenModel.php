@@ -32,6 +32,13 @@
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function GetImagenIdAsig($id_imagen) {
+    $sentencia = $this->db->prepare("SELECT id_asignatura FROM imagen
+                                     WHERE id_imagen=?");
+    $sentencia->execute($id_imagen);
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
+
   function BorrarImagenes($id_asignatura) {
     $sentencia = $this->db->prepare("DELETE FROM imagen
                                      WHERE id_asignatura=?");

@@ -29,5 +29,3 @@ class RegisterView extends View
   //   $this->Smarty->display('templates/modificarUsuario.tpl');
   // }
 }
-
- ?>

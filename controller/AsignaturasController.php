@@ -3,7 +3,6 @@ require_once "./view/AsignaturasView.php";
 require_once "./model/AsignaturasModel.php";
 require_once "./model/ImagenModel.php";
 require_once "SecuredController.php";
-
 require_once "./model/DocentesModel.php";
 
 
@@ -48,7 +47,7 @@ class AsignaturasController extends SecuredController {
     $rutaTempImagenes = $_FILES['imgForm']['tmp_name'];
     $ultimoId = $this->model->AgregarAsignatura($nombre,$descripcion,$docente,$cupo);
     $this->modelImagen->GuardarImagen($ultimoId[0]['id_asignatura'],$rutaTempImagenes[0],$imgDescripcion);
-    header("Location: ".URL_ASIGNATURAS);
+    header("Location: ".URL_DETALLEASIG."/". $ultimoId[0]['id_asignatura']);
     die();
     } else {
       header("Location: ".URL_LOGIN);
@@ -57,10 +56,16 @@ class AsignaturasController extends SecuredController {
   }
 
   function EliminarAsignatura($params) {
-    $this->modelImagen->BorrarImagenes($params[0]);
-    $this->model->EliminarAsignatura($params[0]);
-    header("Location: ".URL_ASIGNATURAS);
-    die();
+    $permiso=$this->verificaPermisos();
+    if ($permiso) {
+      $this->modelImagen->BorrarImagenes($params[0]);
+      $this->model->EliminarAsignatura($params[0]);
+      header("Location: ".URL_ASIGNATURAS);
+      die();
+    } else {
+      header("Location: ".URL_LOGIN);
+      die();
+    }
   }
 
   function EditarAsignatura($params) {
@@ -81,15 +86,22 @@ class AsignaturasController extends SecuredController {
       $imgDescripcion = $_POST["descImgForm"];
       $rutaTempImagenes = $_FILES['imgForm']['tmp_name'];
       $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$cupo,$id_asignatura);
-      $this->modelImagen->GuardarImagen($id_asignatura,$rutaTempImagenes[0],$imgDescripcion);
+
+      $this->modelImagen->GuardarImagen($id_asignatura,$rutaTempImagenes,$imgDescripcion);
     }
-    header("Location: ".URL_ASIGNATURAS);
+    header("Location: ".URL_DETALLEASIG."/". $id_asignatura);
   }
 
   function CerrarCupo($params) {
-    $this->model->CerrarCupo($params[0]);
-    header("Location: ".URL_ASIGNATURAS);
-    die();
+    $permiso=$this->verificaPermisos();
+    if ($permiso) {
+      $this->model->CerrarCupo($params[0]);
+      header("Location: ".URL_ASIGNATURAS);
+      die();
+    } else {
+      header("Location: ".URL_LOGIN);
+      die();
+    }
   }
 
   function DetalleAsignatura($params) {
@@ -111,20 +123,17 @@ class AsignaturasController extends SecuredController {
   }
 
   function BorrarImagen($id_imagen) {
-    // $id_asignatura = $params[0];
-    // $id_imagen = $_POST["id_img"];
-
-
-
-    //IR A BUSCAR LA IMAGEN ANTES DE BORRARLA Y SACAR DE AHI EL ID ASIGNATURA
-
-
-
-    $id_asignatura = $this->modelImagen->BorrarImagen($id_imagen[0]);
-    $asignatura = $this->model->GetAsignatura($id_asignatura);
-    $usuario = $this->getUsuario();
-    $imagen = $this->modelImagen->GetImagen($id_asignatura);
-    // $this->view->MostrarDetalleAsignatura($this->titulo,$usuario,$asignatura,$imagen);
-    header("Location: ".URL_DETALLEASIG.$id_asignatura);
+    $permiso=$this->verificaPermisos();
+    if ($permiso) {
+      $id_asignatura = $this->modelImagen->GetImagenIdAsig($id_imagen);
+      $id_asignatura = $id_asignatura['id_asignatura'];
+      $asignatura = $this->model->GetAsignatura($id_asignatura);
+      $usuario = $this->getUsuario();
+      $this->modelImagen->BorrarImagen($id_imagen[0]);
+      header("Location: ".URL_DETALLEASIG."/".$id_asignatura);
+    } else {
+      header("Location: ".URL_LOGIN);
+      die();
+    }
   }
 }
