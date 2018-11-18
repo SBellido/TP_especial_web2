@@ -35,5 +35,7 @@
       'cambiarRol'=>'DocentesController#CambiarRol',
 
       'registro'=>'RegisterController#Registro',
+      'actualizarPerfil'=>'RegisterController#actualizarPerfil',
+
   ];
 }

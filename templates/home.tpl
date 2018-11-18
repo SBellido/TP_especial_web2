@@ -16,5 +16,3 @@
       <button type="button" class="btn btn-link">Link</button>
     </div>
 {include file = "footer.tpl"}
-</body>
-</html>

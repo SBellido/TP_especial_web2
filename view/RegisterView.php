@@ -13,6 +13,19 @@ class RegisterView extends View
     $this->smarty->assign('Logo',$logo);
     $this->smarty->display('templates/registro.tpl');
   }
+  function mostrarEditarPerfil($titulo, $imagen, $logo, $usuario, $docente, $id_docente, $nombre, $user, $email) {
+    $this->smarty->assign('Titulo',$titulo);
+    $this->smarty->assign('Imagen',$imagen);
+    $this->smarty->assign('Logo',$logo);
+    $this->smarty->assign('Usuario',$usuario);
+
+    $this->smarty->assign('Docente',$docente);
+    $this->smarty->assign('id_docente',$id_docente);
+    $this->smarty->assign('Nombre',$nombre);
+    $this->smarty->assign('User',$user);
+    $this->smarty->assign('Email',$email);
+    $this->smarty->display('templates/editarDocente.tpl');
+    }
 
   // function modificarDatos($message = '', $usuario = '') {
   //   $this->Smarty->assign('Titulo',"Modificación Datos de Usuarios");

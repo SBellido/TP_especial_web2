@@ -14,12 +14,6 @@ class AsignaturasModel extends Model {
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  // function GetAsignaturas() {
-  //   $sentencia = $this->db->prepare("SELECT * FROM asignatura INNER JOIN docente ON asignatura.id_docente = docente.id_docente");
-  //   $sentencia->execute();
-  //   return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  // }
-
   function GetAsignatura($id_asignatura) {
     $sentencia = $this->db->prepare("SELECT * FROM asignatura
                                      WHERE id_asignatura=?");
@@ -55,7 +49,7 @@ class AsignaturasModel extends Model {
   //   $sentencia->execute([$nombre,$descripcion,$docente,$id_asignatura,$cupo]);
   // }
 
-  function GetAsignaturas_idAsignatura(){
+  function GetAsignaturas_idAsignatura() {
     $sentencia = $this->db->prepare("SELECT * FROM asignatura
                                      ORDER BY id_asignatura");
     $sentencia->execute();
@@ -76,6 +70,6 @@ class AsignaturasModel extends Model {
                                       SET cupo=1
                                       WHERE id_asignatura=?");
       $sentencia->execute([$id_asignatura]);
-    }
+  }
 
 }

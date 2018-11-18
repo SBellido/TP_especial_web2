@@ -1,23 +1,23 @@
 {include file = "header.tpl"}
-{include file = "navLogin.tpl"}
+{include file = "nav.tpl"}
 <body>
 
   <section class="container">
     <h2>{$Titulo}</h2><br>
     <div class="row">
       <div class="col">
-        <form role="form" action="registro" method="POST" class=".col-12 .col-md-8">
+        <form role="form" action="actualizarPerfil/{$id_docente}" method="POST" class=".col-12 .col-md-8">
           <div class="form-group">
             <label>Nombre</label>
-            <input type="text" name="nombre" id="first_name" class="form-control input-sm" placeholder="First Name" required>
+            <input type="text" name="nombre" id="first_name" class="form-control input-sm" value="{$Nombre}" required>
           </div>
           <div class="form-group">
             <label>Nombre de Usuario</label>
-            <input type="text" name="usuario" id="user" class="form-control input-sm" placeholder="User" required>
+            <input type="text" name="usuario" id="user" class="form-control input-sm" value="{$User}" required>
           </div>
           <div class="form-group">
             <label>E-mail</label>
-            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
+            <input type="email" name="email" id="email" class="form-control input-sm" value="{$Email}" required>
           </div>
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6">
@@ -33,7 +33,7 @@
             </div>
           </div>
         </div>
-          <button type="submit" class="boton btn btn-info btn-block">Registrame</button>
+          <button type="submit" class="boton btn btn-info btn-block">Editar Perfil</button>
         </form><br><br>
       </div>
       <div class="col">

@@ -8,5 +8,3 @@
   </section>
   <br>
   {include file = "footer.tpl"}
-  </body>
-</html>

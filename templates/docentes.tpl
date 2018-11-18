@@ -46,11 +46,14 @@
             HACER DOCENTE
             </a></td>
           {/if}
+          {if $docente['usuario'] == $Usuario->nombre}
+            <td><a class="btn boton"href="actualizarPerfil/{$docente['id_docente']}">
+              EDITAR PERFIL
+            </a></td>
+          {/if}
         </tr>
       {/foreach}
       </tbody>
     </table>
   </section>
     {include file = "footer.tpl"}
-  </body>
-</html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-11-2018 a las 19:56:39
+-- Tiempo de generación: 18-11-2018 a las 01:18:30
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -41,21 +41,13 @@ CREATE TABLE `asignatura` (
 --
 
 INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `descripcion`, `id_docente`, `cupo`) VALUES
-(3, 'Web 1', 'Pura mierda', 4, 0),
-(5, 'Biología', '', 2, 0),
-(7, 'PHP', 'Recitales del Indioeeeee', 2, 0),
-(10, 'Matemática', '123', 2, 0),
-(12, 'JS', 'mucha práctica', 4, 0),
-(13, '4Biología ', '4', 2, 0),
-(14, 'asdgasfgds', 'asdfgasdgsadfgsd', 2, 0),
-(15, 'Matemática 45', '454545454545454545', 4, 0),
-(16, 'afdadgfsdfg', 'dsfasfgsadgawertgrfsf', 4, 0),
-(18, 'HTML', 'una cosa linda', 2, 0),
-(19, 'HTML', 'una cosa linda', 2, 1),
-(27, 'Web 1', 'FrontEnd', 3, 0),
-(28, 'Web 1', 'FrontEnd', 3, 0),
-(29, 'Web 1', 'FrontEnd', 3, 0),
-(30, 'Web 1', 'FrontEnd', 3, 0);
+(3, 'Web 1', 'Pura mierda', 2, 1),
+(5, 'Biología', 'Biología molecular', 2, 1),
+(60, 'Matemática', 'Trigonometria', 4, 1),
+(61, 'df', 'asdf', 2, 1),
+(62, 'Matemática 2', 'Trigonometria', 2, 1),
+(63, 'Biología', 'Biología molecular', 2, 1),
+(66, 'Biología', 'Biología molecular', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -102,8 +94,7 @@ CREATE TABLE `docente` (
 INSERT INTO `docente` (`id_docente`, `nombre`, `usuario`, `email`, `password`, `rol`) VALUES
 (2, 'conrado', 'conrado', 'conradochiesa@gmail.com', '$2y$10$26R12nBWk6v9/9yOraaiP.QpIPbwPPytpQDSVIyzx8Gm0ITF6UPTi', 'admin'),
 (3, 'Gabriela Soler', 'Gaby', 'gaby@gaby.com', '$2y$10$tGOxSBaizmuAPkFM8wGJm.Xt8ztm0.gQOuWZA.YI5daaQaNmc2Gh2', 'docente'),
-(4, 'Sebastian Bellido', 'Seba', 'seba@seba.com', '$2y$10$2Be7TdokSbmqY0TlAxvFoeI1CpbscQcF1eGh2.RC61wmKLP8DBIrO', 'docente'),
-(5, 'Eureka', 'Eureka', 'conradochiesa@gmail.com', '$2y$10$DvdXtkdANw/RoN5aA9LAFuXDsYSc0APv.0rJUrbTLLtvFEQNZcEry', 'docente'),
+(4, 'Sebastian Bellido', 'Seba', 'seba@seba.com', '$2y$10$2Be7TdokSbmqY0TlAxvFoeI1CpbscQcF1eGh2.RC61wmKLP8DBIrO', 'admin'),
 (7, 'Tusansito', 'Tusan', 'tuky@tuky.comn', '$2y$10$qjbwDSepfrBViCc.u2dL8elupBOGYA5OQBc1BbVCQ2Cd6j9mhQ5UO', 'docente');
 
 -- --------------------------------------------------------
@@ -118,6 +109,18 @@ CREATE TABLE `imagen` (
   `imagen` varchar(100) NOT NULL,
   `descripcion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `imagen`
+--
+
+INSERT INTO `imagen` (`id_imagen`, `id_asignatura`, `imagen`, `descripcion`) VALUES
+(31, 60, 'images/subidas/5bef2eadb0e6f.jpg', 'pajarito'),
+(39, 62, 'images/subidas/5bef32a1b5c99.jpg', 'pajarito'),
+(40, 62, 'images/subidas/5bef32c69e3d6.jpg', ''),
+(42, 63, 'images/subidas/5bef332d8b47a.jpg', 'dinosaurio'),
+(48, 60, 'images/subidas/5bf04bda0fb80.jpg', 'unaimagen'),
+(49, 66, 'images/subidas/5bf04bf85d53e.jpg', 'pajarito');
 
 --
 -- Índices para tablas volcadas
@@ -159,7 +162,7 @@ ALTER TABLE `imagen`
 -- AUTO_INCREMENT de la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
-  MODIFY `id_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `comentario`
@@ -177,7 +180,7 @@ ALTER TABLE `docente`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Restricciones para tablas volcadas

@@ -24,7 +24,7 @@
             {foreach from=$Imagen item=img}
               <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}">
               {if $Usuario->permisos == "admin"}
-              <a href="borrarImagen/{$img['id_imagen']}" name="id_img" >Borrar Imagen</a>
+                <a href="borrarImagen/{$img['id_imagen']}" name="id_img" >Borrar Imagen</a>
               {/if}
             {/foreach}
           </div>
