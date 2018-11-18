@@ -5,7 +5,6 @@ require_once "./model/ImagenModel.php";
 require_once "SecuredController.php";
 require_once "./model/DocentesModel.php";
 
-
 class AsignaturasController extends SecuredController {
   private $view;
   private $model;
@@ -14,7 +13,7 @@ class AsignaturasController extends SecuredController {
   private $modelDocentes;
   private $modelImagen;
 
-  function __construct(){
+  function __construct() {
     parent:: __construct();
     $this->view = new AsignaturasView($this->baseURL);
     $this->model = new AsignaturasModel();
@@ -24,16 +23,14 @@ class AsignaturasController extends SecuredController {
     $this->imagen = "images/ideas.jpg";
   }
 
-  function MostrarAsignaturas(){
+  function MostrarAsignaturas() {
     $asignaturas = $this->model->GetAsignaturas();
     $docente = $this->modelDocentes->GetDocentes();
     $usuario=$this->getUsuario();
     $this->view->MostrarAsignaturas($this->titulo,$this->imagen,$asignaturas,$docente,$usuario);
   }
 
-
-
-  function AgregarAsignatura(){
+  function AgregarAsignatura() {
     $permiso=$this->verificaPermisos();
     if ($permiso) {
     $nombre = $_POST['nombreForm'];
@@ -118,7 +115,6 @@ class AsignaturasController extends SecuredController {
     $docente = $this->modelDocentes->GetDocentes();
     $usuario = $this->getUsuario();
     $asignaturas = $this->model->GetAsignaturasFiltro($id_docente);
-    // $this->view->MostrarAsignaturasFiltro($titulo,$usuario,$asignaturas);
     $this->view->MostrarAsignaturas($titulo,$this->imagen,$asignaturas,$docente,$usuario);
   }
 
