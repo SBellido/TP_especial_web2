@@ -110,7 +110,7 @@ class AsignaturasController extends SecuredController {
   }
 
   function MostrarAsignaturaFiltro() {
-    $titulo = "Asignaturas a cargo de un docente";
+    $titulo = "Asignaturas de un docente";
     $id_docente = $_GET["filtroForm"];
     $docente = $this->modelDocentes->GetDocentes();
     $usuario = $this->getUsuario();

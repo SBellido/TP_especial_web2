@@ -38,5 +38,15 @@ class ComentariosController extends Api {
     return $comentarios;
 
   }
+
+  function PostComentario() {
+    $id_docente = $_SESSION['Id'];
+    $id_asignatura = $_POST['id_asignatura'];
+    $comentario = $_POST['txtTpForm'];
+    $valoracion = $_POST['valorTpForm'];
+    $this->model->PostComentario($id_asignatura,$id_docente,$comentario,$valoracion);
+    header("Location: ".URL_DETALLEASIG."/". $id_asignatura);
+  //    = $this->model->GetComentarios(); // GetComentariosAsignatura($id_asignatura);
+  //
+  }
 }
-?>

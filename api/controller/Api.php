@@ -1,9 +1,11 @@
 <?php
 
-class Api {
+require_once "./../controller/SecuredController.php";
+
+class Api extends SecuredController {
 
   function __construct() {
-
+    parent::__construct();
   }
 
    protected function json_response($data, $status) {

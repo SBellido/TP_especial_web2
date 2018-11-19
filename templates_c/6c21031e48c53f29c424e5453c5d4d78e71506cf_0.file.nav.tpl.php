@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-13 15:47:10
+/* Smarty version 3.1.33, created on 2018-11-19 00:44:04
   from 'C:\xampp\htdocs\TP_especial_web2\templates\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5beae3ee682301_58668808',
+  'unifunc' => 'content_5bf1f9448ae163_03052340',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6c21031e48c53f29c424e5453c5d4d78e71506cf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TP_especial_web2\\templates\\nav.tpl',
-      1 => 1542120426,
+      1 => 1542584642,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5beae3ee682301_58668808 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf1f9448ae163_03052340 (Smarty_Internal_Template $_smarty_tpl) {
 ?><header>
   <section class="container">
     <nav id="mainNav" class="navbar navbar-expand-lg navbar-light ">
@@ -36,9 +36,6 @@ function content_5beae3ee682301_58668808 (Smarty_Internal_Template $_smarty_tpl)
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a id="TextoBotonera" class="nav-link" href="asignaturas">ASIGNATURAS</a>
-            </li>
-            <li class="nav-item">
-              <a id="TextoBotonera" class="nav-link disabled" href="alumnos">ALUMNOS</a>
             </li>
             <li class="nav-item">
               <a id="TextoBotonera" class="nav-link disabled" href="docentes">DOCENTES</a>

@@ -25,6 +25,9 @@ header {
   font-weight: bold;
   letter-spacing: 0.1em;
 }
+img {
+  margin-bottom: 15px !important;
+}
 
 
 

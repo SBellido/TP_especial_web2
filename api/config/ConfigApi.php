@@ -1,5 +1,7 @@
 <?php
 
+define('URL_DETALLEASIG', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/detalleAsignatura');
+
   class ConfigApi {
     public static $RESOURCE = 'resource';
     public static $PARAMS = 'params';
@@ -7,8 +9,8 @@
 
       'comentarios#GET'=> 'ComentariosController#GetComentarios',
       'asignaturas#GET'=> 'AsignaturasApiController#MostrarAsignaturas',
+      'tpForm#POST'=> 'ComentariosController#PostComentario',
+
   ];
 
 }
-
-?>

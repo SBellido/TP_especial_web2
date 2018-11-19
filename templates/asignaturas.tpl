@@ -42,9 +42,6 @@
               <td>{$asignatura['nombre_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
               <td><a class="btn boton" href="detalleAsignatura/{$asignatura['id_asignatura']}">DETALLE</a></td>
-              {if $Usuario->permisos =="admin"}
-                <td><a class="btn boton" href="eliminarAsignatura/{$asignatura['id_asignatura']}">BORRAR</a></td>
-                <td><a class="btn boton" href="editarAsignatura/{$asignatura['id_asignatura']}">EDITAR</a></td>
                 {if $asignatura['cupo'] == 0 && $Usuario->permisos != "invitado"}
                   <td><a class="btn boton" href="cerrar/{$asignatura['id_asignatura']}">CERRAR CUPOS</a></td>
                 {/if}
@@ -53,7 +50,6 @@
                 {else}
                   <td><b><i>Bancantes</i></b></td>
                 {/if}
-              {/if}
               </tr><tr>
               <td></td>
             </tr>
@@ -78,13 +74,17 @@
               <label for="descripcionForm">Docente</label><br>
               <select name="docenteForm">
                 {foreach from=$Docentes item=docente}
-                  <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+                  <option value="{$docente['id_docente']}">{$docente['nombre']}</option><br>
                 {/foreach}
-              </select>
-              <div class="form-group">
+              </select><br><hr>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="imgForm" name="imgForm[]" lang="es">
+                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+              </div><br>
+              <!-- <div class="form-group">
                 <label for="imgForm">Imagen</label>
                 <input type="file" class="form-control-file" id="imgForm" name="imgForm[]">
-              </div>
+              </div> -->
               <div class="form-group">
                 <label for="descImgForm">Descripcion de la imagen</label>
                 <input type="text" class="form-control" id="descImgForm" name="descImgForm">

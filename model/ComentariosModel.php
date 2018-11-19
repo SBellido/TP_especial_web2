@@ -22,4 +22,10 @@
       $sentencia->execute([$id_asignatura]);
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function PostComentario($id_asignatura,$id_docente,$comentario,$valoracion){
+      $sentencia = $this->db->prepare("INSERT INTO comentario (id_asignatura, id_docente, comentario, valoracion) VALUES (?,?,?,?)");
+      $sentencia->execute([$id_asignatura,$id_docente,$comentario,$valoracion]);
+    }
+
   }
