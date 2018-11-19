@@ -29,6 +29,7 @@
     function getUsuario() {
       if(isset($_SESSION['Usuario'])){
         $usuario = new stdClass();
+        $usuario->id = $_SESSION['Id'];
         $usuario->nombre = $_SESSION['Usuario'];
         $usuario->permisos = $_SESSION['Permisos'];
         return  $usuario;

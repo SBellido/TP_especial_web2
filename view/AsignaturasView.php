@@ -1,4 +1,5 @@
 <?php
+require_once 'View.php';
 class AsignaturasView extends View
 {
   function __construct($baseURL, $usuario =''){

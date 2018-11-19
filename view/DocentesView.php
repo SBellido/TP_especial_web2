@@ -1,4 +1,5 @@
-<?php require_once "View.php";
+<?php
+require_once "View.php";
 
   class DocentesView extends View
   {
