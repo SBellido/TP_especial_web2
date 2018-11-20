@@ -23,9 +23,7 @@ class ComentariosController extends Api {
   }
 
   function GetComentarios($params = []) {
-    // $id_asignatura = $params[0];
-    // print_r($id_asignatura);die;
-    $comentarios = $this->model->GetComentarios(); // ;
+    $comentarios = $this->model->GetComentarios();
     if(isset($_GET['order']) && $_GET['order'] == 'desc') {
       $comentarios = $this->OrdenarComentarios($comentarios);
     }
@@ -46,11 +44,16 @@ class ComentariosController extends Api {
   }
 
   function PostComentario() {
-    $this->model->PostComentario($id_asignatura,$id_docente,$comentario,$valoracion);
-    // $this->$viewAsignaturas->MostrarDetalleAsignatura($this->titulo,$usuario,$id_asignatura,$imagen);
-    // file_get_contents('php://input');
-    header("Location: ".URL_DETALLEASIG."/". $id_asignatura);
-  //    = $this->model->GetComentarios(); // GetComentariosAsignatura($id_asignatura);
-  //
+    $objetoComentario = file_get_contents('php://input');
+    var_dump($objetoComentario);
+    $objetoComentario = json_decode($objetoComentario);
+    // echo $objetoComentario;
+    // $id_asignatura = $objetoComentario->id_asignatura;
+    // $id_docente = $objetoComentario->id_docente;
+    // $comentario = $objetoComentario->comentario;
+    // $valoracion = $objetoComentario->valoracion;
+
+    // $this->model->PostComentario($id_asignatura,$id_docente,$comentario,$valoracion);
+
   }
 }

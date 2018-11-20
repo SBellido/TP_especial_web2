@@ -38,20 +38,20 @@
     <section class="container">
       <div class="row">
         <div class="col" id="container-comentarios">
-          <h3>Trabajos Prácticos</h3>
+          <h3>Trabajos Prácticos</h3><hr><br>
         </div>
         <div class="col">
-          <h3>Crear Trabajo Práctico</h3>
+          <h3>Crear Trabajo Práctico</h3><br>
           {foreach from=$Asignatura item=indice}
 
-          <form class="" action="" method="POST">
+          <form class="" action="" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id_asignatura" id="id_asignatura" value="{$indice['id_asignatura']}">
             <input type="hidden" name="id" id="id" value="{$Usuario->id}">
             <label for="">Redactar Trabajo Práctico a continuación</label>
             <textarea name="txtTpForm" rows="8" cols="80" id="texto"></textarea>
             <div class="input-group mb-3">
               <select class="custom-select" id="valoracion" name="valorTpForm">
-                <option selected>Elija una valoración...</option>
+                <option selected>Elija la valoración asignada para este TP...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -62,7 +62,7 @@
                 <label class="input-group-text" for="inputGroupSelect02">Valoración</label>
               </div> -->
             </div>
-            <button type="submit" class="boton btn btn-info btn-block" id="tpForm">CARGAR TRABAJO PRACTICO</button>
+            <button type="submit" class="boton btn btn-info btn-block" id="tpForm">CARGAR TRABAJO PRÁCTICO</button>
             <!-- <br><a class="btn boton" href="api/comentarios/{$indice['id_asignatura']}">ENVIAR TP</a> -->
           </form>
           {/foreach}

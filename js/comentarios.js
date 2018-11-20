@@ -20,12 +20,7 @@ function mostrarComentarios(comentarios) {
 }
 
 function postearComentario() {
-  // let id_asignatura = document.querySelector('#id_asignatura').value;
-  // let id_docente = document.querySelector('#id').value;
-  // let texto = document.querySelector('#texto').value;
-  // let valoracion = document.querySelector('#valoracion').value;
-
-  let objetoComentario = {
+    let objetoComentario = {
     "comentario": {
       "id_asignatura": document.querySelector('#id_asignatura').value,
       "id_docente": document.querySelector('#id').value,
@@ -33,12 +28,12 @@ function postearComentario() {
       "valoracion": document.querySelector('#valoracion').value,
     }
   };
-   fetch("api/tpForm", {
-     "method": POST,
+   fetch("api/comentariosPOST", {
+     "method": 'POST',
      "headers": {
        'Content-Type': 'application/json'
      },
      "body": JSON.stringify(objetoComentario)
    })
-   
+
 }

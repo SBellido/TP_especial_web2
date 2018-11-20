@@ -25,6 +25,8 @@
     }
 
     function PostComentario($id_asignatura,$id_docente,$comentario,$valoracion){
+      var_dump($id_asignatura);
+      echo $id_asignatura;die;
       $sentencia = $this->db->prepare("INSERT INTO comentario (id_asignatura, id_docente, comentario, valoracion)
                                        VALUES (?,?,?,?)");
       $sentencia->execute([$id_asignatura,$id_docente,$comentario,$valoracion]);
