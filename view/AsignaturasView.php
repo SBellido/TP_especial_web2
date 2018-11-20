@@ -25,7 +25,7 @@ class AsignaturasView extends View
     $this->smarty->display('templates/mostrarEditarAsignatura.tpl');
   }
 
-  function MostrarDetalleAsignatura($titulo,$usuario,$asignatura,$imagen,$docente) {
+  function MostrarDetalleAsignatura($titulo,$usuario,$asignatura,$imagen,$docente){
     $this->smarty->assign('Titulo',$titulo);
     $this->smarty->assign('Usuario',$usuario);
     $this->smarty->assign('Asignatura',$asignatura);

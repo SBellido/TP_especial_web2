@@ -24,22 +24,32 @@
         </div><br><hr>
         <div class="col">
           {foreach from=$Imagen item=img}
-          <figure class="figure">
+          <!-- <figure class="figure">
             <img src="{$img['imagen']}" class="figure-img img-fluid rounded" alt="{$img['descripcion']}">
             <figcaption class="figure-caption">{$img['descripcion']}</figcaption>
-          </figure>
-            <!-- <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}"> -->
+          </figure> -->
+            <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}">
             {if $Usuario->permisos == "admin"}
               <br><a class="btn boton" href="borrarImagen/{$img['id_imagen']}" name="id_img">ELIMINAR</a>
             {/if}
           {/foreach}
         </div>
-      </div><hr><br><br>
+      </div><hr><br>
     </section>
     <section class="container">
-      {foreach from=$Docentes item=indice}
-      <h3>Docente a cargo: {$indice['nombre_docente']}</h3>
-      {/foreach}
+      <div class="row">
+        <div class="col">
+          {foreach from=$Docentes item=indice}
+          <h3>Docente a cargo: {$indice['nombre_docente']}</h3>
+          {/foreach}
+        </div>
+        <div class="col">
+          <!-- <figure class="figure">
+            <img src="{$img['imagen']}" class="figure-img img-fluid rounded" alt="{$img['descripcion']}">
+            <figcaption class="figure-caption">{$img['descripcion']}</figcaption>
+          </figure> -->
+        </div>
+      </div><hr>
 
     </section>
     <section class="container">
