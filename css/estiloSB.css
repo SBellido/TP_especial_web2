@@ -7,11 +7,13 @@ header {
   display: inline;
   padding: .100rem .50rem;
 }
+
 .table td, .table th {
     padding: .75rem;
     vertical-align: top;
     border-top: 0px;
 }
+
 .list-group {
   padding: 5px;
   margin: 25px;
@@ -25,11 +27,9 @@ header {
   font-weight: bold;
   letter-spacing: 0.1em;
 }
-img {
+/* img {
   margin-bottom: 15px !important;
-}
-
-
+} */
 
 #logo_esquina {
   float: none;
@@ -38,9 +38,11 @@ img {
 #mainNav, #footer {
   background-color: rgb(21, 39, 55);
 }
+
 .cerrarSesion {
   margin-left: 10px;
 }
+
 #pie {
   background-color: rgb(21, 39, 55);
   margin: 0px;
@@ -61,7 +63,7 @@ img {
   background-color: inherit;
 }
 
-.boton {
+.btn {
   background-color: rgb(255, 191, 177);
   color: rgb(21, 39, 55);
   font-family: sans-serif;

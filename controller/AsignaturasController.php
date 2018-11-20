@@ -104,9 +104,10 @@ class AsignaturasController extends SecuredController {
   function DetalleAsignatura($params) {
     $id_asignatura = $params[0];
     $asignatura = $this->model->GetAsignatura($id_asignatura);
+    $docente = $this->model->GetNombreDocente($id_asignatura);
     $usuario = $this->getUsuario();
     $imagen = $this->modelImagen->GetImagen($id_asignatura);
-    $this->view->MostrarDetalleAsignatura($this->titulo,$usuario,$asignatura,$imagen);
+    $this->view->MostrarDetalleAsignatura($this->titulo,$usuario,$asignatura,$imagen,$docente);
   }
 
   function MostrarAsignaturaFiltro() {

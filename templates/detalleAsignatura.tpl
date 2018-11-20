@@ -23,27 +23,24 @@
           {/foreach}
         </div><br><hr>
         <div class="col">
-          <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}">
-              </div>
-              <div class="carousel-item">
-                <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}">
-              </div>
-              <div class="carousel-item">
-                <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}">
-              </div>
-            </div>
-          </div> -->
           {foreach from=$Imagen item=img}
-            <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}">
+          <figure class="figure">
+            <img src="{$img['imagen']}" class="figure-img img-fluid rounded" alt="{$img['descripcion']}">
+            <figcaption class="figure-caption">{$img['descripcion']}</figcaption>
+          </figure>
+            <!-- <img src="{$img['imagen']}" alt="{$img['descripcion']}" value="{$img['id_imagen']}"> -->
             {if $Usuario->permisos == "admin"}
               <br><a class="btn boton" href="borrarImagen/{$img['id_imagen']}" name="id_img">ELIMINAR</a>
             {/if}
           {/foreach}
         </div>
-      </div><hr>
+      </div><hr><br><br>
+    </section>
+    <section class="container">
+      {foreach from=$Docentes item=indice}
+      <h3>Docente a cargo: {$indice['nombre_docente']}</h3>
+      {/foreach}
+
     </section>
     <section class="container">
       <div class="row">
@@ -51,7 +48,7 @@
           <h3>Trabajos Prácticos</h3>
         </div>
         <div class="col">
-          <h3>Generar Trabajo Práctico</h3>
+          <h3>Crear Trabajo Práctico</h3>
           {foreach from=$Asignatura item=indice}
           <form class="" action="" method="POST">
             <input type="hidden" name="id_asignatura" id="id_asignatura" value="{$indice['id_asignatura']}">
@@ -71,7 +68,7 @@
                 <label class="input-group-text" for="inputGroupSelect02">Valoración</label>
               </div> -->
             </div>
-            <button type="submit" class="boton btn btn-info btn-block" id="tpForm">CREAR TRABAJO PRACTICO</button>
+            <button type="submit" class="boton btn btn-info btn-block" id="tpForm">CARGAR TRABAJO PRACTICO</button>
             <!-- <br><a class="btn boton" href="api/comentarios/{$indice['id_asignatura']}">ENVIAR TP</a> -->
           </form>
           {/foreach}

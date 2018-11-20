@@ -33,7 +33,7 @@
             {/if}
             {/foreach}
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="imgForm" name="imgForm">
+              <input multiple type="file" class="custom-file-input" id="imgForm" name="imgForm">
               <label class="custom-file-label" for="imgForm">Seleccionar Archivo</label>
             </div><br>
             <div class="form-group">

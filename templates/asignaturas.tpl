@@ -11,12 +11,15 @@
         <div class="col"><br><br>
           <h4>Listar asignatura de docente</h4>
           <form action="mostrarAsignaturaFiltro" method="GET">
-            <select class="" name="filtroForm">
-              {foreach from=$Docentes item= docente}
-                <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
-              {/foreach}
-            </select>
-            <button class="boton btn" type="submit">FILTRAR</button>
+            <div class="input-group mb-3">
+              <select class="custom-select" id="valoracion" name="filtroForm">
+                  <option selected>Elija un docente...</option>
+                  {foreach from=$Docentes item= docente}
+                  <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+                {/foreach}
+              </select>
+              <button class="boton btn" type="submit">FILTRAR</button>
+            </div>
           </form>
         </div>
       </div>
@@ -72,11 +75,21 @@
                 <input type="text" class="form-control" id="descripcionForm" placeholder="Máximo 400 caracteres" name="descripcionForm">
               </div>
               <label for="descripcionForm">Docente</label><br>
-              <select name="docenteForm">
+
+              <div class="input-group mb-3">
+                <select class="custom-select" name="docenteForm">
+                    <option selected>Elija un docente...</option>
+                    {foreach from=$Docentes item= docente}
+                    <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+                  {/foreach}
+                </select>
+              </div>
+
+              <!-- <select name="docenteForm">
                 {foreach from=$Docentes item=docente}
                   <option value="{$docente['id_docente']}">{$docente['nombre']}</option><br>
                 {/foreach}
-              </select><br><hr>
+              </select><br><hr> -->
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="imgForm" name="imgForm[]" lang="es">
                 <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>

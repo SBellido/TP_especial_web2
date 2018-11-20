@@ -46,9 +46,9 @@ class ComentariosController extends Api {
   }
 
   function PostComentario() {
-
     $this->model->PostComentario($id_asignatura,$id_docente,$comentario,$valoracion);
     // $this->$viewAsignaturas->MostrarDetalleAsignatura($this->titulo,$usuario,$id_asignatura,$imagen);
+    // file_get_contents('php://input');
     header("Location: ".URL_DETALLEASIG."/". $id_asignatura);
   //    = $this->model->GetComentarios(); // GetComentariosAsignatura($id_asignatura);
   //

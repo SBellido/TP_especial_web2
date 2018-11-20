@@ -66,10 +66,27 @@ class AsignaturasModel extends Model {
   }
 
   function CerrarCupo($id_asignatura) {
-      $sentencia = $this->db->prepare("UPDATE asignatura
-                                      SET cupo=1
-                                      WHERE id_asignatura=?");
-      $sentencia->execute([$id_asignatura]);
+    $sentencia = $this->db->prepare("UPDATE asignatura
+                                    SET cupo=1
+                                    WHERE id_asignatura=?");
+    $sentencia->execute([$id_asignatura]);
   }
+
+  function GetNombreDocente($id_asignatura) {
+    $sentencia = $this->db->prepare("SELECT a.*, d.nombre as nombre_docente
+                                     FROM asignatura a INNER JOIN docente d
+                                     ON(a.id_docente=d.id_docente)
+                                     WHERE a.id_asignatura=?");
+    $sentencia->execute([$id_asignatura]);
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  // function GetNombreDocente($id_asignatura) {
+  //   $sentencia = $this->db->prepare("SELECT d.nombre as nombre_docente
+  //                                    FROM asignatura a
+  //                                    WHERE id_asignatura=?");
+  //   $sentencia->execute([$id_asignatura]);
+  //   return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  // }
 
 }

@@ -32,7 +32,8 @@
     }
 
     function InsertarDocente($nombre, $usuario, $email, $password, $rol) {
-      $sentencia = $this->db->prepare("INSERT INTO docente (`nombre`, `usuario`, `email`, `password`, `rol`) VALUES (?,?,?,?,?)");
+      $sentencia = $this->db->prepare("INSERT INTO docente (nombre, usuario, email, password, rol)
+                                        VALUES (?,?,?,?,?)");
       $sentencia->execute([$nombre, $usuario, $email, $password, $rol]);
     }
 
@@ -48,13 +49,34 @@
     }
 
     function CambiarRol($rol,$id_docente) {
-      $sentencia = $this->db->prepare("UPDATE docente SET rol=? WHERE id_docente=?");
+      $sentencia = $this->db->prepare("UPDATE docente
+                                       SET rol=? WHERE id_docente=?");
       $sentencia->execute([$rol,$id_docente]);
     }
 
     function ActualizarPerfil($nombre, $usuario, $email, $password, $id_docente) {
-      $sentencia = $this->db->prepare("UPDATE docente SET nombre=?,usuario=?,email=?,password=? WHERE id_docente=?");
+      $sentencia = $this->db->prepare("UPDATE docente
+                                       SET nombre=?,usuario=?,email=?,password=?
+                                       WHERE id_docente=?");
       $sentencia->execute([$nombre, $usuario, $email, $password, $id_docente]);
       return $id_docente;
     }
-  }
+
+    // function GetNombreDocente($id_asignatura) {
+    //   $sentencia = $this->db->prepare("SELECT nombre FROM docente d
+    //                                    INNER JOIN asignatura a
+    //                                    ON(d.id_asignatura=a.id_asignatura)
+    //                                    WHERE d.id_asignatura = ?");
+    //   $sentencia->execute([$id_asignatura]);
+    //   return $id_asignatura;
+    // }
+
+   // function GetNombreDocente($id_asignatura) {
+   //   $sentencia = $this->db->prepare("SELECT nombre
+   //                                    FROM docente d INNER JOIN asignatura a
+   //                                    ON(d.id_asignatura = a.id_asignatura)
+   //                                    WHERE d.id_asignatura=?");
+   //   $sentencia->execute([$id_asignatura]);
+   //   return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+   // }
+}
