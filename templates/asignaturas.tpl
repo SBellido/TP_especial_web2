@@ -60,7 +60,7 @@
         </tbody>
       </table>
     </section><br><hr>
-      {if $Usuario->permisos =="admin"}
+    {if $Usuario->permisos =="admin"}
     <section class="container"><br>
       <h2>AGREGAR ASIGNATURA</h2><br>
         <div class="row">
@@ -78,22 +78,28 @@
 
               <div class="input-group mb-3">
                 <select class="custom-select" name="docenteForm">
-                    <option selected>Elija un docente...</option>
-                    {foreach from=$Docentes item= docente}
+                  <option selected>Elija un docente...</option>
+                  {foreach from=$Docentes item= docente}
                     <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
                   {/foreach}
                 </select>
               </div>
+
+              <!-- <div class="form-group">
+               <label for="imgForm">Imagen</label>
+               <input type="file" class="form-control-file" id="imgForm" name="imgForm[]">
+             </div> -->
 
               <!-- <select name="docenteForm">
                 {foreach from=$Docentes item=docente}
                   <option value="{$docente['id_docente']}">{$docente['nombre']}</option><br>
                 {/foreach}
               </select><br><hr> -->
+              <label for="imgForm">Cargar una imagen</label>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="imgForm" name="imgForm[]" lang="es">
-                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-              </div><br>
+                <input type="file" class="custom-file-input" id="imgForm" name="imgForm[]">
+                <label class="custom-file-label" for="imgForm">Seleccionar Archivo</label>
+              </div>
               <!-- <div class="form-group">
                 <label for="imgForm">Imagen</label>
                 <input type="file" class="form-control-file" id="imgForm" name="imgForm[]">

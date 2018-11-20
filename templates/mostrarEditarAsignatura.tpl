@@ -18,24 +18,28 @@
               <input type="text" class="form-control" id="descripcionForm" name="descripcionForm" value="{$asignatura['descripcion']}">
             </div>
             {/foreach}
-            <label>Seleccione un docente</label><br>
-            <select name="docenteForm">
-              {foreach from=$Docentes item=docente}
-              <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
-              {/foreach}
-            </select><br><br>
-            {foreach from=$Asignatura item= asignatura}
-            {if $asignatura['cupo'] == 1}
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" name="cupoForm">
-              <label class="form-check-label">Abrir cupo</label>
+            <div class="input-group mb-3">
+              <select class="custom-select" name="docenteForm">
+                  <option selected>Elija un docente...</option>
+                  {foreach from=$Docentes item= docente}
+                  <option value="{$docente['id_docente']}">{$docente['nombre']}</option>
+                {/foreach}
+              </select>
             </div>
-            {/if}
-            {/foreach}
+            {foreach from=$Asignatura item= asignatura}
+              {if $asignatura['cupo'] == 1}
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" name="cupoForm">
+                <label class="form-check-label">Abrir cupo</label>
+              </div>
+              {/if}
+            {/foreach}<hr>
+            <label for="img">Cargar una imagen</label>
             <div class="custom-file">
-              <input multiple type="file" class="custom-file-input" id="imgForm" name="imgForm">
+
+              <input type="file" class="custom-file-input" id="imgForm" name="imgForm">
               <label class="custom-file-label" for="imgForm">Seleccionar Archivo</label>
-            </div><br>
+            </div>
             <div class="form-group">
               <label for="descImgForm">Descripcion de la imagen</label>
               <input type="text" class="form-control" id="descImgForm" name="descImgForm">
