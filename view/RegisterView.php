@@ -18,7 +18,6 @@ class RegisterView extends View
     $this->smarty->assign('Imagen',$imagen);
     $this->smarty->assign('Logo',$logo);
     $this->smarty->assign('Usuario',$usuario);
-
     $this->smarty->assign('Docente',$docente);
     $this->smarty->assign('id_docente',$id_docente);
     $this->smarty->assign('Nombre',$nombre);

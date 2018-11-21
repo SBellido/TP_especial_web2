@@ -68,9 +68,11 @@ class RegisterController extends SecuredController
       if ($password == $repassword) {
         $password = password_hash($password, PASSWORD_DEFAULT);
         $respuesta = $this->model->ActualizarPerfil($nombre, $usuario, $email, $password, $id_docente);
-    // $this->model->ActualizarPerfil($nombre, $usuario, $email, $password, $id_docente);
+        $this->model->ActualizarPerfil($nombre, $usuario, $email, $password, $id_docente);
+        header("Location: ".URL_DOCENTES);
       } else {
         $this->view->mostrarEditarPerfil($this->titulo, $this->imagen, $this->logo, $usuario, $docente, $id_docente, $nombre, $user, $email);
+
       }
     }
   }
