@@ -5,15 +5,18 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 
 function getComentarios() {
+  setInterval(function(){
   fetch("api/comentarios")
   .then(response => response.json())
   .then(json => {
       mostrarComentarios(json);
     });
+  }, 2000);
 }
 
 function mostrarComentarios(comentarios) {
   let contenedor = document.querySelector("#container-comentarios");
+  contenedor.innerHTML = '';
   for (let comentario of comentarios) {
     contenedor.innerHTML += "<p>"+comentario.comentario + "</p>";
   }
