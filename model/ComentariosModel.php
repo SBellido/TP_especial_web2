@@ -20,7 +20,7 @@
 
     function GetComentariosAsignatura($id_asignatura) {
       $sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id_asignatura=?");
-      $sentencia->execute($id_asignatura);
+      $sentencia->execute([$id_asignatura]);
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 

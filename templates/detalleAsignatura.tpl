@@ -37,8 +37,10 @@
 
     <section class="container">
       <div class="row">
-        <div class="col" id="container-comentarios">
+        <div class="col">
           <h3>Trabajos Prácticos</h3><hr><br>
+          <div class="col" id="container-comentarios">
+          </div>
         </div>
         <div class="col">
           <h3>Crear Trabajo Práctico</h3><br>

@@ -7,9 +7,11 @@ define('URL_DETALLEASIG', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SER
     public static $PARAMS = 'params';
     public static $RESOURCES = [
 
-      'comentarios#GET'=> 'ComentariosController#GetComentarios',
+      // 'comentarios#GET'=> 'ComentariosController#GetComentarios',
       'asignaturas#GET'=> 'AsignaturasApiController#MostrarAsignaturas',
       'comentarios#POST'=> 'ComentariosController#PostComentario',
+      'comentarios#GET'=> 'ComentariosController#GetComentariosAsignatura',
+
 
 
   ];

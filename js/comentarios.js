@@ -5,14 +5,31 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 
 function getComentarios() {
+  let id_asignatura = document.querySelector('#id_asignatura').value;
   setInterval(function(){
-  fetch("api/comentarios")
+  let baseUrl = "http://localhost/TP_especial_web2/api/comentarios"
+  let params = {
+    "id_asignatura": id_asignatura
+  };
+  let searchParams = new URLSearchParams(params);
+  let url = `${baseUrl}?${searchParams}`;
+  fetch(url)
   .then(response => response.json())
   .then(comentarioJSON => {
       mostrarComentarios(comentarioJSON);
     });
   }, 2000);
 }
+//
+// function getComentarios() {
+//   setInterval(function(){
+//   fetch("api/comentarios")
+//   .then(response => response.json())
+//   .then(comentarioJSON => {
+//       mostrarComentarios(comentarioJSON);
+//     });
+//   }, 2000);
+// }
 
 function mostrarComentarios(comentarios) {
   let contenedor = document.querySelector("#container-comentarios");

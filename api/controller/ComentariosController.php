@@ -22,13 +22,34 @@ class ComentariosController extends Api {
 
   }
 
-  function GetComentarios($params = []) {
-    $comentarios = $this->model->GetComentarios();
-    if(isset($_GET['order']) && $_GET['order'] == 'desc') {
-      $comentarios = $this->OrdenarComentarios($comentarios);
-    }
+  function GetComentariosAsignatura($params = []) {
+    $id_asignatura = $_GET['id_asignatura'];
+    $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);
     return $this->json_response($comentarios, 200);
   }
+  // if(isset($_GET['order']) && $_GET['order'] == 'desc') {
+  //   $comentarios = $this->OrdenarComentarios($comentarios);
+  // }
+
+  // function GetComentarios($params = []) {
+  //   $dato = file_get_contents('php://input');
+  //   $dato = json_decode($dato);
+  //   $id_asignatura = $_GET['id_asignatura'];
+  //   $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);
+  //   if(isset($_GET['order']) && $_GET['order'] == 'desc') {
+  //     $comentarios = $this->OrdenarComentarios($comentarios);
+  //   }
+  //   return $this->json_response($comentarios, 200);
+  // }
+
+
+  // function GetComentarios($params = []) {
+  //   $comentarios = $this->model->GetComentarios();
+  //   if(isset($_GET['order']) && $_GET['order'] == 'desc') {
+  //     $comentarios = $this->OrdenarComentarios($comentarios);
+  //   }
+  //   return $this->json_response($comentarios, 200);
+  // }
 
   function OrdenarComentarios($comentarios) {
     // $asignaturas = $this->model->GetAsignaturas($_GET['orden']);
@@ -46,14 +67,10 @@ class ComentariosController extends Api {
   function PostComentario() {
     $objetoComentario = file_get_contents('php://input');
     $objetoComentario = json_decode($objetoComentario);
-    // $objetoComentario->tecabe = "Desde PHP";
-    // echo $objetoComentario;
     $id_asignatura = $objetoComentario->comentario->id_asignatura;
     $id_docente = $objetoComentario->comentario->id_docente;
     $comentario = $objetoComentario->comentario->comentario;
     $valoracion = $objetoComentario->comentario->valoracion;
-
-    // return $this->json_response($comentario, 200);
     $this->model->PostComentario($id_asignatura,$id_docente,$comentario,$valoracion);
 
   }
