@@ -9,7 +9,7 @@ define('URL_DETALLEASIG', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SER
 
       'comentarios#GET'=> 'ComentariosController#GetComentarios',
       'asignaturas#GET'=> 'AsignaturasApiController#MostrarAsignaturas',
-      'comentariosPOST#POST'=> 'ComentariosController#PostComentario',
+      'comentarios#POST'=> 'ComentariosController#PostComentario',
 
 
   ];

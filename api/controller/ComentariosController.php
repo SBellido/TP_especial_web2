@@ -16,8 +16,8 @@ class ComentariosController extends Api {
   function __construct() {
     parent::__construct();
     $this->model = new ComentariosModel();
-    // $this->view = new ComentariosView();
     $this->modelAsignatura = new AsignaturasModel();
+    // $this->view = new ComentariosView();
     // $this->$viewAsignaturas = new AsignaturasView();
 
   }
@@ -45,15 +45,16 @@ class ComentariosController extends Api {
 
   function PostComentario() {
     $objetoComentario = file_get_contents('php://input');
-    var_dump($objetoComentario);
     $objetoComentario = json_decode($objetoComentario);
+    // $objetoComentario->tecabe = "Desde PHP";
     // echo $objetoComentario;
-    // $id_asignatura = $objetoComentario->id_asignatura;
-    // $id_docente = $objetoComentario->id_docente;
-    // $comentario = $objetoComentario->comentario;
-    // $valoracion = $objetoComentario->valoracion;
+    $id_asignatura = $objetoComentario->comentario->id_asignatura;
+    $id_docente = $objetoComentario->comentario->id_docente;
+    $comentario = $objetoComentario->comentario->comentario;
+    $valoracion = $objetoComentario->comentario->valoracion;
 
-    // $this->model->PostComentario($id_asignatura,$id_docente,$comentario,$valoracion);
+    // return $this->json_response($comentario, 200);
+    $this->model->PostComentario($id_asignatura,$id_docente,$comentario,$valoracion);
 
   }
 }

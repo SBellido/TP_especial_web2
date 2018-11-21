@@ -8,8 +8,8 @@ function getComentarios() {
   setInterval(function(){
   fetch("api/comentarios")
   .then(response => response.json())
-  .then(json => {
-      mostrarComentarios(json);
+  .then(comentarioJSON => {
+      mostrarComentarios(comentarioJSON);
     });
   }, 2000);
 }
@@ -22,7 +22,8 @@ function mostrarComentarios(comentarios) {
   }
 }
 
-function postearComentario() {
+function postearComentario(e) {
+    e.preventDefault();
     let objetoComentario = {
     "comentario": {
       "id_asignatura": document.querySelector('#id_asignatura').value,
@@ -31,12 +32,13 @@ function postearComentario() {
       "valoracion": document.querySelector('#valoracion').value,
     }
   };
-   fetch("api/comentariosPOST", {
+   fetch("api/comentarios", {
      "method": 'POST',
      "headers": {
        'Content-Type': 'application/json'
      },
      "body": JSON.stringify(objetoComentario)
    })
+   // .then(r=> r.json()).then(texto => console.log(texto))
 
 }
