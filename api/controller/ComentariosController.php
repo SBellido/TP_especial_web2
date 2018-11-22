@@ -16,21 +16,40 @@ class ComentariosController extends Api {
     $this->modelAsignatura = new AsignaturasModel();
 
   }
-
   // function GetComentariosAsignatura($params = []) {
+  //   $orden = $_GET['ordenar'];
   //   $id_asignatura = $_GET['id_asignatura'];
   //   $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);
   //   return $this->json_response($comentarios, 200);
   // }
 
-  function GetComentariosAsignatura($params = []) {
+  // function GetComentariosAsignatura() {
+  //   $orden = $_GET['ordenar'];
+  //   $id_asignatura = $_GET['id_asignatura'];
+  //   echo $id_asignatura;
+  //   if($orden) {
+  //     $ordenComentario = $this->model->ComentariosValoracion($id_asignatura,$orden);
+  //     return $this->json_response($comentarios, 200);
+  //   } else {
+  //     $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);
+  //     return $this->json_response($comentarios, 200);
+  //   }
+  //
+  // }
+
+  function GetComentariosAsignatura() {
     $id_asignatura = $_GET['id_asignatura'];
-    // $orden = $_GET['getOrden'];
-    // if(isset($orden)){
-    //   $comentario = $this->model->ComentariosValoracion($id_asignatura,$orden);
-    // }
-    $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);
-    return $this->json_response($comentarios, 200);
+
+    if (isset($_GET['ordenar'])) {
+      $orden = $_GET['ordenar'];
+      echo $orden;
+      $comentarios = $this->model->ComentariosValoracion($id_asignatura,$orden);
+
+      return $this->json_response($comentarios, 200);
+    } else {
+      $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);
+      return $this->json_response($comentarios, 200);
+    }
   }
 
   // function ComentariosValoracion() {

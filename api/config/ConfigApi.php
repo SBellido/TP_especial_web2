@@ -12,7 +12,7 @@ define('URL_DETALLEASIG', 'http://'.$_SERVER['SERVER_NAME']  .':'. $_SERVER['SER
       'comentarios#POST'=> 'ComentariosController#PostComentario',
       'comentarios#GET'=> 'ComentariosController#GetComentariosAsignatura',
       'comentarios#DELETE'=> 'ComentariosController#BorrarComentario',
-      'comentariosValoracion#GET'=> 'ComentariosController#ComentariosValoracion',
+      // 'comentariosValoracion#GET'=> 'ComentariosController#ComentariosValoracion',
 
 
   ];

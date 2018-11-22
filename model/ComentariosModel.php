@@ -42,6 +42,8 @@
       $sentencia = $this->db->prepare("SELECT * FROM comentario
                                        WHERE id_asignatura=?
                                        ORDER BY valoracion ?");
-      $sentencia->execute($id_asignatura,$orden);
+      $sentencia->execute([$id_asignatura,$orden]);
+      $comentarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      return $comentarios;
   }
 }

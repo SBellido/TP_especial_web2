@@ -39,6 +39,18 @@
       <div class="row">
         <div class="col">
           <h3>Trabajos Prácticos</h3><hr><br>
+
+            <div class="input-group mb-3">
+              <select class="custom-select" id="orden">
+                <option value="">Ordenar TP por valoración</option>
+                <option value="1">Ascendente</option>
+                <option value="0">Descendente</option>
+              </select>
+            </div>
+
+
+
+
           <div class="col" id="container-comentarios">
           </div>
         </div>
