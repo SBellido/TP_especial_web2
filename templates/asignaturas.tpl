@@ -45,7 +45,7 @@
               <td>{$asignatura['nombre_docente']}</td>
               <td>{$asignatura['descripcion']}</td>
               <td><a class="btn boton" href="detalleAsignatura/{$asignatura['id_asignatura']}">DETALLE</a></td>
-                {if $asignatura['cupo'] == 0 && $Usuario->permisos != "invitado"}
+                {if $asignatura['cupo'] == 0 && $Usuario->permisos != "chota"}
                   <td><a class="btn boton" href="cerrar/{$asignatura['id_asignatura']}">CERRAR CUPOS</a></td>
                 {/if}
                 {if $asignatura['cupo'] == 1}

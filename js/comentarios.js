@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", function(e) {
-  getComentarios();
+
   let btn = document.querySelector('#tpForm');
   btn.addEventListener('click', postearComentario);
-});
+ // compila y prepara el template
+
+    getComentarios();
+  });
+  let baseUrl = "http://localhost/TP_especial_web2/api/comentarios"
 
 function getComentarios() {
   let id_asignatura = document.querySelector('#id_asignatura').value;
   setInterval(function(){
-  let baseUrl = "http://localhost/TP_especial_web2/api/comentarios"
   let params = {
     "id_asignatura": id_asignatura
   };
@@ -31,14 +34,41 @@ function getComentarios() {
 //   }, 2000);
 // }
 
-function mostrarComentarios(comentarios) {
-  let contenedor = document.querySelector("#container-comentarios");
-  contenedor.innerHTML = '';
-  for (let comentario of comentarios) {
-    contenedor.innerHTML += "<p>"+comentario.comentario + "</p>";
-  }
-}
+// function mostrarTareas(jsonTareas) {
+//     document.querySelector("#tareas-container").innerHTML = html;
+// }
 
+function mostrarComentarios(comentarios) {
+  let templateComentario;
+
+  fetch('js/templates/comentarios.handlebars')
+  .then(response => response.text())
+  .then(template => {
+    templateComentario = Handlebars.compile(template);
+  let dato = { // como el assign de smarty
+    texto: comentarios
+  }
+  let html = templateComentario(dato);
+  let contenedor = document.querySelector("#container-comentarios");
+  contenedor.innerHTML = html;
+  document.querySelectorAll(".borrar").forEach(function(boton) {
+    boton.addEventListener('click', e => borrarComentario(boton.dataset.identificador));
+  })
+  });
+
+  // for (let comentario of comentarios) {
+  //   contenedor.innerHTML += "<p>"+comentario.comentario + "</p>";
+  }
+// }
+function borrarComentario(id_comentario) {
+  let url = `${baseUrl}/${id_comentario}`;
+  fetch(url, {
+    "method": 'DELETE',
+    "headers": {
+      'Content-Type': 'application/json'
+    },
+  })
+}
 function postearComentario(e) {
     e.preventDefault();
     let objetoComentario = {

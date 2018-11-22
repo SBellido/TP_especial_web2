@@ -42,6 +42,7 @@
           <div class="col" id="container-comentarios">
           </div>
         </div>
+        <!-- {if $Usuario->permisos == "admin" || $Usuario->permisos == "docente"} -->
         <div class="col">
           <h3>Crear Trabajo Práctico</h3><br>
           {foreach from=$Asignatura item=indice}
@@ -68,6 +69,7 @@
             <!-- <br><a class="btn boton" href="api/comentarios/{$indice['id_asignatura']}">ENVIAR TP</a> -->
           </form>
           {/foreach}
+          <!-- {/if} -->
         </div>
       </div>
 

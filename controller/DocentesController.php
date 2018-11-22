@@ -5,12 +5,10 @@ require_once "./model/DocentesModel.php";
 require_once "SecuredController.php";
 
 
-class DocentesController extends SecuredController
-{
+class DocentesController extends SecuredController {
   private $view;
   private $model;
   private $titulo;
-
 
   function __construct() {
     parent::__construct();
@@ -27,7 +25,6 @@ class DocentesController extends SecuredController
 
   function EliminarDocente($params) {
     $permiso = $this->verificaPermisos();
-
     if ($permiso) {
       // try {
         $this->model->EliminarDocente($params[0]);

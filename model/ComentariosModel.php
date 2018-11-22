@@ -19,7 +19,8 @@
     }
 
     function GetComentariosAsignatura($id_asignatura) {
-      $sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id_asignatura=?");
+      $sentencia = $this->db->prepare("SELECT * FROM comentario
+                                       WHERE id_asignatura=?");
       $sentencia->execute([$id_asignatura]);
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -30,4 +31,16 @@
       $sentencia->execute([$id_asignatura,$id_docente,$comentario,$valoracion]);
     }
 
+    function BorrarComentario($id_comentario) {
+      $sentencia = $this->db->prepare("DELETE FROM comentario
+                                       WHERE id_comentario=?");
+      $sentencia->execute($id_comentario);
+    }
+
+
+    function ComentariosValoracion($id_asignatura,$orden) {
+      $sentencia = $this->db->prepare("SELECT * FROM comentario
+                                       WHERE id_asignatura=?
+                                       ORDER BY valoracion ?");
+      $sentencia->execute($id_asignatura,$orden);
   }
