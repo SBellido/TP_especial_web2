@@ -48,16 +48,13 @@
               </select>
             </div>
 
-
-
-
-          <div class="col" id="container-comentarios">
-          </div>
+        <div class="col" id="container-comentarios">
         </div>
+        </div>
+
         {if $Usuario->permisos == "admin" || $Usuario->permisos == "docente"}
         <div class="col">
           <h3>Crear Trabajo Práctico</h3><br>
-
           {foreach from=$Asignatura item=indice}
           <form class="" action="" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id_asignatura" id="id_asignatura" value="{$indice['id_asignatura']}">

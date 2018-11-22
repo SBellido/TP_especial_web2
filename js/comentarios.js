@@ -29,10 +29,10 @@ function getComentarios() {
     let ordenar = document.getElementById('orden').value;
     if (ordenar) {
       if (ordenar == 1) {
-        var seleccion = "ASC";
+        var seleccion = "asc";
       }
       if (ordenar == 0) {
-        var seleccion = "DESC";
+        var seleccion = "desc";
       }
       let request = "ordenar=" + seleccion;
       let url = `${baseUrl}?${searchParams}&${request}`;
@@ -53,7 +53,7 @@ function getComentarios() {
       });
   }
 
-}, 4000);
+}, 3000);
 }
 // function llamadaFetch(url) {
 //   fetch(url)

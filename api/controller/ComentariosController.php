@@ -42,9 +42,7 @@ class ComentariosController extends Api {
 
     if (isset($_GET['ordenar'])) {
       $orden = $_GET['ordenar'];
-      echo $orden;
       $comentarios = $this->model->ComentariosValoracion($id_asignatura,$orden);
-
       return $this->json_response($comentarios, 200);
     } else {
       $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);

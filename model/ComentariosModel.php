@@ -39,11 +39,18 @@
 
 
     function ComentariosValoracion($id_asignatura,$orden) {
-      $sentencia = $this->db->prepare("SELECT * FROM comentario
-                                       WHERE id_asignatura=?
-                                       ORDER BY valoracion ?");
-      $sentencia->execute([$id_asignatura,$orden]);
-      $comentarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-      return $comentarios;
-  }
+      if ($orden == 'desc') {
+        $sentencia = $this->db->prepare("SELECT * FROM comentario
+                                         WHERE id_asignatura=?
+                                         ORDER BY valoracion DESC");
+      } else {
+        $sentencia = $this->db->prepare("SELECT * FROM comentario
+                                         WHERE id_asignatura=?
+                                         ORDER BY valoracion ASC");
+      }
+      $sentencia->execute([$id_asignatura]);
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
 }
