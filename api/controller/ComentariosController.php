@@ -25,11 +25,10 @@ class ComentariosController extends Api {
 
   function GetComentariosAsignatura($params = []) {
     $id_asignatura = $_GET['id_asignatura'];
-    $orden = $_GET['getOrden'];
-    if(isset($orden)){
-      $comentario = $this->model->ComentariosValoracion($id_asignatura,$orden);
-
-    }
+    // $orden = $_GET['getOrden'];
+    // if(isset($orden)){
+    //   $comentario = $this->model->ComentariosValoracion($id_asignatura,$orden);
+    // }
     $comentarios = $this->model->GetComentariosAsignatura($id_asignatura);
     return $this->json_response($comentarios, 200);
   }
@@ -50,9 +49,9 @@ class ComentariosController extends Api {
     // return $item1['valoracion'] > $item2['valoracion'] ? -1 : 1;
     // return $item1['valoracion'] > $item2['valoracion'] ? -1 : 1;
     // });
-    return $comentarios;
+    // return $comentarios;
 
-  }
+  // }
 
   function PostComentario() {
     $objetoComentario = file_get_contents('php://input');

@@ -42,11 +42,11 @@
           <div class="col" id="container-comentarios">
           </div>
         </div>
-        <!-- {if $Usuario->permisos == "admin" || $Usuario->permisos == "docente"} -->
+        {if $Usuario->permisos == "admin" || $Usuario->permisos == "docente"}
         <div class="col">
           <h3>Crear Trabajo Práctico</h3><br>
-          {foreach from=$Asignatura item=indice}
 
+          {foreach from=$Asignatura item=indice}
           <form class="" action="" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id_asignatura" id="id_asignatura" value="{$indice['id_asignatura']}">
             <input type="hidden" name="id" id="id" value="{$Usuario->id}">
@@ -69,9 +69,9 @@
             <!-- <br><a class="btn boton" href="api/comentarios/{$indice['id_asignatura']}">ENVIAR TP</a> -->
           </form>
           {/foreach}
-          <!-- {/if} -->
         </div>
       </div>
+      {/if}
 
     </section><br>
     <script src="js/comentarios.js" type="text/javascript"></script>

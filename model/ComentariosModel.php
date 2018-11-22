@@ -44,3 +44,4 @@
                                        ORDER BY valoracion ?");
       $sentencia->execute($id_asignatura,$orden);
   }
+}
