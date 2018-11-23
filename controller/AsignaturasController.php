@@ -80,10 +80,12 @@
         $docente = $_POST["docenteForm"];
         $id_asignatura = $_POST["id_asignaturaForm"];
         $cupo = $_POST["cupoForm"];
+        $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$cupo,$id_asignatura);
         $imgDescripcion = $_POST["descImgForm"];
         $rutaTempImagenes = $_FILES['imgForm']['tmp_name'];
-        $this->model->GuardarEditarAsignatura($nombre,$descripcion,$docente,$cupo,$id_asignatura);
-        $this->modelImagen->GuardarImagen($id_asignatura,$rutaTempImagenes,$imgDescripcion);
+        if (isset($rutaTempImagenes) && ($rutaTempImagenes != '')) {
+          $this->modelImagen->GuardarImagen($id_asignatura,$rutaTempImagenes,$imgDescripcion);
+        }
         header("Location: ".URL_DETALLEASIG."/".$id_asignatura);
       }
     }

@@ -48,7 +48,8 @@ function getComentarios() {
 
 
 function mostrarComentarios(comentarios) {
-  let usuario = document.querySelector('#permisos').value;
+  let usuario = document.querySelector('#id').value;
+  console.log(usuario);
   let templateComentario;
   fetch('js/templates/comentarios.handlebars')
   .then(response => response.text())
@@ -57,7 +58,6 @@ function mostrarComentarios(comentarios) {
     let titulo = 'Valoración de este TP';
   let dato = { // como el assign de smarty
     texto: comentarios,
-    // permisos: usuario
     permiso: usuario
   }
   let html = templateComentario(dato);
