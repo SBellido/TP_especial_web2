@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
   // let btnOrdenar = document.querySelector('#orden');
   // btnOrdenar.addEventListener('click', getComentariosOrdenados);
   let btn = document.querySelector('#tpForm');
-  btn.addEventListener('click', postearComentario);
+  if (btn) {
+    btn.addEventListener('click', postearComentario);
+  }
  // compila y prepara el template
   getComentarios();
 });
@@ -36,7 +38,6 @@ function getComentarios() {
       }
       let request = "ordenar=" + seleccion;
       let url = `${baseUrl}?${searchParams}&${request}`;
-      console.log(url);
       fetch(url)
       .then(response => response.json())
       .then(comentarioJSON => {
@@ -45,7 +46,6 @@ function getComentarios() {
 
     } else {
     let url = `${baseUrl}?${searchParams}`;
-
     fetch(url)
     .then(response => response.json())
     .then(comentarioJSON => {
@@ -55,37 +55,21 @@ function getComentarios() {
 
 }, 3000);
 }
-// function llamadaFetch(url) {
-//   fetch(url)
-//   .then(response => response.json())
-//   .then(comentarioJSON => {
-//       mostrarComentarios(comentarioJSON);
-//     });
-// }
-//
-// function getComentarios() {
-//   setInterval(function(){
-//   fetch("api/comentarios")
-//   .then(response => response.json())
-//   .then(comentarioJSON => {
-//       mostrarComentarios(comentarioJSON);
-//     });
-//   }, 2000);
-// }
 
-// function mostrarTareas(jsonTareas) {
-//     document.querySelector("#tareas-container").innerHTML = html;
-// }
 
 function mostrarComentarios(comentarios) {
+  let usuario = document.querySelector('#permisos').value;
   let templateComentario;
-
+  console.log(usuario);
   fetch('js/templates/comentarios.handlebars')
   .then(response => response.text())
   .then(template => {
     templateComentario = Handlebars.compile(template);
+    let titulo = 'Valoración de este TP';
   let dato = { // como el assign de smarty
-    texto: comentarios
+    texto: comentarios,
+    // permisos: usuario
+    permiso: usuario
   }
   let html = templateComentario(dato);
   let contenedor = document.querySelector("#container-comentarios");

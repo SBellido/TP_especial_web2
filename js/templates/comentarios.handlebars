@@ -1,10 +1,15 @@
 <ul class="list-group list-group-flush">
+  <h3>{{titulo}}</h3>
   {{#each texto}}
     <li class="list-group-item">
       <div id="container-comentarios" class="comentario">
         <p>{{comentario}}</p>
         <p>{{valoracion}}</p>
-        <button type="button" name="button" class="borrar" data-identificador="{{id_comentario}}">Borrar coemntario</button>
+        {{#each permiso}}
+          {{#if usuario}}
+            <button type="button" name="button" class="borrar btn boton" data-identificador="{{id_comentario}}">BORRAR</button>
+          {{/if}}
+        {{/each}}
       </div>
     </li>
   {{/each}}

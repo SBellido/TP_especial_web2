@@ -1,20 +1,18 @@
 <?php
 require_once 'Api.php';
 require_once "./../model/ComentariosModel.php";
-// require_once "./../view/ComentariosView.php";
-require_once "./../model/AsignaturasModel.php";
-// require_once "./../view/AsignaturasView.php";
-
+require_once "./../model/DocentesModel.php";
 
 class ComentariosController extends Api {
   protected $model;
   protected $modelAsignatura;
+  protected $modelDocente;
 
   function __construct() {
     parent::__construct();
     $this->model = new ComentariosModel();
     $this->modelAsignatura = new AsignaturasModel();
-
+    $this->modelDocente = new DocentesModel();
   }
   // function GetComentariosAsignatura($params = []) {
   //   $orden = $_GET['ordenar'];
@@ -87,6 +85,9 @@ class ComentariosController extends Api {
   }
 }
 
+function GetUsuario($id_docente) {
+    $id_docente = $_GET['id'];
+}
 
 // if(isset($_GET['order']) && $_GET['order'] == 'desc') {
 //   $comentarios = $this->OrdenarComentarios($comentarios);
