@@ -5,13 +5,12 @@ require_once "./../model/DocentesModel.php";
 
 class ComentariosController extends Api {
   protected $model;
-  protected $modelAsignatura;
+
   protected $modelDocente;
 
   function __construct() {
     parent::__construct();
     $this->model = new ComentariosModel();
-    $this->modelAsignatura = new AsignaturasModel();
     $this->modelDocente = new DocentesModel();
   }
   // function GetComentariosAsignatura($params = []) {

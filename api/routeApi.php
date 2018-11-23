@@ -3,7 +3,7 @@ define('RESOURCE', 0);
 define('PARAMS', 1);
 
   require_once 'config/ConfigApi.php';
-  require_once 'controller/AsignaturasApiController.php';
+
   require_once 'controller/ComentariosController.php';
 
 

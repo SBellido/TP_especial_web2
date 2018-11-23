@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(e) {
-  // let btnOrdenar = document.querySelector('#orden');
-  // btnOrdenar.addEventListener('click', getComentariosOrdenados);
   let btn = document.querySelector('#tpForm');
   if (btn) {
     btn.addEventListener('click', postearComentario);
@@ -48,8 +46,7 @@ function getComentarios() {
 
 
 function mostrarComentarios(comentarios) {
-  let usuario = document.querySelector('#id').value;
-  console.log(usuario);
+  let usuario = document.querySelector('#permisos').value;
   let templateComentario;
   fetch('js/templates/comentarios.handlebars')
   .then(response => response.text())
@@ -58,7 +55,7 @@ function mostrarComentarios(comentarios) {
     let titulo = 'Valoración de este TP';
   let dato = { // como el assign de smarty
     texto: comentarios,
-    permiso: usuario
+    permiso: usuario == "admin"
   }
   let html = templateComentario(dato);
   let contenedor = document.querySelector("#container-comentarios");
