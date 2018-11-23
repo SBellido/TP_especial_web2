@@ -62,6 +62,7 @@
         session_start();
         $_SESSION["Usuario"] = $usuario;
         $_SESSION["Permisos"] = "invitado";
+        $_SESSION["Id"] = 0;
         header("Location: ".URL_ASIGNATURAS);
         die();
     }

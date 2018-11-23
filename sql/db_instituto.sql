@@ -41,7 +41,6 @@ CREATE TABLE `asignatura` (
 --
 
 INSERT INTO `asignatura` (`id_asignatura`, `nombre`, `descripcion`, `id_docente`, `cupo`) VALUES
-(3, 'Web 1', 'Pura mierda', 2, 1),
 (5, 'Biología', 'Biología molecular', 2, 1),
 (60, 'Matemática', 'Trigonometria', 4, 1),
 (61, 'df', 'asdf', 2, 1),

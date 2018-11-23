@@ -10,15 +10,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 
 let baseUrl = "http://localhost/TP_especial_web2/api/comentarios";
-
-// function getComentariosOrdenados() {
-//   if(valoracion) {
-//
-//     // ComentariosValoracion($id_asignatura,$orden);
-//     console.log(valoracion);
-//   }
-// }
-
 let id_asignatura = document.querySelector('#id_asignatura').value;
 let params = {
   "id_asignatura": id_asignatura
@@ -26,7 +17,6 @@ let params = {
 let searchParams = new URLSearchParams(params);
 
 function getComentarios() {
-  // let valoracion = document.querySelector('#valoracion').value;
   setInterval(function(){
     let ordenar = document.getElementById('orden').value;
     if (ordenar) {
@@ -60,7 +50,6 @@ function getComentarios() {
 function mostrarComentarios(comentarios) {
   let usuario = document.querySelector('#permisos').value;
   let templateComentario;
-  console.log(usuario);
   fetch('js/templates/comentarios.handlebars')
   .then(response => response.text())
   .then(template => {

@@ -52,14 +52,14 @@
         </div>
         </div>
 
+        <input type="hidden" name="id_asignatura" id="id_asignatura" value="{$indice['id_asignatura']}">
+        <input type="hidden" name="permisos" id="permisos" value="{$Usuario->permisos}">
+        <input type="hidden" name="id" id="id" value="{$Usuario->id}">
         {if $Usuario->permisos == "admin" || $Usuario->permisos == "docente"}
         <div class="col">
           <h3>Crear Trabajo Práctico</h3><br>
           {foreach from=$Asignatura item=indice}
           <form class="" action="" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="id_asignatura" id="id_asignatura" value="{$indice['id_asignatura']}">
-            <input type="hidden" name="id" id="permisos" value="{$Usuario->permisos}">
-            <input type="hidden" name="id" id="id" value="{$Usuario->id}">
             <label for="">Redactar Trabajo Práctico a continuación</label>
             <textarea name="txtTpForm" rows="8" cols="80" id="texto"></textarea>
             <div class="input-group mb-3">

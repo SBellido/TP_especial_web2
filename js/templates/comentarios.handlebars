@@ -5,11 +5,9 @@
       <div id="container-comentarios" class="comentario">
         <p>{{comentario}}</p>
         <p>{{valoracion}}</p>
-        {{#each permiso}}
-          {{#if usuario}}
+
             <button type="button" name="button" class="borrar btn boton" data-identificador="{{id_comentario}}">BORRAR</button>
-          {{/if}}
-        {{/each}}
+
       </div>
     </li>
   {{/each}}
