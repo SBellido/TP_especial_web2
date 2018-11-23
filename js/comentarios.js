@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(e) {
-  let btn = document.querySelector('#tpForm');
+  let btn = document.querySelector('#publicarTP');
   if (btn) {
     btn.addEventListener('click', postearComentario);
   }

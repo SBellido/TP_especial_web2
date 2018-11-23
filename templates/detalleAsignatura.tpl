@@ -75,7 +75,7 @@
                 <label class="input-group-text" for="inputGroupSelect02">Valoración</label>
               </div> -->
             </div>
-            <button type="submit" class="boton btn btn-info btn-block" id="tpForm">CARGAR TRABAJO PRÁCTICO</button>
+            <button type="submit" class="boton btn btn-info btn-block" id="publicarTP">CARGAR TRABAJO PRÁCTICO</button>
             <!-- <br><a class="btn boton" href="api/comentarios/{$indice['id_asignatura']}">ENVIAR TP</a> -->
           </form>
           {/foreach}
