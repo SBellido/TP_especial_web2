@@ -52,7 +52,7 @@ class DocentesController extends SecuredController {
 
   function CambiarRol($params) {
     $permiso = $this->verificaPermisos();
-    $admin = $this->GetAdmin();
+    // $admin = $this->GetAdmin();
     if ($permiso) {
       $id_docente = $params[0];
       $rolActual = $this->model->GetRol($id_docente);

@@ -34,20 +34,20 @@
           <td>{$docente['rol']}</td>
           {if $docente['usuario'] == $Usuario->nombre}
             <td><a class="btn boton"href="actualizarPerfil/{$docente['id_docente']}">
-              EDITAR PERFIL
+              <b>EDITAR PERFIL</b>
             </a></td>
             <td><a class="btn boton"href="eliminarDocente/{$docente['id_docente']}">
-              ELIMINAR PERFIL
+              <b>ELIMINAR PERFIL</b>
             </a></td>
           {/if}
           {if $docente['usuario'] != $Usuario->nombre}
             {if $docente['rol'] == "docente" && $Usuario->permisos == "admin"}
               <td><a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
-                HACER ADMIN
+              HACER ADMIN
               </a></td>
             {/if}
             {if $docente['rol'] == "admin" && $Usuario->permisos == "admin"}
-            <td>  <a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
+            <td><a class="btn boton"href="cambiarRol/{$docente['id_docente']}">
               HACER DOCENTE
               </a></td>
             {/if}
