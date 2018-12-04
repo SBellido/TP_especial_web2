@@ -17,12 +17,13 @@ let searchParams = new URLSearchParams(params);
 function getComentarios() {
   setInterval(function(){
     let ordenar = document.getElementById('orden').value;
+    var seleccion;
     if (ordenar) {
       if (ordenar == 1) {
-        var seleccion = "asc";
+        seleccion = "asc";
       }
       if (ordenar == 0) {
-        var seleccion = "desc";
+        seleccion = "desc";
       }
       let request = "ordenar=" + seleccion;
       let url = `${baseUrl}?${searchParams}&${request}`;

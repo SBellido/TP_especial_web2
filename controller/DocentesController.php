@@ -23,6 +23,14 @@ class DocentesController extends SecuredController {
     $this->view->MostrarDocentes($this->titulo,$docentes,$this->usuario);
   }
 
+  // function GetAdmin() {
+  //   $rol = 'admin';
+  //   $admin = $this->model->GetAdmin($rol);
+  //   if (count($admin) > 1) {
+  //     return true;
+  //   }
+  // }
+
   function EliminarDocente($params) {
     $permiso = $this->verificaPermisos();
     if ($permiso) {
@@ -44,9 +52,14 @@ class DocentesController extends SecuredController {
 
   function CambiarRol($params) {
     $permiso = $this->verificaPermisos();
+    $admin = $this->GetAdmin();
     if ($permiso) {
       $id_docente = $params[0];
       $rolActual = $this->model->GetRol($id_docente);
+      if($params[0] == $_SESSION['Id']) {
+          header("Location: ".URL_DOCENTES);
+          die();
+        }
       if($rolActual[0]['rol'] == "admin") {
          $rol = "docente";
        }elseif ($rolActual[0]['rol'] == "docente") {

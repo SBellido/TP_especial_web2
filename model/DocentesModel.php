@@ -13,6 +13,13 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function GetAdmin($rol) {
+      $sentencia = $this->db->prepare("SELECT * FROM docente
+                                       WHERE rol=?");
+      $sentencia->execute([$rol]);
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function GetDocenteId($id_docente) {
       $sentencia = $this->db->prepare("SELECT * FROM docente WHERE id_docente=?");
       $sentencia->execute($id_docente);
